@@ -1,22 +1,29 @@
 {
-  "name": "portfolio",
+  "name": "curious-cat-consulting",
   "version": "0.1.0",
+  "source": "src/index.ts",
   "private": true,
   "dependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@types/node": "^22.15.17",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "lucide-react": "^0.510.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-router-dom": "^7.6.0",
+    "typescript": "^4.9.5",
+    "web-vitals": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:coverage": "react-scripts test --coverage",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.tsx",
+    "lint:fix": "eslint src/**/*.tsx --fix",
+    "format": "prettier --write src/**/*.{tsx,css,json}",
+    "update": "npx npm-check-updates -u && npm i"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +42,30 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/postcss": "^4.1.6",
+    "@tailwindcss/typography": "^0.5.16",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
+    "@types/testing-library__jest-dom": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "react-scripts": "^5.0.1",
+    "tailwindcss": "^4.1.6",
+    "ts-jest": "^29.3.2"
   }
 }
