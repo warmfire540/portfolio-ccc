@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
-const PortfolioHeader: React.FC = () => {
-  const location = useLocation();
+const CCCHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Navigation items
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/projects', label: 'Projects' },
+    { path: '/services', label: 'Services' },
     { path: '/about', label: 'About' },
+    { path: '/projects', label: 'Projects' },
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -30,10 +29,11 @@ const PortfolioHeader: React.FC = () => {
     };
   }, []);
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
+  // Function to simulate navigation (since we're not using react-router here)
+  const handleNavigation = (path: string) => {
+    console.log(`Navigating to: ${path}`);
+    // In a real app with React Router, you would use history.push(path) or Link component
+  };
 
   return (
     <header 
@@ -46,15 +46,15 @@ const PortfolioHeader: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <div className="flex items-center cursor-pointer" onClick={() => handleNavigation('/')}>
             <div className={`mr-3 ${isScrolled ? 'text-indigo-900' : 'text-white'}`}>
-              {/* Logo SVG */}
+              {/* Cat Logo SVG */}
               <svg
                 width="40"
                 height="40"
                 viewBox="0 0 48 48"
                 className="fill-current"
-                aria-label="Patrick Masters Logo"
+                aria-label="Curious Cat Consulting Logo"
               >
                 <path
                   d="M24.5,10c-0.9,0-1.7,0.2-2.5,0.5c-6.4,2.5-9.7,9.6-7.2,16c1.4,3.5,4.2,6.1,7.8,7.3c0.6,0.2,1.3,0.3,1.9,0.4
@@ -67,24 +67,24 @@ const PortfolioHeader: React.FC = () => {
               </svg>
             </div>
             <div>
-              <h1 className={`text-xl font-bold ${isScrolled ? 'text-indigo-900' : 'text-white'}`}>
-                PATRICK W. MASTERS
+              <h1 className={`text-lg font-bold ${isScrolled ? 'text-indigo-900' : 'text-white'}`}>
+                CURIOUS CAT CONSULTING
               </h1>
               <p className={`text-xs ${isScrolled ? 'text-gray-600' : 'text-indigo-200'}`}>
-                SOFTWARE ENGINEER & ARCHITECT
+                CURIOUSLY BETTER SOFTWARE
               </p>
             </div>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
               {navItems.map(item => (
                 <li key={item.path}>
-                  <Link
-                    to={item.path}
+                  <button
+                    onClick={() => handleNavigation(item.path)}
                     className={`px-2 py-2 text-sm font-medium hover:text-indigo-400 transition-colors ${
-                      location.pathname === item.path
+                      item.path === '/' // This would be compared with current path in a real app
                         ? isScrolled 
                           ? 'text-indigo-600 border-b-2 border-indigo-600' 
                           : 'text-white border-b-2 border-white'
@@ -94,7 +94,7 @@ const PortfolioHeader: React.FC = () => {
                     }`}
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -138,16 +138,16 @@ const PortfolioHeader: React.FC = () => {
             <ul className="space-y-4">
               {navItems.map(item => (
                 <li key={item.path}>
-                  <Link
-                    to={item.path}
+                  <button
+                    onClick={() => handleNavigation(item.path)}
                     className={`block py-2 text-gray-800 hover:text-indigo-600 transition-colors ${
-                      location.pathname === item.path
+                      item.path === '/' // This would be compared with current path in a real app
                         ? 'text-indigo-600 font-medium' 
                         : ''
                     }`}
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -158,4 +158,4 @@ const PortfolioHeader: React.FC = () => {
   );
 };
 
-export default PortfolioHeader;
+export default CCCHeader;

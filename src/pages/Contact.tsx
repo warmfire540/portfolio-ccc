@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import CtaButton from '../components/common/CtaButton';
 import { Send, LinkedinIcon, GithubIcon, Mail, MapPin } from 'lucide-react';
 
 interface FormData {
@@ -16,7 +15,7 @@ interface FormErrors {
   message?: string;
 }
 
-const PortfolioContactPage: React.FC = () => {
+const CCCContactPage: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -122,7 +121,7 @@ const PortfolioContactPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl font-bold mb-6">Get In Touch</h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Interested in working together? I'd love to hear about your project and how I can help.
+            Interested in working with Curious Cat Consulting? We'd love to hear about your project and how we can help.
           </p>
         </div>
       </section>
@@ -137,7 +136,7 @@ const PortfolioContactPage: React.FC = () => {
               
               <p className="text-gray-600 mb-8">
                 Whether you're looking for a technical consultation, interested in collaborating on a project,
-                or simply want to say hello, I'm always open to connecting with like-minded professionals.
+                or simply want to discuss your software needs, we're always open to connecting with forward-thinking organizations.
               </p>
 
               <div className="space-y-6 mb-8">
@@ -157,8 +156,8 @@ const PortfolioContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-1">Email</h3>
-                    <a href="mailto:contact@patrickmasters.dev" className="text-indigo-600 hover:underline">
-                      contact@patrickmasters.dev
+                    <a href="mailto:hello@curiouscatconsulting.com" className="text-indigo-600 hover:underline">
+                      hello@curiouscatconsulting.com
                     </a>
                   </div>
                 </div>
@@ -192,8 +191,8 @@ const PortfolioContactPage: React.FC = () => {
                 <div className="mt-6">
                   <h4 className="font-medium text-gray-700 mb-2">Availability</h4>
                   <p className="text-gray-600">
-                    I'm currently available for select consulting engagements, architecture reviews,
-                    and development projects.
+                    We're currently available for select consulting engagements, architecture reviews,
+                    and development projects. Let's discuss how we can help your business succeed.
                   </p>
                 </div>
               </div>
@@ -201,14 +200,14 @@ const PortfolioContactPage: React.FC = () => {
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Me a Message</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
 
               {submitSuccess && (
                 <div
                   className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-6"
                   data-testid="success-message"
                 >
-                  <p>Thank you for your message! I'll get back to you shortly.</p>
+                  <p>Thank you for your message! We'll get back to you shortly.</p>
                 </div>
               )}
 
@@ -351,10 +350,10 @@ const PortfolioContactPage: React.FC = () => {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">What types of projects do you work on?</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">What types of projects does Curious Cat Consulting work on?</h3>
                 <p className="text-gray-600">
-                  I specialize in enterprise software architecture, full-stack development, cloud migrations, and
-                  DevOps automation. I particularly enjoy complex projects that involve modernizing legacy systems,
+                  We specialize in enterprise software architecture, full-stack development, cloud migrations, and
+                  DevOps automation. We particularly enjoy complex projects that involve modernizing legacy systems,
                   implementing cloud-native architectures, or building scalable data integration solutions.
                 </p>
               </div>
@@ -362,16 +361,16 @@ const PortfolioContactPage: React.FC = () => {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold text-gray-800 mb-3">What is your availability?</h3>
                 <p className="text-gray-600">
-                  I'm currently available for select consulting engagements and development projects.
-                  My availability varies depending on current commitments, so please reach out
-                  with your timeline and I'll let you know if I can accommodate your project.
+                  We're currently available for select consulting engagements and development projects.
+                  Our availability varies depending on current commitments, so please reach out
+                  with your timeline and we'll let you know if we can accommodate your project.
                 </p>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Do you work remotely?</h3>
                 <p className="text-gray-600">
-                  Yes, I work primarily remotely with clients around the United States. I use collaborative tools
+                  Yes, we work primarily remotely with clients around the United States. We use collaborative tools
                   to ensure effective communication and seamless workflow, regardless of geographic location.
                 </p>
               </div>
@@ -379,8 +378,8 @@ const PortfolioContactPage: React.FC = () => {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold text-gray-800 mb-3">What is your approach to new projects?</h3>
                 <p className="text-gray-600">
-                  I start by thoroughly understanding the business problem and objectives before diving into technical
-                  solutions. I believe in transparent communication, iterative development, and building solutions
+                  We start by thoroughly understanding the business problem and objectives before diving into technical
+                  solutions. We believe in transparent communication, iterative development, and building solutions
                   that are not only technically sound but also aligned with business goals.
                 </p>
               </div>
@@ -388,7 +387,7 @@ const PortfolioContactPage: React.FC = () => {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Do you provide ongoing support after project completion?</h3>
                 <p className="text-gray-600">
-                  Yes, I can provide ongoing maintenance and support as needed. I also focus on knowledge transfer
+                  Yes, we can provide ongoing maintenance and support as needed. We also focus on knowledge transfer
                   and documentation throughout the project to ensure your team can confidently manage the solution
                   moving forward.
                 </p>
@@ -401,4 +400,4 @@ const PortfolioContactPage: React.FC = () => {
   );
 };
 
-export default PortfolioContactPage;
+export default CCCContactPage;

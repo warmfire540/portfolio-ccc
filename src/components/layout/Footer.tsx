@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const PortfolioFooter: React.FC = () => {
+const CCCFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   // Footer link sections
@@ -10,18 +9,20 @@ const PortfolioFooter: React.FC = () => {
       title: 'Navigation',
       links: [
         { label: 'Home', path: '/' },
-        { label: 'Projects', path: '/projects' },
+        { label: 'Services', path: '/services' },
         { label: 'About', path: '/about' },
+        { label: 'Projects', path: '/projects' },
         { label: 'Contact', path: '/contact' },
       ]
     },
     {
-      title: 'Expertise',
+      title: 'Services',
       links: [
-        { label: 'Software Architecture', path: '/projects?filter=Architecture' },
-        { label: 'Full-Stack Development', path: '/projects?filter=Full-Stack' },
-        { label: 'Cloud Solutions', path: '/projects?filter=Cloud' },
-        { label: 'DevOps & Automation', path: '/projects?filter=DevOps' },
+        { label: 'Software Architecture', path: '/services#architecture' },
+        { label: 'Full-Stack Development', path: '/services#full-stack' },
+        { label: 'Cloud Solutions', path: '/services#cloud' },
+        { label: 'DevOps & Automation', path: '/services#devops' },
+        { label: 'Data Integration', path: '/services#data' },
       ]
     },
     {
@@ -29,7 +30,7 @@ const PortfolioFooter: React.FC = () => {
       links: [
         { label: 'LinkedIn', path: 'https://linkedin.com', external: true },
         { label: 'GitHub', path: 'https://github.com', external: true },
-        { label: 'Email', path: 'mailto:contact@patrickmasters.dev', external: true },
+        { label: 'Email', path: 'mailto:hello@curiouscatconsulting.com', external: true },
       ]
     }
   ];
@@ -49,13 +50,14 @@ const PortfolioFooter: React.FC = () => {
       );
     }
     
+    // For a real app with React Router, use Link component
     return (
-      <Link 
-        to={link.path} 
+      <button 
+        onClick={() => console.log(`Navigate to: ${link.path}`)}
         className="text-gray-400 hover:text-white transition-colors duration-200"
       >
         {link.label}
-      </Link>
+      </button>
     );
   };
 
@@ -73,7 +75,7 @@ const PortfolioFooter: React.FC = () => {
                   height="36"
                   viewBox="0 0 48 48"
                   className="fill-current"
-                  aria-label="Patrick Masters Logo"
+                  aria-label="Curious Cat Consulting Logo"
                 >
                   <path
                     d="M24.5,10c-0.9,0-1.7,0.2-2.5,0.5c-6.4,2.5-9.7,9.6-7.2,16c1.4,3.5,4.2,6.1,7.8,7.3c0.6,0.2,1.3,0.3,1.9,0.4
@@ -86,17 +88,16 @@ const PortfolioFooter: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold">PATRICK W. MASTERS</h3>
+                <h3 className="text-lg font-bold">CURIOUS CAT CONSULTING</h3>
               </div>
             </div>
             <p className="text-gray-400 mb-4">
-              Senior Software Engineer & Architect specializing in modern, scalable, and maintainable 
-              software solutions for businesses of all sizes.
+              A partnership dedicated to building thoughtful, well-architected software solutions for businesses of all sizes.
             </p>
             <p className="text-gray-400">
               <span className="block">Brandon, FL</span>
-              <a href="mailto:contact@patrickmasters.dev" className="hover:text-white">
-                contact@patrickmasters.dev
+              <a href="mailto:hello@curiouscatconsulting.com" className="hover:text-white">
+                hello@curiouscatconsulting.com
               </a>
             </p>
           </div>
@@ -118,15 +119,15 @@ const PortfolioFooter: React.FC = () => {
 
         <div className="border-t border-gray-800 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {currentYear} Patrick W. Masters. All rights reserved.
+            &copy; {currentYear} Curious Cat Consulting LLC. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-400 hover:text-white text-sm">
+            <button onClick={() => console.log('Navigate to: /privacy')} className="text-gray-400 hover:text-white text-sm">
               Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-white text-sm">
+            </button>
+            <button onClick={() => console.log('Navigate to: /terms')} className="text-gray-400 hover:text-white text-sm">
               Terms of Service
-            </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -134,4 +135,4 @@ const PortfolioFooter: React.FC = () => {
   );
 };
 
-export default PortfolioFooter;
+export default CCCFooter;

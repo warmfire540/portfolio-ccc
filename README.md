@@ -1,16 +1,17 @@
-# Patrick W. Masters - Portfolio Website
+# Curious Cat Consulting - Website
 
-A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a Senior Software Engineer & Architect. Built with React, TypeScript, and Tailwind CSS.
+A modern, responsive website for Curious Cat Consulting LLC, showcasing our services, projects, and expertise as a software engineering and architecture consulting firm. Built with React, TypeScript, and Tailwind CSS.
 
-![Portfolio Preview](/public/preview.png)
+![Curious Cat Consulting Preview](/public/preview.png)
 
 ## 🌟 Features
 
 - **Modern Design**: Clean, professional aesthetic with attention to typography and spacing
 - **Responsive Layout**: Fully responsive design that works beautifully on all devices
 - **Interactive UI**: Smooth animations and transitions for engaging user experience
-- **Projects Showcase**: Filterable project gallery highlighting my professional work
-- **Detailed About Page**: Professional background, skills, and experience
+- **Projects Showcase**: Filterable project gallery highlighting our professional work
+- **Detailed Services Pages**: Comprehensive information about our service offerings
+- **About Us Section**: Information about our company, values, and team
 - **Contact Form**: Functional contact form with validation
 - **Performance Optimized**: Fast loading times and optimized assets
 - **Accessibility**: ARIA attributes and keyboard navigation support
@@ -27,7 +28,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and profe
 ## 📂 Project Structure
 
 ```
-patrick-masters-portfolio/
+curious-cat-consulting/
 ├── public/                # Static files
 ├── src/                   # Source code
 │   ├── components/        # Reusable UI components
@@ -52,8 +53,8 @@ patrick-masters-portfolio/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/patrickmasters/portfolio.git
-   cd portfolio
+   git clone https://github.com/curiouscatconsulting/website.git
+   cd website
    ```
 
 2. Install dependencies:
@@ -85,7 +86,7 @@ The built files will be in the `build/` directory.
 
 ## 🚀 Deployment
 
-This portfolio can be easily deployed to various hosting services:
+This website can be easily deployed to various hosting services:
 
 ### Vercel (Recommended)
 1. Push your code to a GitHub repository
@@ -103,7 +104,7 @@ This portfolio can be easily deployed to various hosting services:
 1. Install gh-pages: `npm install --save-dev gh-pages`
 2. Add to package.json:
    ```json
-   "homepage": "https://username.github.io/portfolio",
+   "homepage": "https://curiouscatconsulting.com",
    "scripts": {
      "predeploy": "npm run build",
      "deploy": "gh-pages -d build"
@@ -114,7 +115,7 @@ This portfolio can be easily deployed to various hosting services:
 ## 🎨 Customization
 
 ### Changing Colors
-The primary color scheme can be modified in the `tailwind.config.ts` file:
+The primary color scheme can be modified in the `tailwind.config.js` file:
 
 ```js
 // Example: Change primary color to blue
@@ -130,7 +131,7 @@ theme: {
 ```
 
 ### Adding Projects
-Edit the projects array in `src/pages/PortfolioProjectsPage.tsx`:
+Edit the projects array in `src/pages/CCCProjectsPage.tsx`:
 
 ```tsx
 const projects: Project[] = [
@@ -145,8 +146,8 @@ const projects: Project[] = [
 ];
 ```
 
-### Updating Profile Information
-Edit the experience and education arrays in `src/pages/PortfolioAboutPage.tsx`.
+### Updating Services
+Edit the services array in `src/pages/CCCServicesPage.tsx` to update or add new service offerings.
 
 ## 📄 License
 
@@ -161,4 +162,4 @@ MIT
 
 ---
 
-© 2025 Patrick W. Masters. All rights reserved.
+© 2025 Curious Cat Consulting LLC. All rights reserved.
