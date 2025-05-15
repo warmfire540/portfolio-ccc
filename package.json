@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Professional portfolio website for Patrick W. Masters, Software Engineer & Architect",
-  "author": "Patrick W. Masters",
+  "author": "Patrick Masters",
   "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

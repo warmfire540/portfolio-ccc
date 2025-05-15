@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
       colors: {
@@ -63,6 +64,33 @@ module.exports = {
             },
             h4: {
               color: theme('colors.gray.800'),
+              fontWeight: '600',
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.300'),
+            a: {
+              color: theme('colors.indigo.400'),
+              '&:hover': {
+                color: theme('colors.indigo.300'),
+              },
+            },
+            h1: {
+              color: theme('colors.gray.100'),
+              fontWeight: '700',
+            },
+            h2: {
+              color: theme('colors.gray.100'),
+              fontWeight: '700',
+            },
+            h3: {
+              color: theme('colors.gray.100'),
+              fontWeight: '600',
+            },
+            h4: {
+              color: theme('colors.gray.100'),
               fontWeight: '600',
             },
           },

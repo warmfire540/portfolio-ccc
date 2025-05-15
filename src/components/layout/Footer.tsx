@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CCCFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -19,7 +20,7 @@ const CCCFooter: React.FC = () => {
       title: 'Services',
       links: [
         { label: 'Software Architecture', path: '/services#architecture' },
-        { label: 'Full-Stack Development', path: '/services#full-stack' },
+        { label: 'Full-Stack Development', path: '/services#fullstack' },
         { label: 'Cloud Solutions', path: '/services#cloud' },
         { label: 'DevOps & Automation', path: '/services#devops' },
         { label: 'Data Integration', path: '/services#data' },
@@ -50,19 +51,19 @@ const CCCFooter: React.FC = () => {
       );
     }
     
-    // For a real app with React Router, use Link component
+    // Use React Router Link
     return (
-      <button 
-        onClick={() => console.log(`Navigate to: ${link.path}`)}
+      <Link
+        to={link.path}
         className="text-gray-400 hover:text-white transition-colors duration-200"
       >
         {link.label}
-      </button>
+      </Link>
     );
   };
 
   return (
-    <footer className="bg-gray-900 text-white pt-12 pb-6">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo and description */}
@@ -122,12 +123,12 @@ const CCCFooter: React.FC = () => {
             &copy; {currentYear} Curious Cat Consulting LLC. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <button onClick={() => console.log('Navigate to: /privacy')} className="text-gray-400 hover:text-white text-sm">
+            <Link to="/privacy" className="text-gray-400 hover:text-white text-sm">
               Privacy Policy
-            </button>
-            <button onClick={() => console.log('Navigate to: /terms')} className="text-gray-400 hover:text-white text-sm">
+            </Link>
+            <Link to="/terms" className="text-gray-400 hover:text-white text-sm">
               Terms of Service
-            </button>
+            </Link>
           </div>
         </div>
       </div>
