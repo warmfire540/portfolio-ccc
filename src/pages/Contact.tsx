@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Send, LinkedinIcon, GithubIcon, Mail, MapPin } from 'lucide-react';
+import AnimatedSection from '../components/common/AnimatedSection';
 
 interface FormData {
   name: string;
@@ -121,7 +122,7 @@ const CCCContactPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl font-bold mb-6">Get In Touch</h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Interested in working with Curious Cat Consulting? We'd love to hear about your project and how we can help.
+            Interested in working with Curious Cat Consulting? I'd love to hear about your project and how I can help.
           </p>
         </div>
       </section>
@@ -131,12 +132,12 @@ const CCCContactPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}
-            <div>
+            <AnimatedSection animation="slide-right">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Let's Connect</h2>
               
               <p className="text-gray-600 mb-8">
                 Whether you're looking for a technical consultation, interested in collaborating on a project,
-                or simply want to discuss your software needs, we're always open to connecting with forward-thinking organizations.
+                or simply want to discuss your software needs, I'm always open to connecting with forward-thinking organizations.
               </p>
 
               <div className="space-y-6 mb-8">
@@ -168,7 +169,7 @@ const CCCContactPage: React.FC = () => {
                 
                 <div className="flex space-x-4">
                   <a 
-                    href="https://linkedin.com" 
+                    href="https://www.linkedin.com/company/106965272" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 p-3 rounded-full transition-colors duration-300"
@@ -178,36 +179,46 @@ const CCCContactPage: React.FC = () => {
                   </a>
                   
                   <a 
-                    href="https://github.com" 
+                    href="https://github.com/homeassistant-extras" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 p-3 rounded-full transition-colors duration-300"
                   >
                     <GithubIcon className="h-6 w-6" />
-                    <span className="sr-only">GitHub</span>
+                    <span className="sr-only">GitHub (Home Assistant)</span>
+                  </a>
+                  
+                  <a 
+                    href="https://github.com/warmfire540" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 p-3 rounded-full transition-colors duration-300"
+                  >
+                    <GithubIcon className="h-6 w-6" />
+                    <span className="sr-only">GitHub (Personal)</span>
                   </a>
                 </div>
                 
                 <div className="mt-6">
                   <h4 className="font-medium text-gray-700 mb-2">Availability</h4>
                   <p className="text-gray-600">
-                    We're currently available for select consulting engagements, architecture reviews,
-                    and development projects. Let's discuss how we can help your business succeed.
+                    I'm currently available for select consulting engagements, architecture reviews,
+                    and development projects. Let's discuss how I can help your business succeed.
                   </p>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Contact Form */}
-            <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+            <AnimatedSection animation="slide-up" delay={200}>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Me a Message</h2>
 
               {submitSuccess && (
                 <div
                   className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-6"
                   data-testid="success-message"
                 >
-                  <p>Thank you for your message! We'll get back to you shortly.</p>
+                  <p>Thank you for your message! I'll get back to you shortly.</p>
                 </div>
               )}
 
@@ -337,7 +348,7 @@ const CCCContactPage: React.FC = () => {
                   </button>
                 </div>
               </form>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -349,49 +360,59 @@ const CCCContactPage: React.FC = () => {
           
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">What types of projects does Curious Cat Consulting work on?</h3>
-                <p className="text-gray-600">
-                  We specialize in enterprise software architecture, full-stack development, cloud migrations, and
-                  DevOps automation. We particularly enjoy complex projects that involve modernizing legacy systems,
-                  implementing cloud-native architectures, or building scalable data integration solutions.
-                </p>
-              </div>
+              <AnimatedSection animation="fade-in" threshold={0.2}>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">What types of projects does Curious Cat Consulting work on?</h3>
+                  <p className="text-gray-600">
+                    I specialize in enterprise software architecture, full-stack development, cloud migrations, and
+                    DevOps automation. I particularly enjoy complex projects that involve modernizing legacy systems,
+                    implementing cloud-native architectures, or building scalable data integration solutions.
+                  </p>
+                </div>
+              </AnimatedSection>
               
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">What is your availability?</h3>
-                <p className="text-gray-600">
-                  We're currently available for select consulting engagements and development projects.
-                  Our availability varies depending on current commitments, so please reach out
-                  with your timeline and we'll let you know if we can accommodate your project.
-                </p>
-              </div>
+              <AnimatedSection animation="fade-in" threshold={0.2} delay={100}>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">What is your availability?</h3>
+                  <p className="text-gray-600">
+                    I'm currently available for select consulting engagements and development projects.
+                    My availability varies depending on current commitments, so please reach out
+                    with your timeline and I'll let you know if I can accommodate your project.
+                  </p>
+                </div>
+              </AnimatedSection>
               
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">Do you work remotely?</h3>
-                <p className="text-gray-600">
-                  Yes, we work primarily remotely with clients around the United States. We use collaborative tools
-                  to ensure effective communication and seamless workflow, regardless of geographic location.
-                </p>
-              </div>
+              <AnimatedSection animation="fade-in" threshold={0.2} delay={200}>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">Do you work remotely?</h3>
+                  <p className="text-gray-600">
+                    Yes, I work primarily remotely with clients around the United States. I use collaborative tools
+                    to ensure effective communication and seamless workflow, regardless of geographic location.
+                  </p>
+                </div>
+              </AnimatedSection>
               
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">What is your approach to new projects?</h3>
-                <p className="text-gray-600">
-                  We start by thoroughly understanding the business problem and objectives before diving into technical
-                  solutions. We believe in transparent communication, iterative development, and building solutions
-                  that are not only technically sound but also aligned with business goals.
-                </p>
-              </div>
+              <AnimatedSection animation="fade-in" threshold={0.2} delay={300}>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">What is your approach to new projects?</h3>
+                  <p className="text-gray-600">
+                    I start by thoroughly understanding the business problem and objectives before diving into technical
+                    solutions. I believe in transparent communication, iterative development, and building solutions
+                    that are not only technically sound but also aligned with business goals.
+                  </p>
+                </div>
+              </AnimatedSection>
               
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">Do you provide ongoing support after project completion?</h3>
-                <p className="text-gray-600">
-                  Yes, we can provide ongoing maintenance and support as needed. We also focus on knowledge transfer
-                  and documentation throughout the project to ensure your team can confidently manage the solution
-                  moving forward.
-                </p>
-              </div>
+              <AnimatedSection animation="fade-in" threshold={0.2} delay={400}>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">Do you provide ongoing support after project completion?</h3>
+                  <p className="text-gray-600">
+                    Yes, I can provide ongoing maintenance and support as needed. I also focus on knowledge transfer
+                    and documentation throughout the project to ensure your team can confidently manage the solution
+                    moving forward.
+                  </p>
+                </div>
+              </AnimatedSection>
             </div>
           </div>
         </div>

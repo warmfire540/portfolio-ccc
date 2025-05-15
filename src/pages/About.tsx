@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface TeamMember {
   id: string;
@@ -20,7 +20,7 @@ const CCCAboutPage: React.FC = () => {
     {
       id: 'member-1',
       name: 'Patrick Masters',
-      role: 'Co-founder & Software Engineer',
+      role: 'Founder & Software Engineer',
       bio: [
         'Patrick is a Senior Software Engineer and Architect with over 8 years of experience delivering innovative solutions such as cloud-based integrations and large-scale infrastructure transformations.',
         'Throughout his career, Patrick has played an active role during each phase of the Software Development Life Cycle, significantly enhancing code quality and maintainability through comprehensive management of complex initiatives.',
@@ -30,11 +30,11 @@ const CCCAboutPage: React.FC = () => {
     },
     {
       id: 'member-2',
-      name: 'Jane Masters', // Replace with your wife's actual name
-      role: 'Co-founder & Business Operations',
+      name: 'Gina Masters',
+      role: 'Operations & Client Relations',
       bio: [
-        'Jane brings a wealth of experience in business operations, project management, and client relations to Curious Cat Consulting.',
-        'With a background in business administration and a keen eye for detail, Jane ensures our projects run smoothly from initial consultation to final delivery.',
+        'Gina brings a wealth of experience in business operations, project management, and client relations to Curious Cat Consulting.',
+        'With a background in business administration and a keen eye for detail, Gina ensures our projects run smoothly from initial consultation to final delivery.',
         'She is passionate about creating positive client experiences and ensuring that our technical solutions align with real business needs and objectives.'
       ],
       imageUrl: '/api/placeholder/400/400'
@@ -65,6 +65,38 @@ const CCCAboutPage: React.FC = () => {
     }
   ];
 
+  // Animation on scroll functionality
+  const useIntersectionObserver = (options = {}) => {
+    const ref = useRef(null);
+    
+    useEffect(() => {
+      if (!ref.current) return;
+      
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      }, options);
+      
+      observer.observe(ref.current);
+      
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, [options]);
+    
+    return ref;
+  };
+
+  // Create refs for each section
+  const storyRef = useIntersectionObserver({ threshold: 0.1 });
+  const teamRef = useIntersectionObserver({ threshold: 0.1 });
+  const valuesRef = useIntersectionObserver({ threshold: 0.1 });
+  const approachRef = useIntersectionObserver({ threshold: 0.1 });
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -72,7 +104,7 @@ const CCCAboutPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-6">About Curious Cat Consulting</h1>
           <p className="text-xl max-w-3xl mx-auto">
-            A partnership founded on curiosity, technical excellence, and a passion for 
+            Founded on curiosity, technical excellence, and a passion for 
             solving complex business challenges through thoughtful software solutions.
           </p>
         </div>
@@ -81,29 +113,28 @@ const CCCAboutPage: React.FC = () => {
       {/* Our Story */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto opacity-0 transition-opacity duration-1000 ease-in-out" ref={storyRef}>
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Our Story</h2>
             <div className="prose prose-lg max-w-none text-gray-600">
               <p>
-                Curious Cat Consulting was founded in 2025 as a partnership between Patrick and Jane Masters, 
-                bringing together their complementary skills in software engineering and business operations. 
-                After years of working in various technical roles across different industries, we recognized 
-                a common gap: too many software projects focus on technology for technology\'s sake, rather than 
-                truly solving business problems.
+                Curious Cat Consulting was founded in 2025 by Patrick Masters, bringing together his extensive 
+                experience in software engineering and architecture. After years of working in various technical 
+                roles across different industries, I recognized a common gap: too many software projects focus on 
+                technology for technology's sake, rather than truly solving business problems.
               </p>
               <p>
-                We started Curious Cat Consulting with a simple premise: great software begins with 
+                I started Curious Cat Consulting with a simple premise: great software begins with 
                 curiosity—asking the right questions to truly understand the business challenges before 
                 diving into code. This curiosity-driven approach leads to solutions that not only meet 
                 immediate needs but anticipate future ones as well.
               </p>
               <p>
-                Our name reflects our approach. Like a curious cat, we're inquisitive, thoughtful, and 
+                The name reflects our approach. Like a curious cat, we're inquisitive, thoughtful, and 
                 thorough in exploring every angle of a problem. We dig deeper, question assumptions, and 
                 don't rest until we find the optimal solution.
               </p>
               <p>
-                Today, we're a small but mighty team working with select clients who value our partnership 
+                Today, we work with select clients who value our collaborative 
                 approach and commitment to quality. We're not interested in simply building what you ask for—we 
                 want to understand why you're asking for it and make sure the solution truly addresses your 
                 underlying business needs.
@@ -118,7 +149,7 @@ const CCCAboutPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Meet Our Team</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto opacity-0 transition-opacity duration-1000 ease-in-out" ref={teamRef}>
             {teamMembers.map(member => (
               <div key={member.id} className="flex flex-col items-center">
                 <img 
@@ -144,7 +175,7 @@ const CCCAboutPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Our Values</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto opacity-0 transition-opacity duration-1000 ease-in-out" ref={valuesRef}>
             {values.map(value => (
               <div 
                 key={value.id}
@@ -161,7 +192,7 @@ const CCCAboutPage: React.FC = () => {
       {/* Our Approach */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto opacity-0 transition-opacity duration-1000 ease-in-out" ref={approachRef}>
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Our Approach</h2>
             
             <div className="space-y-8">

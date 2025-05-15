@@ -1,8 +1,14 @@
 import React from 'react';
 import { Code, Database, Layers, RefreshCw, Cloud, Terminal } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AnimatedSection from '../components/common/AnimatedSection';
+import { ReactComponent as Logo } from '../assets/logo.svg';
+import { useTheme } from 'utils/ThemeContext';
+
 
 const CCCHomePage = () => {
+  const { theme } = useTheme();
+
   // Services offered by Curious Cat Consulting
   const services = [
     {
@@ -63,8 +69,8 @@ const CCCHomePage = () => {
                 Transforming your complex business requirements into elegant technical solutions
               </h2>
               <p className="text-lg mb-8 text-gray-100">
-                Curious Cat Consulting is a partnership of experienced software engineers and architects dedicated to 
-                building high-quality, scalable software that delivers real business value.
+                Curious Cat Consulting specializes in building high-quality, scalable software 
+                that delivers real business value through thoughtful architecture and engineering excellence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/services" className="px-6 py-3 bg-white text-indigo-900 dark:bg-indigo-200 font-semibold rounded-md hover:bg-gray-100 dark:hover:bg-indigo-300 transition-colors text-center">
@@ -76,51 +82,8 @@ const CCCHomePage = () => {
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center">
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg max-w-md">
-                <svg 
-                  viewBox="0 0 800 300" 
-                  className="w-full h-auto"
-                  aria-label="Curious Cat Consulting Logo"
-                >
-                  <g transform="translate(0, 0)">
-                    {/* Cat silhouette - simplified version of your logo */}
-                    <path
-                      d="M170,50c-15,0-30,4-42,8c-108,42-163,162-121,270c24,59,71,103,132,123c10,3,22,5,32,7c13,2,29,2,42,0c115-15,196-121,181-236c-8-62-46-118-100-152C274,56,235,48,170,50z M0,287c-12-32-14-66-5-101c7-34,24-66,47-91c-39,13-76,35-105,69c-54,61-74,142-59,219c15,78,64,143,135,184c59,34,125,44,191,34c-79-37-142-103-172-187C20,367,11,325,0,287z M440,107c7,7,14,15,20,24c42,56,56,126,39,194c-17,67-62,123-126,152c-54,25-115,29-170,12c54,40,125,61,194,51c71-8,133-47,172-106c40-59,51-130,32-199C585,165,550,110,440,107z"
-                      className="fill-indigo-900 dark:fill-indigo-400"
-                    />
-                  </g>
-                  <g transform="translate(400, 80)">
-                    <text
-                      x="0"
-                      y="0"
-                      fontFamily="serif"
-                      fontSize="90"
-                      fontWeight="bold"
-                      className="fill-indigo-900 dark:fill-white"
-                    >
-                      CURIOUS CAT
-                    </text>
-                    <text
-                      x="0"
-                      y="100"
-                      fontFamily="serif"
-                      fontSize="90"
-                      fontWeight="bold"
-                      className="fill-indigo-900 dark:fill-white"
-                    >
-                      CONSULTING
-                    </text>
-                    <text
-                      x="0"
-                      y="180"
-                      fontFamily="sans-serif"
-                      fontSize="40"
-                      className="fill-black dark:fill-gray-300"
-                    >
-                      CURIOUSLY BETTER SOFTWARE.
-                    </text>
-                  </g>
-                </svg>
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg max-w-md relative">
+                <Logo fill={theme === 'dark' ? 'white' : 'darkblue'} style={{ width: `auto`, height: '100px' }}/>
               </div>
             </div>
           </div>
@@ -130,45 +93,47 @@ const CCCHomePage = () => {
       {/* About Section */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <AnimatedSection animation="fade-in" className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">About Curious Cat Consulting</h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Founded in 2025, Curious Cat Consulting is a partnership built on a foundation of technical excellence and a 
+              Founded in 2025, Curious Cat Consulting was built on a foundation of technical excellence and a 
               genuine curiosity about solving complex business problems through thoughtful software solutions.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              We approach every project with fresh eyes and a questioning mind, digging deeper to understand the real challenges 
+              I approach every project with fresh eyes and a questioning mind, digging deeper to understand the real challenges 
               behind your requirements. This curiosity-driven approach leads to solutions that not only meet your immediate needs 
               but anticipate future ones as well.
             </p>
             <Link to="/about" className="inline-block px-6 py-3 bg-indigo-600 dark:bg-indigo-700 text-white font-semibold rounded-md hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors">
               Learn More About Us
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Services Section */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Our Services</h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               We offer a comprehensive range of software development and consulting services to help businesses 
               build, modernize, and optimize their digital solutions.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map(service => (
-              <div 
+            {services.map((service, index) => (
+              <AnimatedSection 
                 key={service.id}
+                animation="zoom-in" 
+                delay={index * 100}
                 className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-600 hover:border-indigo-200 dark:hover:border-indigo-500 group"
               >
                 <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
                 <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{service.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -177,38 +142,38 @@ const CCCHomePage = () => {
       {/* Why Choose Us */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Why Choose Curious Cat Consulting?</h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Our clients choose us for our technical expertise, our thoughtful approach, and our commitment to building 
+              My clients choose me for my technical expertise, my thoughtful approach, and my commitment to building 
               solutions that truly address their business needs.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500">
+            <AnimatedSection animation="slide-up" delay={0} className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500">
               <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">Curiosity-Driven</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                We ask deeper questions to understand the real problems behind your requirements, leading to 
+                I ask deeper questions to understand the real problems behind your requirements, leading to 
                 more effective and forward-thinking solutions.
               </p>
-            </div>
+            </AnimatedSection>
             
-            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500">
+            <AnimatedSection animation="slide-up" delay={200} className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500">
               <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">Quality-Focused</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                We believe in doing things right the first time, with thorough testing, clean code,
+                I believe in doing things right the first time, with thorough testing, clean code,
                 and solutions that stand the test of time.
               </p>
-            </div>
+            </AnimatedSection>
             
-            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500">
+            <AnimatedSection animation="slide-up" delay={400} className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500">
               <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">Partnership Approach</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                We work closely with you as a true partner, fostering open communication
+                I work closely with you as a true partner, fostering open communication
                 and ensuring alignment throughout the development process.
               </p>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -216,14 +181,16 @@ const CCCHomePage = () => {
       {/* CTA Section */}
       <section className="py-16 bg-indigo-800 dark:bg-indigo-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to build something amazing?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let's discuss how Curious Cat Consulting can help bring your ideas to life with thoughtful, 
-            well-architected solutions.
-          </p>
-          <Link to="/contact" className="inline-block px-6 py-3 bg-white dark:bg-indigo-200 text-indigo-800 font-semibold rounded-md hover:bg-gray-100 dark:hover:bg-indigo-300 transition-colors text-lg">
-            Get In Touch
-          </Link>
+          <AnimatedSection animation="fade-in">
+            <h2 className="text-3xl font-bold mb-6">Ready to build something amazing?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Let's discuss how Curious Cat Consulting can help bring your ideas to life with thoughtful, 
+              well-architected solutions.
+            </p>
+            <Link to="/contact" className="inline-block px-6 py-3 bg-white dark:bg-indigo-200 text-indigo-800 font-semibold rounded-md hover:bg-gray-100 dark:hover:bg-indigo-300 transition-colors text-lg">
+              Get In Touch
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </div>

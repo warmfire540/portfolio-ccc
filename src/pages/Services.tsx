@@ -1,5 +1,7 @@
 import React from 'react';
 import { Code, Database, Layers, RefreshCw, Cloud, Terminal, FileCode, Server, Workflow, GitBranch, BarChart, Users } from 'lucide-react';
+import AnimatedSection from '../components/common/AnimatedSection';
+import { Link } from 'react-router-dom';
 
 interface Service {
   id: string;
@@ -38,7 +40,7 @@ const CCCServicesPage: React.FC = () => {
       description: 'Build complete web and mobile applications with modern front-end interfaces and robust back-end services.',
       icon: <Code size={48} className="text-indigo-600" />,
       benefits: [
-        'Cohesive application development from a single team',
+        'Cohesive application development from end to end',
         'Consistent practices across the technology stack',
         'Streamlined communication and faster development',
         'Unified testing and quality assurance approach'
@@ -159,7 +161,7 @@ const CCCServicesPage: React.FC = () => {
     {
       title: 'Team Augmentation',
       icon: <Users size={24} className="text-indigo-600" />,
-      description: 'Supplement your existing technical team with our expertise to tackle challenging projects or meet deadlines.'
+      description: 'Supplement your existing technical team with my expertise to tackle challenging projects or meet deadlines.'
     }
   ];
 
@@ -168,7 +170,7 @@ const CCCServicesPage: React.FC = () => {
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-r from-indigo-900 to-indigo-700 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-6">Our Services</h1>
+          <h1 className="text-4xl font-bold mb-6">Services</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Curious Cat Consulting provides a comprehensive range of software development and consulting services 
             to help businesses build, modernize, and optimize their digital solutions.
@@ -179,19 +181,19 @@ const CCCServicesPage: React.FC = () => {
       {/* Services Overview */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">How We Help</h2>
+          <AnimatedSection animation="fade-in" className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">How I Can Help</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From architecture design to implementation and support, we provide end-to-end services 
+              From architecture design to implementation and support, I provide end-to-end services 
               to address your most challenging technical problems.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="space-y-24">
             {services.map((service, index) => (
-              <div 
-                key={service.id} 
-                id={service.id}
+              <AnimatedSection 
+                key={service.id}
+                animation={index % 2 === 0 ? "slide-right" : "slide-up"}
                 className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}
               >
                 <div className="md:w-1/3 flex justify-center">
@@ -214,7 +216,7 @@ const CCCServicesPage: React.FC = () => {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-indigo-700 mb-3">What We Offer</h4>
+                      <h4 className="text-lg font-semibold text-indigo-700 mb-3">What I Offer</h4>
                       <ul className="space-y-2">
                         {service.offerings.map((offering, i) => (
                           <li key={i} className="flex items-start">
@@ -226,7 +228,7 @@ const CCCServicesPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -235,36 +237,41 @@ const CCCServicesPage: React.FC = () => {
       {/* Specialized Services */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Specialized Services</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Beyond our core offerings, we provide specialized services to address specific technical challenges.
+              Beyond my core offerings, I provide specialized services to address specific technical challenges.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {specializedServices.map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+              <AnimatedSection 
+                key={index} 
+                animation="zoom-in" 
+                delay={index * 100}
+                className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+              >
                 <div className="flex items-center mb-4">
                   {service.icon}
                   <h3 className="text-xl font-bold text-gray-800 ml-3">{service.title}</h3>
                 </div>
                 <p className="text-gray-600">{service.description}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Process */}
+      {/* My Process */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Process</h2>
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">My Process</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We follow a collaborative, iterative approach to ensure we deliver solutions that truly meet your needs.
+              I follow a collaborative, iterative approach to ensure I deliver solutions that truly meet your needs.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
@@ -273,55 +280,55 @@ const CCCServicesPage: React.FC = () => {
               
               {/* Timeline items */}
               <div className="space-y-12">
-                <div className="relative">
+                <AnimatedSection animation="fade-in" delay={0} className="relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 -mt-3 w-7 h-7 rounded-full border-4 border-indigo-600 bg-white"></div>
                   <div className="grid grid-cols-5">
                     <div className="col-span-2 text-right pr-8 pt-0">
                       <h3 className="text-xl font-bold text-gray-800 mb-2">Discovery</h3>
-                      <p className="text-gray-600">We start by understanding your business objectives, technical constraints, and user needs through workshops and interviews.</p>
+                      <p className="text-gray-600">I start by understanding your business objectives, technical constraints, and user needs through workshops and interviews.</p>
                     </div>
                     <div className="col-span-1"></div>
                     <div className="col-span-2"></div>
                   </div>
-                </div>
+                </AnimatedSection>
                 
-                <div className="relative">
+                <AnimatedSection animation="fade-in" delay={200} className="relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 -mt-3 w-7 h-7 rounded-full border-4 border-indigo-600 bg-white"></div>
                   <div className="grid grid-cols-5">
                     <div className="col-span-2"></div>
                     <div className="col-span-1"></div>
                     <div className="col-span-2 pl-8 pt-0">
                       <h3 className="text-xl font-bold text-gray-800 mb-2">Planning</h3>
-                      <p className="text-gray-600">Based on our findings, we develop a strategic roadmap, select appropriate technologies, and define the architecture.</p>
+                      <p className="text-gray-600">Based on my findings, I develop a strategic roadmap, select appropriate technologies, and define the architecture.</p>
                     </div>
                   </div>
-                </div>
+                </AnimatedSection>
                 
-                <div className="relative">
+                <AnimatedSection animation="fade-in" delay={400} className="relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 -mt-3 w-7 h-7 rounded-full border-4 border-indigo-600 bg-white"></div>
                   <div className="grid grid-cols-5">
                     <div className="col-span-2 text-right pr-8 pt-0">
                       <h3 className="text-xl font-bold text-gray-800 mb-2">Development</h3>
-                      <p className="text-gray-600">Our team works in iterative cycles, building, testing, and refining the solution with regular feedback from your team.</p>
+                      <p className="text-gray-600">I work in iterative cycles, building, testing, and refining the solution with regular feedback from your team.</p>
                     </div>
                     <div className="col-span-1"></div>
                     <div className="col-span-2"></div>
                   </div>
-                </div>
+                </AnimatedSection>
                 
-                <div className="relative">
+                <AnimatedSection animation="fade-in" delay={600} className="relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 -mt-3 w-7 h-7 rounded-full border-4 border-indigo-600 bg-white"></div>
                   <div className="grid grid-cols-5">
                     <div className="col-span-2"></div>
                     <div className="col-span-1"></div>
                     <div className="col-span-2 pl-8 pt-0">
                       <h3 className="text-xl font-bold text-gray-800 mb-2">Deployment</h3>
-                      <p className="text-gray-600">We carefully manage the transition from development to production, ensuring a smooth and reliable launch.</p>
+                      <p className="text-gray-600">I carefully manage the transition from development to production, ensuring a smooth and reliable launch.</p>
                     </div>
                   </div>
-                </div>
+                </AnimatedSection>
                 
-                <div className="relative">
+                <AnimatedSection animation="fade-in" delay={800} className="relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 -mt-3 w-7 h-7 rounded-full border-4 border-indigo-600 bg-white"></div>
                   <div className="grid grid-cols-5">
                     <div className="col-span-2 text-right pr-8 pt-0">
@@ -331,7 +338,7 @@ const CCCServicesPage: React.FC = () => {
                     <div className="col-span-1"></div>
                     <div className="col-span-2"></div>
                   </div>
-                </div>
+                </AnimatedSection>
               </div>
             </div>
           </div>
@@ -341,15 +348,15 @@ const CCCServicesPage: React.FC = () => {
       {/* Technology Stack */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Technology Stack</h2>
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Technology Stack</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We use modern, proven technologies to build robust, scalable solutions. Here are some of the technologies we work with:
+              I use modern, proven technologies to build robust, scalable solutions. Here are some of the technologies I work with:
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <AnimatedSection animation="slide-up" delay={0} className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Front-End</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>React / Vue.js</li>
@@ -358,9 +365,9 @@ const CCCServicesPage: React.FC = () => {
                 <li>Next.js</li>
                 <li>Progressive Web Apps</li>
               </ul>
-            </div>
+            </AnimatedSection>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <AnimatedSection animation="slide-up" delay={100} className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Back-End</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>.NET Core / C#</li>
@@ -369,9 +376,9 @@ const CCCServicesPage: React.FC = () => {
                 <li>GraphQL</li>
                 <li>RESTful APIs</li>
               </ul>
-            </div>
+            </AnimatedSection>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <AnimatedSection animation="slide-up" delay={200} className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Cloud & DevOps</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>Azure / AWS / GCP</li>
@@ -380,9 +387,9 @@ const CCCServicesPage: React.FC = () => {
                 <li>Terraform</li>
                 <li>Microservices</li>
               </ul>
-            </div>
+            </AnimatedSection>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <AnimatedSection animation="slide-up" delay={300} className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Databases</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>SQL Server</li>
@@ -391,9 +398,9 @@ const CCCServicesPage: React.FC = () => {
                 <li>Azure Cosmos DB</li>
                 <li>Redis</li>
               </ul>
-            </div>
+            </AnimatedSection>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <AnimatedSection animation="slide-up" delay={400} className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Data & Integration</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>Azure Data Factory</li>
@@ -402,9 +409,9 @@ const CCCServicesPage: React.FC = () => {
                 <li>API Management</li>
                 <li>Event-driven architecture</li>
               </ul>
-            </div>
+            </AnimatedSection>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <AnimatedSection animation="slide-up" delay={500} className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Tools & Practices</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>Git / GitHub / Azure DevOps</li>
@@ -413,7 +420,7 @@ const CCCServicesPage: React.FC = () => {
                 <li>Continuous Integration</li>
                 <li>Infrastructure as Code</li>
               </ul>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -421,17 +428,19 @@ const CCCServicesPage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-16 bg-indigo-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to transform your technical challenges into solutions?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let's discuss how Curious Cat Consulting can help bring your ideas to life with thoughtful, 
-            well-architected solutions.
-          </p>
-          <button 
-            onClick={() => console.log('Navigate to: /contact')}
-            className="px-6 py-3 bg-white text-indigo-800 font-semibold rounded-md hover:bg-gray-100 transition-colors text-lg"
-          >
-            Schedule a Consultation
-          </button>
+          <AnimatedSection animation="fade-in">
+            <h2 className="text-3xl font-bold mb-6">Ready to transform your technical challenges into solutions?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Let's discuss how Curious Cat Consulting can help bring your ideas to life with thoughtful, 
+              well-architected solutions.
+            </p>
+            <Link 
+              to="/contact"
+              className="px-6 py-3 bg-white text-indigo-800 font-semibold rounded-md hover:bg-gray-100 transition-colors text-lg inline-block"
+            >
+              Schedule a Consultation
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </div>

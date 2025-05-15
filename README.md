@@ -1,3 +1,17 @@
+tweaks
+- logo stuff
+- decide on colors
+- domain (make new email for info)
+- look at services, decide on adding some specific scenarios
+- double check stack
+- team
+- links don't link to stuff and scroll
+- go to top button
+- work projects?
+- lint and prettier
+- tests
+
+
 # Curious Cat Consulting - Website
 
 A modern, responsive website for Curious Cat Consulting LLC, showcasing our services, projects, and expertise as a software engineering and architecture consulting firm. Built with React, TypeScript, and Tailwind CSS.
