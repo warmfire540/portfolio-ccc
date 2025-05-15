@@ -26,7 +26,7 @@ const CCCAboutPage: React.FC = () => {
         'Throughout his career, Patrick has played an active role during each phase of the Software Development Life Cycle, significantly enhancing code quality and maintainability through comprehensive management of complex initiatives.',
         'He specializes in designing scalable, efficient, and robust solutions involving architectural patterns such as cloud-native applications and microservices.',
       ],
-      imageUrl: '/api/placeholder/400/400',
+      imageUrl: '/assets/patrick.jpeg',
     },
     {
       id: 'member-2',
@@ -37,7 +37,7 @@ const CCCAboutPage: React.FC = () => {
         'With a background in business administration and a keen eye for detail, Gina ensures our projects run smoothly from initial consultation to final delivery.',
         'She is passionate about creating positive client experiences and ensuring that our technical solutions align with real business needs and objectives.',
       ],
-      imageUrl: '/api/placeholder/400/400',
+      imageUrl: '/assets/gina.jpeg',
     },
   ];
 

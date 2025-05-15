@@ -19,6 +19,7 @@
 !*.md
 !LICENSE
 !sonar-project.properties
+!*.jpeg
 
 # Ignore folders.
 node_modules

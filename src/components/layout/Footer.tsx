@@ -49,7 +49,7 @@ const CCCFooter: React.FC = () => {
         },
         {
           label: 'Email',
-          path: 'mailto:hello@curiouscatconsulting.com',
+          path: 'mailto:info@curiouscat.consulting',
           external: true,
         },
       ],
@@ -107,10 +107,10 @@ const CCCFooter: React.FC = () => {
             <p className="text-gray-400">
               <span className="block">Brandon, FL</span>
               <a
-                href="mailto:hello@curiouscatconsulting.com"
+                href="mailto:info@curiouscat.consulting"
                 className="hover:text-white"
               >
-                hello@curiouscatconsulting.com
+                info@curiouscat.consulting
               </a>
             </p>
           </div>

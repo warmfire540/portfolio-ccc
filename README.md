@@ -1,15 +1,8 @@
 tweaks
-- logo stuff
 - decide on colors
-- domain (make new email for info)
-- look at services, decide on adding some specific scenarios
-- double check stack
-- team
 - links don't link to stuff and scroll
 - go to top button
 - work projects?
-- lint and prettier
-- tests
 
 
 # Curious Cat Consulting - Website

@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { Send, LinkedinIcon, GithubIcon, Mail, MapPin } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, Mail, MapPin, Send } from 'lucide-react';
 
 import AnimatedSection from '../components/common/AnimatedSection';
 
@@ -174,10 +174,10 @@ const CCCContactPage: React.FC = () => {
                       Email
                     </h3>
                     <a
-                      href="mailto:hello@curiouscatconsulting.com"
+                      href="mailto:info@curiouscat.consulting"
                       className="text-indigo-600 hover:underline"
                     >
-                      hello@curiouscatconsulting.com
+                      info@curiouscat.consulting
                     </a>
                   </div>
                 </div>

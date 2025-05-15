@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react';
 
 import {
+  Navigate,
+  Route,
   BrowserRouter as Router,
   Routes,
-  Route,
-  Navigate,
   useLocation,
 } from 'react-router-dom';
 
-// Components
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
-
-// Pages
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
