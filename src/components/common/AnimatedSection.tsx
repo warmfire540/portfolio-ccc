@@ -13,19 +13,19 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   threshold = 0.1,
   className = '',
   animation = 'fade-in',
-  delay = 0
+  delay = 0,
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     if (!sectionRef.current) return;
-    
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           // Apply animation class based on the animation prop
           setTimeout(() => {
-            switch(animation) {
+            switch (animation) {
               case 'fade-in':
                 entry.target.classList.add('opacity-100');
                 break;
@@ -45,26 +45,26 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
                 entry.target.classList.add('opacity-100');
             }
           }, delay);
-          
+
           observer.unobserve(entry.target);
         }
       },
-      { threshold }
+      { threshold },
     );
-    
+
     observer.observe(sectionRef.current);
-    
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, [animation, delay, threshold]);
-  
+
   // Set initial classes based on animation type
   let animationClasses = 'opacity-0 transition-all duration-1000 ease-out';
-  
-  switch(animation) {
+
+  switch (animation) {
     case 'slide-up':
       animationClasses += ' transform translate-y-10';
       break;
@@ -78,9 +78,13 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
       // fade-in is just opacity-0 -> opacity-100
       break;
   }
-  
+
   return (
-    <div ref={sectionRef} className={`${animationClasses} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div
+      ref={sectionRef}
+      className={`${animationClasses} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {children}
     </div>
   );

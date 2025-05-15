@@ -1,26 +1,33 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { ThemeProvider } from './utils/ThemeContext';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from 'react-router-dom';
 
 // Components
-import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import Header from './components/layout/Header';
 
 // Pages
-import Home from './pages/Home';
-import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
 import Services from './pages/Services';
+import { ThemeProvider } from './utils/ThemeContext';
 
 // ScrollToTop component - ensures scrolling to top when navigating
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  
+
   return null;
 };
 

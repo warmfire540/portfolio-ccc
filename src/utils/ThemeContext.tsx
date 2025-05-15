@@ -9,7 +9,9 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   // Check localStorage and system preference for initial theme
   const getInitialTheme = (): Theme => {
     if (typeof window !== 'undefined' && window.localStorage) {
@@ -34,10 +36,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   // Apply theme changes to the document
   const applyTheme = (newTheme: Theme) => {
     const root = window.document.documentElement;
-    
+
     const removeClasses = newTheme === 'dark' ? ['light'] : ['dark'];
     const addClasses = newTheme === 'dark' ? ['dark'] : ['light'];
-    
+
     root.classList.remove(...removeClasses);
     root.classList.add(...addClasses);
   };
