@@ -1,8 +1,5 @@
-import typography from '@tailwindcss/typography';
-import forms from '@tailwindcss/forms';
-import type { Config } from 'tailwindcss';
-
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
     extend: {
@@ -42,7 +39,7 @@ export default {
       boxShadow: {
         soft: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
       },
-      typography: ({ theme }) => ({
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.700'),
@@ -71,6 +68,9 @@ export default {
           },
         },
       }),
+      animation: {
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
     },
     container: {
       center: true,
@@ -81,6 +81,8 @@ export default {
       },
     },
   },
-  // The 'variants' property has been removed in Tailwind CSS v4
-  plugins: [typography(), forms()],
-} satisfies Config;
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
+};

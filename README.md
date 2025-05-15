@@ -1,70 +1,164 @@
-# Getting Started with Create React App
+# Patrick W. Masters - Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a Senior Software Engineer & Architect. Built with React, TypeScript, and Tailwind CSS.
 
-## Available Scripts
+![Portfolio Preview](/public/preview.png)
 
-In the project directory, you can run:
+## 🌟 Features
 
-### `npm start`
+- **Modern Design**: Clean, professional aesthetic with attention to typography and spacing
+- **Responsive Layout**: Fully responsive design that works beautifully on all devices
+- **Interactive UI**: Smooth animations and transitions for engaging user experience
+- **Projects Showcase**: Filterable project gallery highlighting my professional work
+- **Detailed About Page**: Professional background, skills, and experience
+- **Contact Form**: Functional contact form with validation
+- **Performance Optimized**: Fast loading times and optimized assets
+- **Accessibility**: ARIA attributes and keyboard navigation support
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React**: Frontend library for building the user interface
+- **TypeScript**: For type-safe code and improved developer experience
+- **Tailwind CSS**: Utility-first CSS framework for styling
+- **React Router**: For handling navigation and routing
+- **Lucide React**: For modern, customizable icons
+- **ESLint & Prettier**: For code quality and consistent formatting
 
-### `npm test`
+## 📂 Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+patrick-masters-portfolio/
+├── public/                # Static files
+├── src/                   # Source code
+│   ├── components/        # Reusable UI components
+│   │   ├── common/        # Generic UI components
+│   │   └── layout/        # Layout components
+│   ├── pages/             # Page components
+│   ├── types/             # TypeScript type definitions
+│   ├── styles/            # Global styles with Tailwind
+│   ├── App.tsx            # Main application component
+│   └── index.tsx          # Application entry point
+└── configuration files    # Various config files for the project
+```
 
-### `npm run build`
+## 🛠️ Setup & Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v16.0.0 or higher)
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/patrickmasters/portfolio.git
+   cd portfolio
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Building for Production
 
-## Learn More
+Create a production build:
+```bash
+npm run build
+# or
+yarn build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The built files will be in the `build/` directory.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🚀 Deployment
 
-### Code Splitting
+This portfolio can be easily deployed to various hosting services:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Vercel (Recommended)
+1. Push your code to a GitHub repository
+2. Import the project in Vercel
+3. Vercel will automatically detect React and configure the build settings
 
-### Analyzing the Bundle Size
+### Netlify
+1. Push your code to a GitHub repository
+2. Import the project in Netlify
+3. Configure build settings:
+   - Build command: `npm run build`
+   - Publish directory: `build`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### GitHub Pages
+1. Install gh-pages: `npm install --save-dev gh-pages`
+2. Add to package.json:
+   ```json
+   "homepage": "https://username.github.io/portfolio",
+   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d build"
+   }
+   ```
+3. Deploy: `npm run deploy`
 
-### Making a Progressive Web App
+## 🎨 Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Changing Colors
+The primary color scheme can be modified in the `tailwind.config.ts` file:
 
-### Advanced Configuration
+```js
+// Example: Change primary color to blue
+theme: {
+  extend: {
+    colors: {
+      indigo: {
+        // Replace with blue shades
+      }
+    }
+  }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Adding Projects
+Edit the projects array in `src/pages/PortfolioProjectsPage.tsx`:
 
-### Deployment
+```tsx
+const projects: Project[] = [
+  {
+    id: 'new-project',
+    title: 'New Project Name',
+    category: 'Architecture',
+    description: 'Project description here...',
+    // Add other required fields
+  },
+  // Other projects...
+];
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Updating Profile Information
+Edit the experience and education arrays in `src/pages/PortfolioAboutPage.tsx`.
 
-### `npm run build` fails to minify
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT
+
+## 🙏 Acknowledgements
+
+- [Create React App](https://create-react-app.dev/) - For the initial project setup
+- [Tailwind CSS](https://tailwindcss.com/) - For the utility-first CSS framework
+- [React Router](https://reactrouter.com/) - For routing and navigation
+- [Lucide React](https://lucide.dev/) - For beautiful icons
+
+---
+
+© 2025 Patrick W. Masters. All rights reserved.

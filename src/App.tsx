@@ -1,32 +1,31 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Components
-import Header, { Page } from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicePage';
-import ProjectsPage from './pages/ProjectsPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+import PortfolioHeader from './components/layout/PortfolioHeader';
+import PortfolioFooter from './components/layout/PortfolioFooter';
+
+// Pages
+import PortfolioHomePage from './pages/PortfolioHomePage';
+import PortfolioProjectsPage from './pages/PortfolioProjectsPage';
+import PortfolioAboutPage from './pages/PortfolioAboutPage';
+import PortfolioContactPage from './pages/PortfolioContactPage';
 
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = React.useState<Page>('home');
-
   return (
     <Router>
       <div className="flex flex-col min-h-screen bg-gray-50">
-        <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <main className="flex-grow">
+        <PortfolioHeader />
+        <main className="flex-grow pt-20">
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/" element={<PortfolioHomePage />} />
+            <Route path="/projects" element={<PortfolioProjectsPage />} />
+            <Route path="/about" element={<PortfolioAboutPage />} />
+            <Route path="/contact" element={<PortfolioContactPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
-        <Footer />
+        <PortfolioFooter />
       </div>
     </Router>
   );
