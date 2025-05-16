@@ -1,0 +1,51 @@
+name: Merge
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  fast-forward:
+    # Only run if the label is "merge"
+    if: ${{ github.event.label.name == 'merge' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Attempt Fast-Forward Merge
+        id: merge
+        run: |
+          # Fetch the latest from the base branch
+          git fetch origin ${{ github.base_ref }}
+
+          # Check if this is a fast-forward merge
+          if git merge-base --is-ancestor origin/${{ github.base_ref }} HEAD; then
+            echo "PR is fast-forward mergeable"
+            
+            # Switch to the base branch
+            git checkout ${{ github.base_ref }}
+            
+            # Fast-forward to the PR branch
+            git merge --ff-only ${{ github.head_ref }}
+            
+            # Push the changes
+            git push origin ${{ github.base_ref }}
+            
+            # Add success comment to the PR
+            gh pr comment ${{ github.event.pull_request.number }} --body "✅ Fast-forward merge completed successfully!"
+            
+            echo "merge_status=success" >> "$GITHUB_OUTPUT"
+          else
+            echo "PR cannot be fast-forwarded. Base branch has diverged from the head branch."
+            
+            # Add error comment to the PR
+            gh pr comment ${{ github.event.pull_request.number }} --body "❌ Fast-forward merge failed: The base branch has diverged from this PR branch. Please rebase the PR branch onto the latest base branch."
+            
+            # Remove the merge label
+            gh pr edit ${{ github.event.pull_request.number }} --remove-label "merge"
+            
+            echo "merge_status=failed" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
