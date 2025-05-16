@@ -56,3 +56,5 @@ jobs:
             echo "merge_status=failed" >> "$GITHUB_OUTPUT"
             exit 1
           fi
+        env:
+          GH_TOKEN: ${{ github.token }}
