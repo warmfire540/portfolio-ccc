@@ -7,9 +7,11 @@
 
 # You can whitelist files/folders with !, these will not be ignored.
 !*.json
+!*.js
 !*.ts
 !*.tsx
 !*.svg
+!*.css
 !.prettierrc
 !.nycrc
 !assets/**
