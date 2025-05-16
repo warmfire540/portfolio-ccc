@@ -64,8 +64,8 @@ const CCCHeader = () => {
             >
               <Logo
                 fill={theme === 'dark' ? 'white' : 'darkblue'}
-                height="40px"
-                width="40px"
+                height="50px"
+                width="50px"
               />
             </div>
             <div className="flex flex-col">

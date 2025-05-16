@@ -3,9 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import AnimatedSection from '../components/common/AnimatedSection';
-import { services, specializedServices } from '../data/services';
+import { getServices, specializedServices } from '../data/services';
 
 const CCCServicesPage: React.FC = () => {
+  const services = getServices(48);
+
   return (
     <div className="bg-white dark:bg-gray-900 pt-32">
       {/* Hero Section */}

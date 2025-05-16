@@ -1,77 +1,15 @@
-import {
-  Cloud,
-  Code,
-  Database,
-  Layers,
-  RefreshCw,
-  Terminal,
-} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { useTheme } from 'utils/ThemeContext';
+
+import { getServices } from 'data/services';
 
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import AnimatedSection from '../components/common/AnimatedSection';
 
 const CCCHomePage = () => {
   const { theme } = useTheme();
-
-  // Services offered by Curious Cat Consulting
-  // todo - rused
-  const services = [
-    {
-      id: 'architecture',
-      title: 'Software Architecture',
-      icon: (
-        <Layers size={36} className="text-indigo-600 dark:text-indigo-400" />
-      ),
-      description:
-        'Designing scalable and maintainable software systems using cloud-native and microservices patterns.',
-    },
-    {
-      id: 'fullstack',
-      title: 'Full-Stack Development',
-      icon: <Code size={36} className="text-indigo-600 dark:text-indigo-400" />,
-      description:
-        'Building responsive user interfaces and robust backend services with modern technologies and frameworks.',
-    },
-    {
-      id: 'cloud',
-      title: 'Cloud Solutions',
-      icon: (
-        <Cloud size={36} className="text-indigo-600 dark:text-indigo-400" />
-      ),
-      description:
-        'Leveraging Azure, AWS, and GCP services to build and deploy modern, scalable applications.',
-    },
-    {
-      id: 'devops',
-      title: 'DevOps & Automation',
-      icon: (
-        <RefreshCw size={36} className="text-indigo-600 dark:text-indigo-400" />
-      ),
-      description:
-        'Implementing CI/CD pipelines, container orchestration, and infrastructure as code for seamless delivery.',
-    },
-    {
-      id: 'data',
-      title: 'Data Integration',
-      icon: (
-        <Database size={36} className="text-indigo-600 dark:text-indigo-400" />
-      ),
-      description:
-        'Connecting systems and transforming data with ETL processes, data pipelines, and integration solutions.',
-    },
-    {
-      id: 'consultation',
-      title: 'Technical Consultation',
-      icon: (
-        <Terminal size={36} className="text-indigo-600 dark:text-indigo-400" />
-      ),
-      description:
-        'Providing expert advice and guidance on technical decisions, architecture reviews, and technology selection.',
-    },
-  ];
+  const services = getServices(36);
 
   return (
     <div className="flex flex-col">

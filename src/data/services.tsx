@@ -22,13 +22,15 @@ interface Service {
   offerings: string[];
 }
 
-export const services: Service[] = [
+export const getServices = (size: number): Service[] => [
   {
     id: 'architecture',
     title: 'Software Architecture',
     description:
       'Design scalable, maintainable systems that align with your business goals and technical requirements.',
-    icon: <Layers size={48} className="text-indigo-600 dark:text-indigo-400" />,
+    icon: (
+      <Layers size={size} className="text-indigo-600 dark:text-indigo-400" />
+    ),
     benefits: [
       'Scalable systems that grow with your business',
       'Reduced technical debt and maintenance costs',
@@ -48,7 +50,7 @@ export const services: Service[] = [
     title: 'Full-Stack Development',
     description:
       'Build complete web and mobile applications with modern front-end interfaces and robust back-end services.',
-    icon: <Code size={48} className="text-indigo-600 dark:text-indigo-400" />,
+    icon: <Code size={size} className="text-indigo-600 dark:text-indigo-400" />,
     benefits: [
       'Cohesive application development from end to end',
       'Consistent practices across the technology stack',
@@ -68,7 +70,9 @@ export const services: Service[] = [
     title: 'Cloud Solutions',
     description:
       'Leverage the power of cloud platforms to reduce costs, increase scalability, and improve reliability.',
-    icon: <Cloud size={48} className="text-indigo-600 dark:text-indigo-400" />,
+    icon: (
+      <Cloud size={size} className="text-indigo-600 dark:text-indigo-400" />
+    ),
     benefits: [
       'Reduced infrastructure costs and management overhead',
       'Improved scalability and flexibility',
@@ -89,7 +93,7 @@ export const services: Service[] = [
     description:
       'Streamline your development lifecycle with continuous integration, delivery, and infrastructure as code.',
     icon: (
-      <RefreshCw size={48} className="text-indigo-600 dark:text-indigo-400" />
+      <RefreshCw size={size} className="text-indigo-600 dark:text-indigo-400" />
     ),
     benefits: [
       'Faster, more reliable software releases',
@@ -111,7 +115,7 @@ export const services: Service[] = [
     description:
       'Connect disparate systems and data sources to provide a unified view of your business information.',
     icon: (
-      <Database size={48} className="text-indigo-600 dark:text-indigo-400" />
+      <Database size={size} className="text-indigo-600 dark:text-indigo-400" />
     ),
     benefits: [
       'Unified view of business data across systems',
@@ -133,7 +137,7 @@ export const services: Service[] = [
     description:
       'Get expert advice on technology selection, system design, and technical strategy to guide your decisions.',
     icon: (
-      <Terminal size={48} className="text-indigo-600 dark:text-indigo-400" />
+      <Terminal size={size} className="text-indigo-600 dark:text-indigo-400" />
     ),
     benefits: [
       'Informed decisions based on technical expertise',

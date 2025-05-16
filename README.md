@@ -1,7 +1,6 @@
 tweaks
-- nav buttons odd if not loaded
-- contact form - do something
-- modularize
+- hosting?
+- ci/cd
 
 
 # Curious Cat Consulting - Website
