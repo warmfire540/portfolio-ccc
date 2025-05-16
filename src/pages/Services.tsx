@@ -1,18 +1,18 @@
 import React from 'react';
 
 import {
+  BarChart,
+  Cloud,
   Code,
   Database,
+  FileCode,
+  GitBranch,
   Layers,
   RefreshCw,
-  Cloud,
-  Terminal,
-  FileCode,
   Server,
-  Workflow,
-  GitBranch,
-  BarChart,
+  Terminal,
   Users,
+  Workflow,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -223,6 +223,7 @@ const CCCServicesPage: React.FC = () => {
           <div className="space-y-24">
             {services.map((service, index) => (
               <AnimatedSection
+                id={service.id}
                 key={service.id}
                 animation={index % 2 === 0 ? 'slide-right' : 'slide-up'}
                 className={`flex flex-col ${

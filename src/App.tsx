@@ -8,6 +8,9 @@ import {
   useLocation,
 } from 'react-router-dom';
 
+import ScrollToAnchor from 'components/common/ScrollToAnchor';
+
+import ScrollToTopButton from './components/common/ScrollToTopButton';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import About from './pages/About';
@@ -32,6 +35,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider>
       <Router>
+        <ScrollToAnchor />
         <ScrollToTop />
         <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
           <Header />
@@ -46,6 +50,7 @@ const App: React.FC = () => {
             </Routes>
           </main>
           <Footer />
+          <ScrollToTopButton />
         </div>
       </Router>
     </ThemeProvider>

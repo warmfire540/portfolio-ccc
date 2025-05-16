@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, ReactNode } from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 
 interface AnimatedSectionProps {
   children: ReactNode;
+  id?: string;
   threshold?: number;
   className?: string;
   animation?: 'fade-in' | 'slide-up' | 'slide-right' | 'zoom-in';
@@ -10,6 +11,7 @@ interface AnimatedSectionProps {
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   children,
+  id = '',
   threshold = 0.1,
   className = '',
   animation = 'fade-in',
@@ -18,7 +20,8 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    const currentSection = sectionRef.current;
+    if (!currentSection) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -52,11 +55,11 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
       { threshold },
     );
 
-    observer.observe(sectionRef.current);
+    observer.observe(currentSection);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSection) {
+        observer.unobserve(currentSection);
       }
     };
   }, [animation, delay, threshold]);
@@ -81,6 +84,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
 
   return (
     <div
+      id={id}
       ref={sectionRef}
       className={`${animationClasses} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}

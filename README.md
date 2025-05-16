@@ -1,8 +1,9 @@
 tweaks
 - decide on colors
-- links don't link to stuff and scroll
-- go to top button
-- work projects?
+- nav buttons odd
+- smaller windows - logos and stuff odd
+- leftover ai comments
+- contact form?
 
 
 # Curious Cat Consulting - Website

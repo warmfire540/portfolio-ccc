@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
+import { Link } from 'react-router-dom';
+
 interface TeamMember {
   id: string;
   name: string;
@@ -26,7 +28,7 @@ const CCCAboutPage: React.FC = () => {
         'Throughout his career, Patrick has played an active role during each phase of the Software Development Life Cycle, significantly enhancing code quality and maintainability through comprehensive management of complex initiatives.',
         'He specializes in designing scalable, efficient, and robust solutions involving architectural patterns such as cloud-native applications and microservices.',
       ],
-      imageUrl: '/assets/patrick.jpeg',
+      imageUrl: '/assets/team/patrick.jpeg',
     },
     {
       id: 'member-2',
@@ -37,7 +39,7 @@ const CCCAboutPage: React.FC = () => {
         'With a background in business administration and a keen eye for detail, Gina ensures our projects run smoothly from initial consultation to final delivery.',
         'She is passionate about creating positive client experiences and ensuring that our technical solutions align with real business needs and objectives.',
       ],
-      imageUrl: '/assets/gina.jpeg',
+      imageUrl: '/assets/team/gina.jpeg',
     },
   ];
 
@@ -74,7 +76,8 @@ const CCCAboutPage: React.FC = () => {
     const ref = useRef(null);
 
     useEffect(() => {
-      if (!ref.current) return;
+      const node = ref.current;
+      if (!node) return;
 
       const observer = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
@@ -83,11 +86,11 @@ const CCCAboutPage: React.FC = () => {
         }
       }, options);
 
-      observer.observe(ref.current);
+      observer.observe(node);
 
       return () => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
+        if (node) {
+          observer.unobserve(node);
         }
       };
     }, [options]);
@@ -323,12 +326,11 @@ const CCCAboutPage: React.FC = () => {
             Let\'s discuss how our curiosity-driven approach can help your
             business build software that truly makes a difference.
           </p>
-          <button
-            onClick={() => console.log('Navigate to: /contact')}
-            className="px-6 py-3 bg-white text-indigo-800 font-semibold rounded-md hover:bg-gray-100 transition-colors text-lg"
-          >
-            Get In Touch
-          </button>
+          <Link to="/contact">
+            <button className="px-6 py-3 bg-white text-indigo-800 font-semibold rounded-md hover:bg-gray-100 transition-colors text-lg">
+              Get In Touch
+            </button>
+          </Link>
         </div>
       </section>
     </div>

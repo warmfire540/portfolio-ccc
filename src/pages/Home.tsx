@@ -1,11 +1,9 @@
-import React from 'react';
-
 import {
+  Cloud,
   Code,
   Database,
   Layers,
   RefreshCw,
-  Cloud,
   Terminal,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
