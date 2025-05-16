@@ -1,9 +1,7 @@
 tweaks
-- decide on colors
-- nav buttons odd
-- smaller windows - logos and stuff odd
-- leftover ai comments
-- contact form?
+- nav buttons odd if not loaded
+- contact form - do something
+- modularize
 
 
 # Curious Cat Consulting - Website

@@ -2,166 +2,17 @@ import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
+import { useTheme } from 'utils/ThemeContext';
+
+import { categories, projects } from 'data/projects';
+
 import AnimatedSection from '../components/common/AnimatedSection';
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  clientType: string;
-  technologies: string[];
-  imageUrl: string;
-  link?: string;
-}
 
 const CCCProjectsPage: React.FC = () => {
-  // List of project categories for filtering
-  const categories = [
-    'All',
-    'Architecture',
-    'Full-Stack',
-    'Cloud',
-    'DevOps',
-    'Data Integration',
-  ];
+  const { theme } = useTheme();
 
   // State for active filter
   const [activeFilter, setActiveFilter] = useState('All');
-
-  // Project data
-  const projects: Project[] = [
-    {
-      id: 'home-assistant-extensions',
-      title: 'Home Assistant Open Source Contributions',
-      category: 'Full-Stack',
-      description:
-        'Maintained and developed 6+ open source integrations and extensions for Home Assistant, the popular home automation platform. Projects include custom components, integrations with various APIs and services, and utilities that enhance the Home Assistant ecosystem. These projects have collectively received hundreds of stars on GitHub and are actively used by the community.',
-      clientType: 'Open Source / Community',
-      technologies: [
-        'Python',
-        'Home Assistant',
-        'REST APIs',
-        'MQTT',
-        'GitHub Actions',
-        'IoT Protocols',
-        'Automation',
-      ],
-      imageUrl: '/assets/projects/ha.png',
-      link: 'https://github.com/orgs/homeassistant-extras/repositories',
-    },
-    {
-      id: 'ci-cd-transformation',
-      title: 'Enterprise CI/CD Transformation',
-      category: 'DevOps',
-      description:
-        'Transformed a brittle, manual deployment process into a robust, automated CI/CD pipeline. Revamped Git workflows, implemented branch protection rules, and created standardized deployment templates. Reduced deployment time by 85% while eliminating deployment errors that had previously affected business operations.',
-      clientType: 'Large Retail Corporation',
-      technologies: [
-        'Azure DevOps',
-        'Bitbucket Pipelines',
-        'Docker',
-        'PowerShell',
-        'YAML',
-        '.NET Core',
-        'Git Flow',
-      ],
-      imageUrl: '/assets/projects/devops.png',
-    },
-    {
-      id: 'cloud-data-transformation',
-      title: 'Digital Transformation - Ground to Cloud',
-      category: 'Cloud',
-      description:
-        'Led a comprehensive migration from legacy on-premise applications to a scalable cloud architecture. Developed data pipeline integrations between on-premise SQL databases and cloud-based Delta Lake infrastructure. Enabled business self-service reporting through Power BI, replacing outdated SSRS and Cognos implementations.',
-      clientType: 'National Retail Chain',
-      technologies: [
-        'Azure Data Factory',
-        'Databricks',
-        'Google Cloud Platform',
-        'Power BI',
-        'ASP.NET',
-        'Microservices',
-        'Hubspot Integration',
-      ],
-      imageUrl: '/assets/projects/delta.jpeg',
-      link: 'https://learn.microsoft.com/en-us/azure/databricks/introduction/',
-    },
-    {
-      id: 'intranet-modernization',
-      title: 'SharePoint Intranet Modernization',
-      category: 'Full-Stack',
-      description:
-        'Revitalized an outdated corporate intranet by implementing modern workflows, approval processes, and security groups. Created custom PowerApps solutions to replace paper-based processes, and developed Power Automate flows to streamline business operations. Implemented proper governance and documentation to ensure long-term maintainability.',
-      clientType: 'Healthcare Services Provider',
-      technologies: [
-        'SharePoint Online',
-        'Power Apps',
-        'Power Automate',
-        'Microsoft Graph API',
-        'Azure AD',
-        'React',
-        'SPFx',
-      ],
-      imageUrl: '/assets/projects/sharepoint.jpg',
-      link: 'https://www.ctileadership.com/',
-    },
-    {
-      id: 'legacy-app-modernization',
-      title: 'Legacy Application Modernization',
-      category: 'Architecture',
-      description:
-        'Transformed a suite of outdated Windows Forms applications into a modern web-based platform. Applied domain-driven design principles to restructure the application architecture while preserving business logic. Implemented a phased migration approach that minimized business disruption while delivering incremental improvements.',
-      clientType: 'Financial Services Firm',
-      technologies: [
-        'React',
-        'TypeScript',
-        'ASP.NET Core API',
-        'Entity Framework',
-        'SQL Server',
-        'Azure App Services',
-        'CI/CD',
-      ],
-      imageUrl: '/assets/projects/modernize.jpg',
-    },
-    {
-      id: 'gl-system-integration',
-      title: 'General Ledger System Integration',
-      category: 'Data Integration',
-      description:
-        'Orchestrated the integration between a legacy accounting system and a new enterprise DMS platform. Identified all affected systems, many with no prior documentation, and developed comprehensive migration strategies. Created validation frameworks to ensure data integrity during and after migration, resulting in zero financial discrepancies post-cutover.',
-      clientType: 'Automotive Retail Group',
-      technologies: [
-        'SQL Server',
-        'Azure Functions',
-        'Dynamics AX',
-        'Custom APIs',
-        'PowerShell',
-        'ETL Processes',
-        'Data Validation Framework',
-      ],
-      imageUrl: '/assets/projects/d365.jpg',
-      link: 'https://www.microsoft.com/en-us/dynamics-365',
-    },
-    {
-      id: 'multi-system-integration',
-      title: 'Multi-System Integration Platform',
-      category: 'Data Integration',
-      description:
-        'Designed and implemented an integration hub that connected disparate business systems (CRM, ERP, and custom applications) to enable unified data flow across the organization. Created a centralized logging and monitoring solution that provided real-time visibility into integration health and data movement.',
-      clientType: 'Manufacturing Enterprise',
-      technologies: [
-        'Azure Service Bus',
-        'Logic Apps',
-        'API Management',
-        'Event Grid',
-        'Azure Functions',
-        'Cosmos DB',
-        'Application Insights',
-      ],
-      imageUrl: '/assets/projects/integration.png',
-      link: 'https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven',
-    },
-  ];
 
   // Filter projects based on selected category
   const filteredProjects =
@@ -170,11 +21,13 @@ const CCCProjectsPage: React.FC = () => {
       : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <div className="bg-white py-12 pt-32">
+    <div className="bg-white dark:bg-gray-900 py-12 pt-32">
       <div className="container mx-auto px-4">
         <AnimatedSection animation="fade-in" className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Projects</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+            Projects
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             A portfolio of my most impactful work across various technical
             disciplines. Each project represents unique challenges solved and
             value delivered.
@@ -193,6 +46,8 @@ const CCCProjectsPage: React.FC = () => {
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 activeFilter === category
                   ? 'bg-indigo-900 text-white'
+                  : theme === 'dark'
+                  ? 'bg-gray-800 text-gray-200 hover:bg-gray-700'
                   : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
               }`}
             >
@@ -208,7 +63,11 @@ const CCCProjectsPage: React.FC = () => {
               key={project.id}
               animation="zoom-in"
               delay={index * 100}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200"
+              className={`${
+                theme === 'dark'
+                  ? 'bg-gray-800 border-gray-700 hover:shadow-xl hover:shadow-indigo-900/20'
+                  : 'bg-white border-gray-200 hover:shadow-xl'
+              } rounded-lg overflow-hidden shadow-md transition-all duration-300 transform hover:-translate-y-1 border`}
             >
               <img
                 src={project.imageUrl}
@@ -216,27 +75,45 @@ const CCCProjectsPage: React.FC = () => {
                 className="w-full h-48 object-cover object-center"
               />
               <div className="p-6">
-                <span className="inline-block px-3 py-1 text-xs font-semibold text-indigo-800 bg-indigo-100 rounded-full mb-2">
+                <span
+                  className={`inline-block px-3 py-1 text-xs font-semibold rounded-full mb-2 ${
+                    theme === 'dark'
+                      ? 'text-indigo-300 bg-indigo-900/50'
+                      : 'text-indigo-800 bg-indigo-100'
+                  }`}
+                >
                   {project.category}
                 </span>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-3">{project.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-3">
+                  {project.description}
+                </p>
                 <div className="mb-3">
-                  <span className="inline-block px-2 py-1 text-xs font-semibold text-indigo-800 bg-gray-100 rounded mb-2">
+                  <span
+                    className={`inline-block px-2 py-1 text-xs font-semibold rounded mb-2 ${
+                      theme === 'dark'
+                        ? 'text-indigo-300 bg-gray-700'
+                        : 'text-indigo-800 bg-gray-100'
+                    }`}
+                  >
                     Client: {project.clientType}
                   </span>
                 </div>
                 <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     Technologies Used:
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded"
+                        className={`px-2 py-1 text-xs rounded ${
+                          theme === 'dark'
+                            ? 'bg-gray-700 text-gray-200'
+                            : 'bg-gray-100 text-gray-800'
+                        }`}
                       >
                         {tech}
                       </span>
@@ -245,7 +122,13 @@ const CCCProjectsPage: React.FC = () => {
                 </div>
                 {project.link && (
                   <Link to={project.link} target="_blank">
-                    <button className="w-full px-4 py-2 border border-indigo-600 text-indigo-600 font-medium rounded-md hover:bg-indigo-50 transition-colors text-center">
+                    <button
+                      className={`w-full px-4 py-2 font-medium rounded-md transition-colors text-center ${
+                        theme === 'dark'
+                          ? 'border border-indigo-500 text-indigo-400 hover:bg-indigo-900/50'
+                          : 'border border-indigo-600 text-indigo-600 hover:bg-indigo-50'
+                      }`}
+                    >
                       View Details
                     </button>
                   </Link>
@@ -259,17 +142,19 @@ const CCCProjectsPage: React.FC = () => {
         {filteredProjects.length === 0 && (
           <AnimatedSection
             animation="fade-in"
-            className="text-center py-16 bg-gray-50 rounded-lg"
+            className={`text-center py-16 rounded-lg ${
+              theme === 'dark' ? 'bg-gray-800' : 'bg-gray-50'
+            }`}
           >
-            <h3 className="text-xl font-bold text-gray-700 mb-2">
+            <h3 className="text-xl font-bold text-gray-700 dark:text-gray-200 mb-2">
               No projects found
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
               No projects match the selected filter. Try another category.
             </p>
             <button
               onClick={() => setActiveFilter('All')}
-              className="px-4 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition-colors"
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md transition-colors"
             >
               Show All Projects
             </button>
@@ -279,7 +164,11 @@ const CCCProjectsPage: React.FC = () => {
         {/* Call to action */}
         <AnimatedSection
           animation="fade-in"
-          className="text-center mt-16 py-12 px-6 bg-gradient-to-r from-indigo-900 to-indigo-700 rounded-lg text-white"
+          className={`text-center mt-16 py-12 px-6 rounded-lg text-white ${
+            theme === 'dark'
+              ? 'bg-gradient-to-r from-indigo-800 to-indigo-600'
+              : 'bg-gradient-to-r from-indigo-900 to-indigo-700'
+          }`}
         >
           <h2 className="text-2xl font-bold mb-4">
             Interested in working together?
@@ -290,7 +179,11 @@ const CCCProjectsPage: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="px-6 py-3 bg-white text-indigo-800 font-medium text-lg rounded-md hover:bg-gray-100 transition-colors inline-block"
+            className={`px-6 py-3 font-medium text-lg rounded-md transition-colors inline-block ${
+              theme === 'dark'
+                ? 'bg-white text-indigo-800 hover:bg-gray-100'
+                : 'bg-white text-indigo-800 hover:bg-gray-100'
+            }`}
           >
             Get In Touch
           </Link>
@@ -299,7 +192,7 @@ const CCCProjectsPage: React.FC = () => {
         {/* Services Section */}
         <div className="mt-16">
           <AnimatedSection animation="fade-in" className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
               Services Offered
             </h2>
           </AnimatedSection>
@@ -308,12 +201,16 @@ const CCCProjectsPage: React.FC = () => {
               <AnimatedSection
                 animation="slide-right"
                 delay={0}
-                className="p-6 border border-gray-200 rounded-lg"
+                className={`p-6 rounded-lg ${
+                  theme === 'dark'
+                    ? 'border border-gray-700 bg-gray-800/50'
+                    : 'border border-gray-200'
+                }`}
               >
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
                   Custom Software Development
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   From concept to deployment, I build custom software solutions
                   tailored to your specific business needs. My development
                   process focuses on quality, maintainability, and delivering
@@ -324,12 +221,16 @@ const CCCProjectsPage: React.FC = () => {
               <AnimatedSection
                 animation="slide-right"
                 delay={200}
-                className="p-6 border border-gray-200 rounded-lg"
+                className={`p-6 rounded-lg ${
+                  theme === 'dark'
+                    ? 'border border-gray-700 bg-gray-800/50'
+                    : 'border border-gray-200'
+                }`}
               >
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
                   Legacy System Modernization
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   I help businesses transform outdated systems into modern,
                   scalable applications. My approach minimizes risk and
                   disruption while maximizing the benefits of modern technology.
@@ -339,12 +240,16 @@ const CCCProjectsPage: React.FC = () => {
               <AnimatedSection
                 animation="slide-right"
                 delay={400}
-                className="p-6 border border-gray-200 rounded-lg"
+                className={`p-6 rounded-lg ${
+                  theme === 'dark'
+                    ? 'border border-gray-700 bg-gray-800/50'
+                    : 'border border-gray-200'
+                }`}
               >
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
                   Cloud Migration & Optimization
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   I guide organizations through every step of moving to the
                   cloud, from strategy and planning to implementation and
                   optimization. My cloud solutions are secure, scalable, and
@@ -360,7 +265,11 @@ const CCCProjectsPage: React.FC = () => {
             >
               <Link
                 to="/services"
-                className="px-6 py-2 border border-indigo-600 text-indigo-600 font-medium rounded-md hover:bg-indigo-50 transition-colors inline-block"
+                className={`px-6 py-2 font-medium rounded-md transition-colors inline-block ${
+                  theme === 'dark'
+                    ? 'border border-indigo-500 text-indigo-400 hover:bg-indigo-900/30'
+                    : 'border border-indigo-600 text-indigo-600 hover:bg-indigo-50'
+                }`}
               >
                 View All Services
               </Link>

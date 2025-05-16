@@ -116,9 +116,9 @@ const CCCContactPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="relative py-20 bg-indigo-900 text-white overflow-hidden">
+      <section className="relative py-20 bg-indigo-900 dark:bg-indigo-950 text-white overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-indigo-700 opacity-20 blur-3xl animate-pulse"></div>
         <div
@@ -136,16 +136,16 @@ const CCCContactPage: React.FC = () => {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="py-16">
+      <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}
             <AnimatedSection animation="slide-right">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
                 Let's Connect
               </h2>
 
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
                 Whether you're looking for a technical consultation, interested
                 in collaborating on a project, or simply want to discuss your
                 software needs, I'm always open to connecting with
@@ -154,28 +154,30 @@ const CCCContactPage: React.FC = () => {
 
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-indigo-100 p-3 rounded-full mr-4">
-                    <MapPin className="h-6 w-6 text-indigo-600" />
+                  <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full mr-4">
+                    <MapPin className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-1">
                       Location
                     </h3>
-                    <p className="text-gray-600">Brandon, FL, United States</p>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      Brandon, FL, United States
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-indigo-100 p-3 rounded-full mr-4">
-                    <Mail className="h-6 w-6 text-indigo-600" />
+                  <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full mr-4">
+                    <Mail className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-1">
                       Email
                     </h3>
                     <a
                       href="mailto:info@curiouscat.consulting"
-                      className="text-indigo-600 hover:underline"
+                      className="text-indigo-600 hover:underline dark:text-indigo-400"
                     >
                       info@curiouscat.consulting
                     </a>
@@ -183,8 +185,8 @@ const CCCContactPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
                   Connect Online
                 </h3>
 
@@ -193,7 +195,7 @@ const CCCContactPage: React.FC = () => {
                     href="https://www.linkedin.com/company/106965272"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 p-3 rounded-full transition-colors duration-300"
+                    className="bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-indigo-800 dark:text-indigo-200 p-3 rounded-full transition-colors duration-300"
                   >
                     <LinkedinIcon className="h-6 w-6" />
                     <span className="sr-only">LinkedIn</span>
@@ -203,7 +205,7 @@ const CCCContactPage: React.FC = () => {
                     href="https://github.com/homeassistant-extras"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 p-3 rounded-full transition-colors duration-300"
+                    className="bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-indigo-800 dark:text-indigo-200 p-3 rounded-full transition-colors duration-300"
                   >
                     <GithubIcon className="h-6 w-6" />
                     <span className="sr-only">GitHub (Home Assistant)</span>
@@ -213,7 +215,7 @@ const CCCContactPage: React.FC = () => {
                     href="https://github.com/warmfire540"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 p-3 rounded-full transition-colors duration-300"
+                    className="bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-indigo-800 dark:text-indigo-200 p-3 rounded-full transition-colors duration-300"
                   >
                     <GithubIcon className="h-6 w-6" />
                     <span className="sr-only">GitHub (Personal)</span>
@@ -221,10 +223,10 @@ const CCCContactPage: React.FC = () => {
                 </div>
 
                 <div className="mt-6">
-                  <h4 className="font-medium text-gray-700 mb-2">
+                  <h4 className="font-medium text-gray-700 dark:text-gray-200 mb-2">
                     Availability
                   </h4>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-300">
                     I'm currently available for select consulting engagements,
                     architecture reviews, and development projects. Let's
                     discuss how I can help your business succeed.
@@ -235,13 +237,13 @@ const CCCContactPage: React.FC = () => {
 
             {/* Contact Form */}
             <AnimatedSection animation="slide-up" delay={200}>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
                 Send Me a Message
               </h2>
 
               {submitSuccess && (
                 <div
-                  className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-6"
+                  className="bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-200 px-4 py-3 rounded mb-6"
                   data-testid="success-message"
                 >
                   <p>
@@ -255,7 +257,7 @@ const CCCContactPage: React.FC = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
                     Name *
                   </label>
@@ -265,14 +267,16 @@ const CCCContactPage: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 ${
-                      errors.name ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-indigo-500 focus:border-indigo-500 ${
+                      errors.name
+                        ? 'border-red-500 dark:border-red-400'
+                        : 'border-gray-300 dark:border-gray-600'
                     }`}
                     data-testid="name-input"
                   />
                   {errors.name && (
                     <p
-                      className="mt-1 text-sm text-red-600"
+                      className="mt-1 text-sm text-red-600 dark:text-red-400"
                       data-testid="name-error"
                     >
                       {errors.name}
@@ -284,7 +288,7 @@ const CCCContactPage: React.FC = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
                     Email *
                   </label>
@@ -294,14 +298,16 @@ const CCCContactPage: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-indigo-500 focus:border-indigo-500 ${
+                      errors.email
+                        ? 'border-red-500 dark:border-red-400'
+                        : 'border-gray-300 dark:border-gray-600'
                     }`}
                     data-testid="email-input"
                   />
                   {errors.email && (
                     <p
-                      className="mt-1 text-sm text-red-600"
+                      className="mt-1 text-sm text-red-600 dark:text-red-400"
                       data-testid="email-error"
                     >
                       {errors.email}
@@ -313,7 +319,7 @@ const CCCContactPage: React.FC = () => {
                 <div>
                   <label
                     htmlFor="company"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
                     Company
                   </label>
@@ -323,7 +329,7 @@ const CCCContactPage: React.FC = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-indigo-500 focus:border-indigo-500"
                     data-testid="company-input"
                   />
                 </div>
@@ -332,7 +338,7 @@ const CCCContactPage: React.FC = () => {
                 <div>
                   <label
                     htmlFor="projectType"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
                     Interest Area
                   </label>
@@ -341,7 +347,7 @@ const CCCContactPage: React.FC = () => {
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-indigo-500 focus:border-indigo-500"
                     data-testid="project-type-input"
                   >
                     {projectTypes.map((option) => (
@@ -356,7 +362,7 @@ const CCCContactPage: React.FC = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
                     Message *
                   </label>
@@ -366,14 +372,16 @@ const CCCContactPage: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className={`w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 ${
-                      errors.message ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-indigo-500 focus:border-indigo-500 ${
+                      errors.message
+                        ? 'border-red-500 dark:border-red-400'
+                        : 'border-gray-300 dark:border-gray-600'
                     }`}
                     data-testid="message-input"
                   ></textarea>
                   {errors.message && (
                     <p
-                      className="mt-1 text-sm text-red-600"
+                      className="mt-1 text-sm text-red-600 dark:text-red-400"
                       data-testid="message-error"
                     >
                       {errors.message}
@@ -385,7 +393,7 @@ const CCCContactPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md transition-colors duration-200 ${
+                    className={`w-full flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-600 text-white font-medium rounded-md transition-colors duration-200 ${
                       isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                     }`}
                   >
@@ -400,20 +408,20 @@ const CCCContactPage: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-12 text-center">
             Frequently Asked Questions
           </h2>
 
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
               <AnimatedSection animation="fade-in" threshold={0.2}>
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md dark:shadow-black/20">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
                     What types of projects does Curious Cat Consulting work on?
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-300">
                     I specialize in enterprise software architecture, full-stack
                     development, cloud migrations, and DevOps automation. I
                     particularly enjoy complex projects that involve modernizing
@@ -424,11 +432,11 @@ const CCCContactPage: React.FC = () => {
               </AnimatedSection>
 
               <AnimatedSection animation="fade-in" threshold={0.2} delay={100}>
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md dark:shadow-black/20">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
                     What is your availability?
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-300">
                     I'm currently available for select consulting engagements
                     and development projects. My availability varies depending
                     on current commitments, so please reach out with your
@@ -439,11 +447,11 @@ const CCCContactPage: React.FC = () => {
               </AnimatedSection>
 
               <AnimatedSection animation="fade-in" threshold={0.2} delay={200}>
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md dark:shadow-black/20">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
                     Do you work remotely?
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-300">
                     Yes, I work primarily remotely with clients around the
                     United States. I use collaborative tools to ensure effective
                     communication and seamless workflow, regardless of
@@ -453,11 +461,11 @@ const CCCContactPage: React.FC = () => {
               </AnimatedSection>
 
               <AnimatedSection animation="fade-in" threshold={0.2} delay={300}>
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md dark:shadow-black/20">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
                     What is your approach to new projects?
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-300">
                     I start by thoroughly understanding the business problem and
                     objectives before diving into technical solutions. I believe
                     in transparent communication, iterative development, and
@@ -468,11 +476,11 @@ const CCCContactPage: React.FC = () => {
               </AnimatedSection>
 
               <AnimatedSection animation="fade-in" threshold={0.2} delay={400}>
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md dark:shadow-black/20">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
                     Do you provide ongoing support after project completion?
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-300">
                     Yes, I can provide ongoing maintenance and support as
                     needed. I also focus on knowledge transfer and documentation
                     throughout the project to ensure your team can confidently

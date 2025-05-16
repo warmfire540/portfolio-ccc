@@ -17,6 +17,7 @@ const CCCHomePage = () => {
   const { theme } = useTheme();
 
   // Services offered by Curious Cat Consulting
+  // todo - rused
   const services = [
     {
       id: 'architecture',

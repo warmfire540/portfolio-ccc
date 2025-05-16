@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Moon, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -44,15 +44,15 @@ const CCCHeader = () => {
           ? theme === 'dark'
             ? 'bg-gray-900 shadow-md py-2'
             : 'bg-white shadow-md py-2'
-          : 'bg-transparent py-4 backdrop-blur-sm bg-opacity-20'
+          : 'bg-transparent py-3 backdrop-blur-sm bg-opacity-20'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center space-x-3">
             <div
-              className={`${
+              className={`flex-shrink-0 ${
                 isScrolled
                   ? theme === 'dark'
                     ? 'text-indigo-400'
@@ -64,13 +64,13 @@ const CCCHeader = () => {
             >
               <Logo
                 fill={theme === 'dark' ? 'white' : 'darkblue'}
-                height="50px"
-                width="50px"
+                height="40px"
+                width="40px"
               />
             </div>
-            <div>
+            <div className="flex flex-col">
               <h1
-                className={`text-lg font-bold ${
+                className={`text-base sm:text-lg font-bold leading-tight ${
                   isScrolled
                     ? theme === 'dark'
                       ? 'text-white'
@@ -83,7 +83,7 @@ const CCCHeader = () => {
                 CURIOUS CAT CONSULTING
               </h1>
               <p
-                className={`text-xs ${
+                className={`text-xs leading-tight ${
                   isScrolled
                     ? theme === 'dark'
                       ? 'text-indigo-300'
@@ -100,7 +100,7 @@ const CCCHeader = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center">
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-5 lg:space-x-8">
               {navItems.map((item) => (
                 <li key={item.path}>
                   <Link
@@ -145,18 +145,18 @@ const CCCHeader = () => {
                     theme === 'dark' ? 'light' : 'dark'
                   } mode`}
                 >
-                  {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                  {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
                 </button>
               </li>
             </ul>
           </nav>
 
           {/* Mobile Controls (Menu Button + Theme Toggle) */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center space-x-3">
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full focus:outline-none transition-colors ${
+              className={`p-1.5 rounded-full focus:outline-none transition-colors ${
                 isScrolled
                   ? theme === 'dark'
                     ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700'
@@ -169,7 +169,7 @@ const CCCHeader = () => {
                 theme === 'dark' ? 'light' : 'dark'
               } mode`}
             >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
             {/* Mobile Menu Button */}
