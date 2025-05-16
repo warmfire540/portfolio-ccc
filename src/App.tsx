@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import { Analytics } from '@vercel/analytics/react';
 import {
   Navigate,
   Route,
@@ -19,7 +20,6 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Services from './pages/Services';
 import { ThemeProvider } from './utils/ThemeContext';
-
 // ScrollToTop component - ensures scrolling to top when navigating
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -53,6 +53,7 @@ const App: React.FC = () => {
           <ScrollToTopButton />
         </div>
       </Router>
+      <Analytics />
     </ThemeProvider>
   );
 };
