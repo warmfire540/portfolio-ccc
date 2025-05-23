@@ -1,58 +1,50 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Analytics } from '@vercel/analytics/react';
-import {
-  Navigate,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-  useLocation,
-} from 'react-router-dom';
+import { Contact } from 'lucide-react';
 
-import ScrollToAnchor from 'components/common/ScrollToAnchor';
+import About from 'components/spa/About';
+import Cta from 'components/spa/Cta';
+import Hero from 'components/spa/Hero';
+import Projects from 'components/spa/Projects';
+import Services from 'components/spa/Services';
 
 import ScrollToTopButton from './components/common/ScrollToTopButton';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import Services from './pages/Services';
 import { ThemeProvider } from './utils/ThemeContext';
-// ScrollToTop component - ensures scrolling to top when navigating
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
-
+/**
+ * The main application component that sets up the overall layout and theming for the portfolio site.
+ *
+ * @component
+ * @returns {JSX.Element} The root component containing the theme provider, header, main content sections,
+ * footer, scroll-to-top button, and analytics integration.
+ *
+ * @remarks
+ * - Wraps the entire application in a `ThemeProvider` for light/dark mode support.
+ * - Renders the following sections in order: Header, Hero, About, Services, Projects, Contact, Call to Action (Cta), Footer, and utility components.
+ * - Applies Tailwind CSS classes for responsive design and theming.
+ */
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <Router>
-        <ScrollToAnchor />
-        <ScrollToTop />
-        <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
-          <Header />
-          <main className="flex-grow pt-20 dark:text-white">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </main>
-          <Footer />
-          <ScrollToTopButton />
-        </div>
-      </Router>
+      <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+        <Header />
+        <main className="flex-grow pt-20 dark:text-white">
+          <div className="flex flex-col">
+            {/* Hero Section */}
+            <Hero />
+            <About />
+            <Services />
+            <Projects />
+            <Contact />
+            <Cta />
+          </div>
+        </main>
+        <Footer />
+        <ScrollToTopButton />
+      </div>
       <Analytics />
     </ThemeProvider>
   );

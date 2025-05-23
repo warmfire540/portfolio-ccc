@@ -1,7 +1,17 @@
 import { ReactGoogleReviews } from 'react-google-reviews';
 import 'react-google-reviews/dist/index.css';
 
-function Reviews() {
+/**
+ * Renders a section displaying client reviews for Curious Cat Consulting.
+ *
+ * This component includes a heading, a descriptive paragraph, and integrates
+ * the `ReactGoogleReviews` widget to showcase client testimonials. The section
+ * is styled for both light and dark themes and is responsive.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered reviews section.
+ */
+const Reviews: React.FC = () => {
   return (
     <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-4">
@@ -23,6 +33,6 @@ function Reviews() {
       </div>
     </section>
   );
-}
+};
 
 export default Reviews;

@@ -4,6 +4,19 @@ import { ArrowUp } from 'lucide-react';
 
 import { useTheme } from '../../utils/ThemeContext';
 
+/**
+ * A floating button component that appears when the user scrolls down the page,
+ * allowing them to smoothly scroll back to the top.
+ *
+ * The button is only visible when the page is scrolled more than 300 pixels vertically.
+ * It adapts its appearance based on the current theme (dark or light).
+ *
+ * @component
+ * @example
+ * <ScrollToTopButton />
+ *
+ * @returns {JSX.Element} The scroll-to-top button, conditionally rendered.
+ */
 const ScrollToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { theme } = useTheme();

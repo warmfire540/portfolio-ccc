@@ -1,24 +1,43 @@
 import { useEffect, useState } from 'react';
 
 import { Moon, Sun } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 import { useTheme } from 'utils/ThemeContext';
 
 import { ReactComponent as Logo } from '../../assets/cat.svg';
 
+/**
+ * Renders the main header/navigation bar for the Curious Cat Consulting portfolio site.
+ *
+ * Features:
+ * - Fixed header with dynamic background and shadow based on scroll position and theme.
+ * - Responsive navigation: horizontal menu for desktop, collapsible menu for mobile.
+ * - Smooth scrolling to page sections when navigation items are clicked.
+ * - Highlights the active section based on scroll position.
+ * - Theme toggle button for switching between light and dark modes.
+ * - Displays company logo and tagline.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered header component.
+ *
+ * @example
+ * ```tsx
+ * <CCCHeader />
+ * ```
+ */
 const CCCHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const { theme, toggleTheme } = useTheme();
 
-  // Navigation items
+  // Navigation items with anchor links
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/contact', label: 'Contact' },
+    { href: '#home', label: 'Home', id: 'home' },
+    { href: '#about', label: 'About', id: 'about' },
+    { href: '#services', label: 'Services', id: 'services' },
+    { href: '#projects', label: 'Projects', id: 'projects' },
+    { href: '#contact', label: 'Contact', id: 'contact' },
   ];
 
   // Handle scroll effect for header
@@ -29,6 +48,21 @@ const CCCHeader = () => {
       } else {
         setIsScrolled(false);
       }
+
+      // Determine active section based on scroll position
+      const navbarHeight = 110;
+      const sections = navItems.map((item) => item.id);
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= navbarHeight) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -36,6 +70,25 @@ const CCCHeader = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Smooth scroll to section
+  const scrollToSection = (href: string) => {
+    const navbarHeight = 110;
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navbarHeight,
+        behavior: 'smooth',
+      });
+    }
+
+    // Close mobile menu after clicking
+    setIsMenuOpen(false);
+  };
 
   return (
     <header
@@ -50,7 +103,10 @@ const CCCHeader = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <button
+            onClick={() => scrollToSection('#home')}
+            className="flex items-center space-x-3 focus:outline-none"
+          >
             <div
               className={`flex-shrink-0 ${
                 isScrolled
@@ -96,17 +152,17 @@ const CCCHeader = () => {
                 CURIOUSLY BETTER SOFTWARE
               </p>
             </div>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center">
             <ul className="flex space-x-5 lg:space-x-8">
               {navItems.map((item) => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className={`px-2 py-2 text-sm font-medium transition-colors ${
-                      window.location.pathname === item.path
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className={`px-2 py-2 text-sm font-medium transition-colors focus:outline-none ${
+                      activeSection === item.id
                         ? isScrolled
                           ? theme === 'dark'
                             ? 'text-indigo-400 border-b-2 border-indigo-400'
@@ -124,7 +180,7 @@ const CCCHeader = () => {
                     }`}
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
 
@@ -224,11 +280,11 @@ const CCCHeader = () => {
           <nav className="container mx-auto px-4">
             <ul className="space-y-4">
               {navItems.map((item) => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className={`block py-2 transition-colors ${
-                      window.location.pathname === item.path
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className={`block py-2 transition-colors w-full text-left focus:outline-none ${
+                      activeSection === item.id
                         ? theme === 'dark'
                           ? 'text-indigo-400 font-medium'
                           : 'text-indigo-600 font-medium'
@@ -238,7 +294,7 @@ const CCCHeader = () => {
                     }`}
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>

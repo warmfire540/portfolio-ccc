@@ -7,6 +7,17 @@ interface CtaButtonProps {
   className?: string;
 }
 
+/**
+ * A customizable call-to-action button component.
+ *
+ * @param {CtaButtonProps} props - The properties for the CtaButton component.
+ * @param {string} props.text - The text to display inside the button.
+ * @param {() => void} props.onClick - The function to call when the button is clicked.
+ * @param {boolean} [props.primary=true] - If true, applies primary styling; otherwise, applies secondary styling.
+ * @param {string} [props.className] - Additional CSS classes to apply to the button.
+ *
+ * @returns {JSX.Element} The rendered CTA button.
+ */
 const CtaButton: React.FC<CtaButtonProps> = ({
   text,
   onClick,

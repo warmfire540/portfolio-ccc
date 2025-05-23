@@ -1,32 +1,46 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
 import { ReactComponent as Logo } from '../../assets/cat.svg';
 
 const CCCFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
+
+  // Smooth scroll to section
+  const scrollToSection = (href: string) => {
+    const navbarHeight = 110;
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navbarHeight,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   // Footer link sections
   const footerSections = [
     {
       title: 'Navigation',
       links: [
-        { label: 'Home', path: '/' },
-        { label: 'Services', path: '/services' },
-        { label: 'About', path: '/about' },
-        { label: 'Projects', path: '/projects' },
-        { label: 'Contact', path: '/contact' },
+        { label: 'Home', href: '#home', external: false },
+        { label: 'About', href: '#about', external: false },
+        { label: 'Services', href: '#services', external: false },
+        { label: 'Projects', href: '#projects', external: false },
+        { label: 'Contact', href: '#contact', external: false },
       ],
     },
     {
       title: 'Services',
       links: [
-        { label: 'Software Architecture', path: '/services#architecture' },
-        { label: 'Full-Stack Development', path: '/services#fullstack' },
-        { label: 'Cloud Solutions', path: '/services#cloud' },
-        { label: 'DevOps & Automation', path: '/services#devops' },
-        { label: 'Data Integration', path: '/services#data' },
+        { label: 'Software Architecture', href: '#services', external: false },
+        { label: 'Full-Stack Development', href: '#services', external: false },
+        { label: 'Cloud Solutions', href: '#services', external: false },
+        { label: 'DevOps & Automation', href: '#services', external: false },
+        { label: 'Data Integration', href: '#services', external: false },
       ],
     },
     {
@@ -34,22 +48,22 @@ const CCCFooter: React.FC = () => {
       links: [
         {
           label: 'LinkedIn',
-          path: 'https://www.linkedin.com/company/106965272',
+          href: 'https://www.linkedin.com/company/106965272',
           external: true,
         },
         {
           label: 'GitHub (HomeAssistant Extras)',
-          path: 'https://github.com/homeassistant-extras',
+          href: 'https://github.com/homeassistant-extras',
           external: true,
         },
         {
           label: 'GitHub (Personal)',
-          path: 'https://github.com/warmfire540',
+          href: 'https://github.com/warmfire540',
           external: true,
         },
         {
           label: 'Email',
-          path: 'mailto:info@curiouscat.consulting',
+          href: 'mailto:info@curiouscat.consulting',
           external: true,
         },
       ],
@@ -59,14 +73,14 @@ const CCCFooter: React.FC = () => {
   // Render external or internal link based on the 'external' property
   const renderLink = (link: {
     label: string;
-    path: string;
+    href: string;
     external?: boolean;
   }) => {
     if (link.external) {
       return (
         <a
-          href={link.path}
-          target={link.path.startsWith('mailto:') ? '_self' : '_blank'}
+          href={link.href}
+          target={link.href.startsWith('mailto:') ? '_self' : '_blank'}
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-white transition-colors duration-200"
         >
@@ -75,14 +89,14 @@ const CCCFooter: React.FC = () => {
       );
     }
 
-    // Use React Router Link
+    // Use smooth scrolling for internal navigation
     return (
-      <Link
-        to={link.path}
-        className="text-gray-400 hover:text-white transition-colors duration-200"
+      <button
+        onClick={() => scrollToSection(link.href)}
+        className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
       >
         {link.label}
-      </Link>
+      </button>
     );
   };
 
@@ -92,14 +106,17 @@ const CCCFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo and description */}
           <div className="md:col-span-1">
-            <div className="flex items-center mb-4">
+            <button
+              onClick={() => scrollToSection('#home')}
+              className="flex items-center mb-4 focus:outline-none"
+            >
               <div className="text-white">
                 <Logo fill="white" height="50px" width="50px" />
               </div>
               <div>
                 <h3 className="text-lg font-bold">CURIOUS CAT CONSULTING</h3>
               </div>
-            </div>
+            </button>
             <p className="text-gray-400 mb-4">
               Building thoughtful, well-architected software solutions for
               businesses of all sizes.
@@ -134,18 +151,26 @@ const CCCFooter: React.FC = () => {
             reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link
-              to="/privacy"
-              className="text-gray-400 hover:text-white text-sm"
+            <button
+              type="button"
+              className="text-gray-400 hover:text-white text-sm bg-transparent border-none p-0 m-0 cursor-pointer"
+              onClick={() => {
+                // You can add privacy policy content or modal here
+                alert('Privacy Policy - Coming Soon');
+              }}
             >
               Privacy Policy
-            </Link>
-            <Link
-              to="/terms"
-              className="text-gray-400 hover:text-white text-sm"
+            </button>
+            <button
+              type="button"
+              className="text-gray-400 hover:text-white text-sm bg-transparent border-none p-0 m-0 cursor-pointer"
+              onClick={() => {
+                // You can add terms of service content or modal here
+                alert('Terms of Service - Coming Soon');
+              }}
             >
               Terms of Service
-            </Link>
+            </button>
           </div>
         </div>
       </div>

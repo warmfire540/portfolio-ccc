@@ -9,6 +9,22 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
+/**
+ * AnimatedSection is a reusable React component that animates its children when they enter the viewport.
+ * It uses the Intersection Observer API to detect when the section becomes visible and applies a specified animation.
+ *
+ * @param {React.ReactNode} children - The content to be rendered inside the animated section.
+ * @param {string} [id] - Optional id for the section's root div.
+ * @param {number} [threshold=0.1] - Intersection Observer threshold for triggering the animation.
+ * @param {string} [className] - Additional CSS classes to apply to the section.
+ * @param {'fade-in' | 'slide-up' | 'slide-right' | 'zoom-in'} [animation='fade-in'] - The animation type to apply when the section enters the viewport.
+ * @param {number} [delay=0] - Delay in milliseconds before the animation starts after the section becomes visible.
+ *
+ * @example
+ * <AnimatedSection animation="slide-up" delay={200}>
+ *   <h2>My Animated Content</h2>
+ * </AnimatedSection>
+ */
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   children,
   id = '',
