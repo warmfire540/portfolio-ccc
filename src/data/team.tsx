@@ -20,7 +20,6 @@ export const teamMembers: TeamMember[] = [
     bio: [
       'Patrick is a Senior Software Engineer and Architect with over 8 years of experience delivering innovative solutions such as cloud-based integrations and large-scale infrastructure transformations.',
       'Throughout his career, Patrick has played an active role during each phase of the Software Development Life Cycle, significantly enhancing code quality and maintainability through comprehensive management of complex initiatives.',
-      'He specializes in designing scalable, efficient, and robust solutions involving architectural patterns such as cloud-native applications and microservices.',
     ],
     imageUrl: '/assets/team/patrick.jpeg',
   },

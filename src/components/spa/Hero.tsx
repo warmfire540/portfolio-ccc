@@ -112,12 +112,12 @@ const Hero: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               {
-                number: '8+',
+                number: '10+',
                 label: 'Years Experience',
                 icon: <Rocket className="w-8 h-8 text-blue-300" />,
               },
               {
-                number: '50+',
+                number: '20+',
                 label: 'Projects Delivered',
                 icon: <TrendingUp className="w-8 h-8 text-purple-300" />,
               },
