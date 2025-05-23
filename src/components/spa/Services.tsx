@@ -81,58 +81,6 @@ const Services: React.FC = () => {
             ))}
           </div>
         </div>
-
-        {/* Why Choose Us */}
-        <div>
-          <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8 text-center">
-            Why Choose Curious Cat Consulting?
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <AnimatedSection
-              animation="slide-up"
-              delay={0}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500"
-            >
-              <h4 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
-                Curiosity-Driven
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                I ask deeper questions to understand the real problems behind
-                your requirements, leading to more effective and
-                forward-thinking solutions.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection
-              animation="slide-up"
-              delay={200}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500"
-            >
-              <h4 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
-                Quality-Focused
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                I believe in doing things right the first time, with thorough
-                testing, clean code, and solutions that stand the test of time.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection
-              animation="slide-up"
-              delay={400}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-indigo-600 dark:border-indigo-500"
-            >
-              <h4 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
-                Partnership Approach
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                I work closely with you as a true partner, fostering open
-                communication and ensuring alignment throughout the development
-                process.
-              </p>
-            </AnimatedSection>
-          </div>
-        </div>
       </div>
     </section>
   );

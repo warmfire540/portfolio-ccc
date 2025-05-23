@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Analytics } from '@vercel/analytics/react';
-import { Contact } from 'lucide-react';
 
 import About from 'components/spa/About';
+import Contact from 'components/spa/Contact';
 import Cta from 'components/spa/Cta';
 import Hero from 'components/spa/Hero';
 import Projects from 'components/spa/Projects';
@@ -31,15 +31,14 @@ const App: React.FC = () => {
     <ThemeProvider>
       <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
         <Header />
-        <main className="flex-grow pt-20 dark:text-white">
+        <main className="flex-grow dark:text-white">
           <div className="flex flex-col">
-            {/* Hero Section */}
             <Hero />
             <About />
             <Services />
+            <Cta />
             <Projects />
             <Contact />
-            <Cta />
           </div>
         </main>
         <Footer />
