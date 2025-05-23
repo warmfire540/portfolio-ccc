@@ -6,9 +6,21 @@ interface Project {
   clientType: string;
   technologies: string[];
   imageUrl: string;
+  year: string;
   link?: string;
 }
 
+/**
+ * List of project categories used for filtering and organizing projects.
+ *
+ * @remarks
+ * The first category, 'All', represents an option to include all projects regardless of category.
+ * The remaining categories correspond to specific areas of expertise or technology focus.
+ *
+ * @example
+ * // Usage example:
+ * categories.forEach(category => console.log(category));
+ */
 export const categories = [
   'All',
   'Architecture',
@@ -18,6 +30,24 @@ export const categories = [
   'Data Integration',
 ];
 
+/**
+ * An array of project objects representing various software engineering initiatives,
+ * including open source contributions, enterprise transformations, cloud migrations,
+ * intranet modernizations, legacy application upgrades, and system integrations.
+ *
+ * Each project entry contains metadata such as:
+ * - `id`: Unique identifier for the project.
+ * - `title`: Name or title of the project.
+ * - `category`: The primary domain or focus area (e.g., Full-Stack, DevOps, Cloud).
+ * - `description`: A summary of the project's goals, achievements, and impact.
+ * - `clientType`: The type of client or organization for whom the project was delivered.
+ * - `technologies`: A list of technologies, platforms, or tools used in the project.
+ * - `imageUrl`: Path to an image representing the project.
+ * - `year`: The year the project was completed or delivered.
+ * - `link` (optional): A URL for more information or related resources.
+ *
+ * @type {Project[]}
+ */
 export const projects: Project[] = [
   {
     id: 'home-assistant-extensions',
@@ -36,6 +66,7 @@ export const projects: Project[] = [
       'Automation',
     ],
     imageUrl: '/assets/projects/ha.png',
+    year: '2025',
     link: 'https://github.com/orgs/homeassistant-extras/repositories',
   },
   {
@@ -55,6 +86,7 @@ export const projects: Project[] = [
       'Git Flow',
     ],
     imageUrl: '/assets/projects/devops.png',
+    year: '2024',
   },
   {
     id: 'cloud-data-transformation',
@@ -73,6 +105,7 @@ export const projects: Project[] = [
       'Hubspot Integration',
     ],
     imageUrl: '/assets/projects/delta.jpeg',
+    year: '2023',
     link: 'https://learn.microsoft.com/en-us/azure/databricks/introduction/',
   },
   {
@@ -93,6 +126,7 @@ export const projects: Project[] = [
     ],
     imageUrl: '/assets/projects/sharepoint.jpg',
     link: 'https://www.ctileadership.com/',
+    year: '2025',
   },
   {
     id: 'legacy-app-modernization',
@@ -111,6 +145,7 @@ export const projects: Project[] = [
       'CI/CD',
     ],
     imageUrl: '/assets/projects/modernize.jpg',
+    year: '2020',
   },
   {
     id: 'gl-system-integration',
@@ -130,6 +165,7 @@ export const projects: Project[] = [
     ],
     imageUrl: '/assets/projects/d365.jpg',
     link: 'https://www.microsoft.com/en-us/dynamics-365',
+    year: '2022',
   },
   {
     id: 'multi-system-integration',
@@ -149,5 +185,6 @@ export const projects: Project[] = [
     ],
     imageUrl: '/assets/projects/integration.png',
     link: 'https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven',
+    year: '2021',
   },
 ];
