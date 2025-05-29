@@ -63,7 +63,7 @@ const Services: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {specializedServices.map((service, index) => (
               <AnimatedSection
-                key={index}
+                key={service.title}
                 animation="zoom-in"
                 delay={index * 100}
                 className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-600"

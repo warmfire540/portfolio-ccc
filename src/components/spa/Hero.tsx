@@ -46,9 +46,9 @@ const Hero: React.FC = () => {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(10)].map((v) => (
           <div
-            key={i}
+            key={v}
             className={`absolute w-2 h-2 bg-white rounded-full opacity-20 animate-float`}
             style={{
               left: `${Math.random() * 100}%`,
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
               },
             ].map((stat, index) => (
               <div
-                key={index}
+                key={stat.label}
                 className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
                 style={{ animationDelay: `${index * 200}ms` }}
               >

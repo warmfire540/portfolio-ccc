@@ -25,7 +25,7 @@ const Story: React.FC = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {milestones.map((milestone, index) => (
           <AnimatedSection
-            key={index}
+            key={milestone.title}
             animation="slide-up"
             delay={index * 150}
             className="relative"
