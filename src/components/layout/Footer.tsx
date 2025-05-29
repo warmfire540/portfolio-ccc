@@ -1,74 +1,13 @@
 import React from 'react';
 
+import { scrollToSection } from 'utils/ScrollToSection';
+
+import { footerSections } from 'data/footer-sections';
+
 import { ReactComponent as Logo } from '../../assets/cat.svg';
 
 const CCCFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
-
-  // Smooth scroll to section
-  const scrollToSection = (href: string) => {
-    const navbarHeight = 110;
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-
-    if (element) {
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: elementPosition - navbarHeight,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  // Footer link sections
-  const footerSections = [
-    {
-      title: 'Navigation',
-      links: [
-        { label: 'Home', href: '#home', external: false },
-        { label: 'About', href: '#about', external: false },
-        { label: 'Services', href: '#services', external: false },
-        { label: 'Projects', href: '#projects', external: false },
-        { label: 'Contact', href: '#contact', external: false },
-      ],
-    },
-    {
-      title: 'Services',
-      links: [
-        { label: 'Software Architecture', href: '#services', external: false },
-        { label: 'Full-Stack Development', href: '#services', external: false },
-        { label: 'Cloud Solutions', href: '#services', external: false },
-        { label: 'DevOps & Automation', href: '#services', external: false },
-        { label: 'Data Integration', href: '#services', external: false },
-      ],
-    },
-    {
-      title: 'Connect',
-      links: [
-        {
-          label: 'LinkedIn',
-          href: 'https://www.linkedin.com/company/106965272',
-          external: true,
-        },
-        {
-          label: 'GitHub (HomeAssistant Extras)',
-          href: 'https://github.com/homeassistant-extras',
-          external: true,
-        },
-        {
-          label: 'GitHub (Personal)',
-          href: 'https://github.com/warmfire540',
-          external: true,
-        },
-        {
-          label: 'Email',
-          href: 'mailto:info@curiouscat.consulting',
-          external: true,
-        },
-      ],
-    },
-  ];
 
   // Render external or internal link based on the 'external' property
   const renderLink = (link: {
@@ -89,10 +28,10 @@ const CCCFooter: React.FC = () => {
       );
     }
 
-    // Use smooth scrolling for internal navigation
+    // Use smooth scrolling for internal navigation with hash update
     return (
       <button
-        onClick={() => scrollToSection(link.href)}
+        onClick={() => scrollToSection({ href: link.href })}
         className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
       >
         {link.label}
@@ -107,7 +46,7 @@ const CCCFooter: React.FC = () => {
           {/* Logo and description */}
           <div className="md:col-span-1">
             <button
-              onClick={() => scrollToSection('#home')}
+              onClick={() => scrollToSection({ href: '#home' })}
               className="flex items-center mb-4 focus:outline-none"
             >
               <div className="text-white">
@@ -133,12 +72,12 @@ const CCCFooter: React.FC = () => {
           </div>
 
           {/* Footer link sections */}
-          {footerSections.map((section, index) => (
-            <div key={index}>
+          {footerSections.map((section) => (
+            <div key={section.title}>
               <h4 className="text-md font-bold mb-4">{section.title}</h4>
               <ul className="space-y-2">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>{renderLink(link)}</li>
+                {section.links.map((link) => (
+                  <li key={link.label}>{renderLink(link)}</li>
                 ))}
               </ul>
             </div>
@@ -150,28 +89,6 @@ const CCCFooter: React.FC = () => {
             &copy; {currentYear} Curious Cat Consulting LLC. All rights
             reserved.
           </p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <button
-              type="button"
-              className="text-gray-400 hover:text-white text-sm bg-transparent border-none p-0 m-0 cursor-pointer"
-              onClick={() => {
-                // You can add privacy policy content or modal here
-                alert('Privacy Policy - Coming Soon');
-              }}
-            >
-              Privacy Policy
-            </button>
-            <button
-              type="button"
-              className="text-gray-400 hover:text-white text-sm bg-transparent border-none p-0 m-0 cursor-pointer"
-              onClick={() => {
-                // You can add terms of service content or modal here
-                alert('Terms of Service - Coming Soon');
-              }}
-            >
-              Terms of Service
-            </button>
-          </div>
         </div>
       </div>
     </footer>
