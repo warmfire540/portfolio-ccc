@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
+import Reviews from 'components/common/Reviews';
 import AboutInfo from 'components/sections/AboutInfo';
 import Recognition from 'components/sections/Recognition';
 import Story from 'components/sections/Story';
@@ -73,6 +74,7 @@ const About: React.FC = () => {
               <div className="space-y-24 pt-8">
                 <Story />
                 <Values />
+                <Reviews />
                 <Recognition />
               </div>
             )}
