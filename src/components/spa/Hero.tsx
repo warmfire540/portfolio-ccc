@@ -46,18 +46,23 @@ const Hero: React.FC = () => {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(10)].map((v) => (
-          <div
-            key={v}
-            className={`absolute w-2 h-2 bg-white rounded-full opacity-20 animate-float`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
-            }}
-          />
-        ))}
+        {Array.from({ length: 10 }, (_, i) => {
+          const particleId = `particle-${i}-${Math.random()
+            .toString(36)
+            .substring(2, 9)}`;
+          return (
+            <div
+              key={particleId}
+              className={`absolute w-2 h-2 bg-white rounded-full opacity-20 animate-float`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${3 + Math.random() * 4}s`,
+              }}
+            />
+          );
+        })}
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
