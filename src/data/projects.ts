@@ -50,6 +50,26 @@ export const categories = [
  */
 export const projects: Project[] = [
   {
+    id: 'sessions-programs-ai-agent',
+    title: 'Sessions and Programs AI Agent',
+    category: 'Full-Stack',
+    description:
+      'Developed an intelligent assistant using Microsoft Copilot Studio to help create, analyze, and improve client sessions and programs. The agent leverages historical session data, case studies, and content documents from SharePoint to provide data-driven insights and recommendations. Features include performance analysis, strategic agenda planning, and automated program suggestions based on successful patterns.',
+    clientType: 'Professional Services Firm',
+    technologies: [
+      'Microsoft Copilot Studio',
+      'SharePoint Online',
+      'Microsoft Teams',
+      'Power Platform',
+      'Azure AI',
+      'Microsoft Graph API',
+      'Natural Language Processing',
+    ],
+    imageUrl: '/assets/projects/ai-agent.png',
+    year: '2025',
+    link: 'https://www.ctileadership.com/',
+  },
+  {
     id: 'home-assistant-extensions',
     title: 'Home Assistant Open Source Contributions',
     category: 'Full-Stack',
