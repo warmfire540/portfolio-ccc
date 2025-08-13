@@ -8,6 +8,7 @@ interface Project {
   imageUrl: string;
   year: string;
   link?: string;
+  linkType?: 'project' | 'technology' | 'client';
 }
 
 /**
@@ -50,6 +51,28 @@ export const categories = [
  */
 export const projects: Project[] = [
   {
+    id: 'linkedin-content-automation',
+    title: 'AI-Powered LinkedIn Content Automation System',
+    category: 'Automation',
+    description:
+      'Built a comprehensive content automation pipeline that transforms blog content into engaging LinkedIn posts with minimal human intervention. The system automatically scrapes website content, generates AI-powered social media posts with accompanying images, and manages a complete approval workflow before publishing. Features include intelligent content selection, ChatGPT integration for post creation, automated image generation, and Microsoft Teams-based approval processes.',
+    clientType: 'Digital Marketing Agency',
+    technologies: [
+      'Zapier',
+      'ChatGPT API',
+      'Browse.AI',
+      'Zapier Tables',
+      'Microsoft Teams',
+      'OneDrive',
+      'LinkedIn API',
+      'Workflow Automation',
+    ],
+    imageUrl: '/assets/projects/linkedin-automation.png',
+    year: '2025',
+    link: 'https://zapier.com/',
+    linkType: 'technology',
+  },
+  {
     id: 'sessions-programs-ai-agent',
     title: 'Sessions and Programs AI Agent',
     category: 'Full-Stack',
@@ -68,6 +91,7 @@ export const projects: Project[] = [
     imageUrl: '/assets/projects/ai-agent.png',
     year: '2025',
     link: 'https://www.ctileadership.com/',
+    linkType: 'client',
   },
   {
     id: 'home-assistant-extensions',
@@ -88,6 +112,7 @@ export const projects: Project[] = [
     imageUrl: '/assets/projects/ha.png',
     year: '2025',
     link: 'https://github.com/orgs/homeassistant-extras/repositories',
+    linkType: 'project',
   },
   {
     id: 'ci-cd-transformation',
@@ -127,6 +152,7 @@ export const projects: Project[] = [
     imageUrl: '/assets/projects/delta.jpeg',
     year: '2023',
     link: 'https://learn.microsoft.com/en-us/azure/databricks/introduction/',
+    linkType: 'technology',
   },
   {
     id: 'intranet-modernization',
@@ -146,6 +172,7 @@ export const projects: Project[] = [
     ],
     imageUrl: '/assets/projects/sharepoint.jpg',
     link: 'https://www.ctileadership.com/',
+    linkType: 'client',
     year: '2025',
   },
   {
@@ -185,6 +212,7 @@ export const projects: Project[] = [
     ],
     imageUrl: '/assets/projects/d365.jpg',
     link: 'https://www.microsoft.com/en-us/dynamics-365',
+    linkType: 'technology',
     year: '2022',
   },
   {
@@ -205,6 +233,7 @@ export const projects: Project[] = [
     ],
     imageUrl: '/assets/projects/integration.png',
     link: 'https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven',
+    linkType: 'technology',
     year: '2021',
   },
 ];

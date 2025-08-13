@@ -159,7 +159,11 @@ const Projects: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-medium text-sm hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
                   >
-                    View Project
+                    {project.linkType === 'technology'
+                      ? 'View Technology'
+                      : project.linkType === 'client'
+                      ? 'View Client'
+                      : 'View Project'}
                     <ExternalLink className="ml-1 w-4 h-4" />
                   </a>
                 )}
