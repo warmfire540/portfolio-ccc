@@ -9,18 +9,30 @@ import { ReactComponent as Logo } from '../../assets/cat.svg';
 const CCCFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
-  // Render external or internal link based on the 'external' property
+  // Render external or internal link based on the link properties
   const renderLink = (link: {
     label: string;
     href: string;
     external?: boolean;
+    router?: boolean;
   }) => {
     if (link.external) {
       return (
         <a
           href={link.href}
           target={link.href.startsWith('mailto:') ? '_self' : '_blank'}
-          rel="noopener noreferrer"
+          rel={link.href.startsWith('mailto:') ? '' : 'noopener noreferrer'}
+          className="text-gray-400 hover:text-white transition-colors duration-200"
+        >
+          {link.label}
+        </a>
+      );
+    }
+
+    if (link.router) {
+      return (
+        <a
+          href={link.href}
           className="text-gray-400 hover:text-white transition-colors duration-200"
         >
           {link.label}
@@ -42,9 +54,9 @@ const CCCFooter: React.FC = () => {
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
           {/* Logo and description */}
-          <div className="md:col-span-1">
+          <div className="md:col-span-2">
             <button
               onClick={() => scrollToSection({ href: '#home' })}
               className="flex items-center mb-4 focus:outline-none"

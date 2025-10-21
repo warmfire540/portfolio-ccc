@@ -28,7 +28,7 @@ export const footerSections = [
         external: true,
       },
       {
-        label: 'GitHub (HomeAssistant Extras)',
+        label: 'GitHub (HomeAssistant)',
         href: 'https://github.com/homeassistant-extras',
         external: true,
       },
@@ -40,6 +40,21 @@ export const footerSections = [
       {
         label: 'Email',
         href: 'mailto:info@curiouscat.consulting',
+        external: true,
+      },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      {
+        label: 'Terms of Service',
+        href: '/terms-of-service',
+        external: true,
+      },
+      {
+        label: 'Privacy Policy',
+        href: '/privacy-policy',
         external: true,
       },
     ],

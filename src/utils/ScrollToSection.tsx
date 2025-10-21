@@ -31,7 +31,6 @@ export const scrollToSection = ({
     // Update URL hash if requested
     if (updateHistory) {
       if (usePushState) {
-        console.log('Updating URL with pushState:', urlToSet);
         window.history.pushState(null, '', urlToSet);
       } else {
         window.history.replaceState(null, '', urlToSet);
