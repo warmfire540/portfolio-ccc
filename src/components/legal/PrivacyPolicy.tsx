@@ -276,18 +276,18 @@ const PrivacyPolicy: React.FC = () => {
                 <br />
                 Email:{' '}
                 <a
-                  href="mailto:privacy@curiouscatconsulting.com"
+                  href="mailto:privacy@curiouscat.consulting"
                   className="text-blue-600 hover:text-blue-800"
                 >
-                  privacy@curiouscatconsulting.com
+                  privacy@curiouscat.consulting
                 </a>
                 <br />
                 General Contact:{' '}
                 <a
-                  href="mailto:contact@curiouscatconsulting.com"
+                  href="mailto:info@curiouscat.consulting"
                   className="text-blue-600 hover:text-blue-800"
                 >
-                  contact@curiouscatconsulting.com
+                  info@curiouscat.consulting
                 </a>
               </p>
             </div>

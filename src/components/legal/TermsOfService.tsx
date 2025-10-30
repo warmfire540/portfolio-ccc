@@ -211,10 +211,10 @@ const TermsOfService: React.FC = () => {
                 <br />
                 Email:{' '}
                 <a
-                  href="mailto:contact@curiouscatconsulting.com"
+                  href="mailto:info@curiouscat.consulting"
                   className="text-blue-600 hover:text-blue-800"
                 >
-                  contact@curiouscatconsulting.com
+                  info@curiouscat.consulting
                 </a>
               </p>
             </div>
