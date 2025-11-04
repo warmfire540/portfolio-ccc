@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
   id: string;
   title: string;
   category: string;
@@ -92,6 +92,32 @@ export const projects: Project[] = [
     year: '2025',
     link: 'https://www.ctileadership.com/',
     linkType: 'client',
+  },
+  {
+    id: 'synapse-expense-management',
+    title: 'Synapse: AI-Powered Expense Management Platform',
+    category: 'Full-Stack',
+    description:
+      'Built a comprehensive AI-powered expense management platform that automates receipt processing and expense tracking. Leverages OpenAI GPT-4o vision model to automatically extract data from receipt images with 99% accuracy, eliminating manual data entry. Features include advanced fraud detection algorithms, duplicate expense detection, team collaboration with approval workflows, comprehensive analytics dashboards, and Stripe subscription billing. Built as a secure multi-tenant SaaS application with PostgreSQL Row Level Security (RLS) policies and full test coverage using Playwright and pgTAP.',
+    clientType: 'Personal / Business',
+    technologies: [
+      'Next.js 15',
+      'React 19',
+      'TypeScript',
+      'Supabase',
+      'PostgreSQL',
+      'OpenAI API',
+      'GPT-4o',
+      'Stripe',
+      'Google Maps API',
+      'Tailwind CSS',
+      'shadcn/ui',
+      'Playwright',
+      'pgTAP',
+      'Row Level Security',
+    ],
+    imageUrl: '/assets/projects/synapse.png',
+    year: '2025',
   },
   {
     id: 'home-assistant-extensions',

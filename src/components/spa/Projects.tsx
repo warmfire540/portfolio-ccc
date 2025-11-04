@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 import { Calendar, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 
-import { categories, projects } from 'data/projects';
+import { categories, projects, Project } from 'data/projects';
+
+import { ProjectModal } from '../common/ProjectModal';
 
 /**
  * Renders the Projects section of the portfolio, displaying a filterable grid of project cards.
@@ -25,6 +27,8 @@ import { categories, projects } from 'data/projects';
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Filter projects based on selected category
   const filteredProjects =
@@ -83,7 +87,28 @@ const Projects: React.FC = () => {
           {displayedProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700`}
+              onClick={() => {
+                setSelectedProject(project);
+                setIsModalOpen(true);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  // Don't open modal if the link is focused
+                  if (
+                    e.target !== e.currentTarget &&
+                    (e.target as HTMLElement).tagName === 'A'
+                  ) {
+                    return;
+                  }
+                  setSelectedProject(project);
+                  setIsModalOpen(true);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View details for ${project.title}`}
+              className={`group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 cursor-pointer`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Project Image */}
@@ -157,6 +182,7 @@ const Projects: React.FC = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     className="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-medium text-sm hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
                   >
                     {project.linkType === 'technology'
@@ -194,6 +220,16 @@ const Projects: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedProject(null);
+        }}
+        project={selectedProject}
+      />
     </section>
   );
 };
