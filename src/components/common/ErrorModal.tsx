@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { X, Mail, AlertTriangle, Copy } from 'lucide-react';
+
+export interface FormspreeError {
+  code?: string;
+  message?: string;
+}
 
 interface ErrorModalProps {
   isOpen: boolean;
   onClose: () => void;
-  errors: any[];
+  errors: FormspreeError[];
 }
 
 export const ErrorModal: React.FC<ErrorModalProps> = ({
@@ -13,7 +18,7 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
   onClose,
   errors,
 }) => {
-  const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = useState(false);
 
   if (!isOpen) return null;
 

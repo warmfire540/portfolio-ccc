@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { FieldValues, SubmissionError } from '@formspree/core';
 import { ValidationError } from '@formspree/react';
 
 interface FormFieldProps {
@@ -20,7 +21,7 @@ interface FormFieldProps {
   className: string;
   error?: string;
   showError: boolean;
-  validationErrors?: any;
+  validationErrors?: SubmissionError<FieldValues> | null;
   children?: React.ReactNode; // For select options
   rows?: number; // For textarea
   'data-testid'?: string;
@@ -79,7 +80,7 @@ export const FormField: React.FC<FormFieldProps> = ({
       <ValidationError
         prefix={label}
         field={name}
-        errors={validationErrors}
+        errors={validationErrors ?? null}
         className="mt-1 text-sm text-red-600 dark:text-red-400"
       />
     </div>

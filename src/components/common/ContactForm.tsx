@@ -4,7 +4,7 @@ import { useForm } from '@formspree/react';
 import { Send } from 'lucide-react';
 
 import AnimatedSection from './AnimatedSection';
-import { ErrorModal } from './ErrorModal';
+import { ErrorModal, FormspreeError } from './ErrorModal';
 import { FormField } from './FormField';
 import { SuccessMessage } from './SuccessMessage';
 import { projectTypes } from '../../data/project-types';
@@ -16,7 +16,7 @@ const ContactForm: React.FC = () => {
   );
 
   const [showErrorModal, setShowErrorModal] = useState(false);
-  const [formErrors, setFormErrors] = useState<any[]>([]);
+  const [formErrors, setFormErrors] = useState<FormspreeError[]>([]);
 
   const {
     formData,
@@ -33,15 +33,24 @@ const ContactForm: React.FC = () => {
   useEffect(() => {
     const formErrors = state.errors?.getFormErrors();
     const fieldErrors = state.errors?.getAllFieldErrors();
-    const allErrors = [];
+    const allErrors: FormspreeError[] = [];
+
     if (formErrors && formErrors.length > 0) {
       // Collect all form errors (not field-specific errors)
       allErrors.push(...formErrors);
     }
 
     if (fieldErrors && fieldErrors.length > 0) {
-      // Collect all form errors (not field-specific errors)
-      allErrors.push(...fieldErrors);
+      // getAllFieldErrors returns tuples [fieldName, FieldError[]]
+      // Flatten them into individual error objects
+      fieldErrors.forEach(([_fieldName, errors]) => {
+        errors.forEach((error) => {
+          allErrors.push({
+            code: error.code,
+            message: error.message,
+          });
+        });
+      });
     }
 
     // If we have any errors, show the modal
