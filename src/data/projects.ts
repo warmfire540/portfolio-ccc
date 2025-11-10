@@ -29,6 +29,7 @@ export const categories = [
   'Cloud',
   'DevOps',
   'Data Integration',
+  'Automation',
 ];
 
 /**
@@ -71,6 +72,53 @@ export const projects: Project[] = [
     year: '2025',
     link: 'https://zapier.com/',
     linkType: 'technology',
+  },
+  {
+    id: 'sharepoint-permission-management',
+    title: 'SharePoint Permission Management & Automated Onboarding',
+    category: 'Automation',
+    description:
+      'Engineered an intelligent permission management solution that revolutionized client onboarding through automation and standardization. The system leverages Microsoft Forms and Power Automate to create a zero-touch provisioning workflow that automatically generates role-based security groups in both Microsoft 365 and SharePoint, provisions document libraries and folders with pre-populated templates, and configures custom SharePoint web parts. Reduced onboarding time from 2+ hours to under 10 minutes while achieving 100% consistency in permission structures and enhancing security compliance through standardized, auditable workflows.',
+    clientType: 'Professional Services Firm',
+    technologies: [
+      'SharePoint Online',
+      'Power Automate',
+      'Microsoft Forms',
+      'Microsoft Graph API',
+      'Azure AD',
+      'Security Groups',
+      'Role-Based Access Control',
+      'Workflow Automation',
+      'Governance',
+    ],
+    imageUrl: '/assets/projects/sharepoint-client-onboarding.png',
+    year: '2025',
+    link: 'https://www.ctileadership.com/',
+    linkType: 'client',
+  },
+  {
+    id: 'employee-hub-modernization',
+    title: 'Employee Hub Modernization & Vacation Management System',
+    category: 'Full-Stack',
+    description:
+      'Spearheaded a complete redesign of a corporate Employee Hub, transforming it into a modern, intuitive intranet with an integrated vacation management system. Built a sophisticated time-off solution using Microsoft Forms for dynamic request submission, Power Automate for multi-level approval workflows with automatic manager routing based on org hierarchy, and Outlook Calendar integration for real-time availability checking and automatic time-off blocking. Features include escalation logic with SLA tracking, automated notifications, executive HR dashboard with analytics, and mobile-responsive self-service portal. Reduced HR administrative burden by 70% while providing employees instant visibility into time-off balances and approval status.',
+    clientType: 'Healthcare Services Provider',
+    technologies: [
+      'SharePoint Online',
+      'SharePoint Framework (SPFx)',
+      'Power Automate',
+      'Microsoft Forms',
+      'Microsoft Graph API',
+      'Outlook Calendar API',
+      'Power Platform',
+      'Azure AD',
+      'React',
+      'TypeScript',
+    ],
+    imageUrl: '/assets/projects/sharepoint-employee-hub.png',
+    year: '2025',
+    link: 'https://www.ctileadership.com/',
+    linkType: 'client',
   },
   {
     id: 'sessions-programs-ai-agent',
