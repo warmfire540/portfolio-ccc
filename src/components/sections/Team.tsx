@@ -22,7 +22,7 @@ const Team: React.FC = () => {
         <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
           Meet Our Team
         </h3>
-        <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full"></div>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-teal-600 mx-auto rounded-full"></div>
       </AnimatedSection>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -36,7 +36,7 @@ const Team: React.FC = () => {
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transform hover:scale-105 transition-all duration-500 hover:shadow-2xl">
               <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
                 <div className="relative">
-                  <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-indigo-200 dark:ring-indigo-700 shadow-lg">
+                  <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-primary-200 dark:ring-primary-700 shadow-lg">
                     <img
                       src={member.imageUrl}
                       alt={member.name}
@@ -53,7 +53,7 @@ const Team: React.FC = () => {
                     {member.name}
                   </h4>
                   <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                    <div className="px-3 py-1 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-medium">
+                    <div className="px-3 py-1 bg-gradient-to-r from-primary-500 to-teal-600 text-white rounded-full text-sm font-medium">
                       {member.role}
                     </div>
                   </div>

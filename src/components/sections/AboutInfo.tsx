@@ -17,7 +17,7 @@ const AboutInfo: React.FC = () => {
       className="max-w-5xl mx-auto text-center"
     >
       <div className="mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 to-indigo-600 dark:from-white dark:to-indigo-400 bg-clip-text text-transparent mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 to-primary-600 dark:from-white dark:to-primary-400 bg-clip-text text-transparent mb-6">
           About Curious Cat Consulting
         </h2>
       </div>
@@ -42,7 +42,7 @@ const AboutInfo: React.FC = () => {
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transform hover:scale-105 transition-transform duration-300">
             <div className="grid grid-cols-2 gap-6 text-center">
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">
+                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">
                   85%
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-300">
@@ -50,7 +50,7 @@ const AboutInfo: React.FC = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">
+                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">
                   6+
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-300">
@@ -58,7 +58,7 @@ const AboutInfo: React.FC = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">
+                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">
                   0
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-300">
@@ -66,7 +66,7 @@ const AboutInfo: React.FC = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">
+                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">
                   10K+
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-300">

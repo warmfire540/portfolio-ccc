@@ -28,9 +28,9 @@ const CtaButton: React.FC<CtaButtonProps> = ({
     'inline-block rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200 ease-in-out';
 
   const primaryClasses =
-    'bg-indigo-600 hover:bg-indigo-700 text-white focus:ring-indigo-500';
+    'bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500';
   const secondaryClasses =
-    'bg-transparent border border-indigo-600 text-indigo-600 hover:bg-indigo-50 focus:ring-indigo-500';
+    'bg-transparent border border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500';
 
   const defaultSizeClasses = 'px-4 py-2';
 

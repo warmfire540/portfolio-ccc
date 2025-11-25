@@ -28,7 +28,7 @@ const Recognition: React.FC = () => {
         <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
           Recognition & Awards
         </h3>
-        <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full mb-6"></div>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-teal-600 mx-auto rounded-full mb-6"></div>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           Professional recognition and community acknowledgments that reflect
           our commitment to excellence.

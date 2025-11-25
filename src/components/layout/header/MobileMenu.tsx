@@ -30,13 +30,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
 
     if (isActive) {
       return isDark
-        ? `${baseClasses} text-indigo-400 font-medium`
-        : `${baseClasses} text-indigo-600 font-medium`;
+        ? `${baseClasses} text-primary-400 font-medium`
+        : `${baseClasses} text-primary-600 font-medium`;
     }
 
     return isDark
-      ? `${baseClasses} text-gray-300 hover:text-indigo-400`
-      : `${baseClasses} text-gray-800 hover:text-indigo-600`;
+      ? `${baseClasses} text-gray-300 hover:text-primary-400`
+      : `${baseClasses} text-gray-800 hover:text-primary-600`;
   };
 
   return (

@@ -40,7 +40,7 @@ const Services: React.FC = () => {
               key={service.id}
               animation="zoom-in"
               delay={index * 100}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-600 hover:border-indigo-200 dark:hover:border-indigo-500 group"
+              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-600 hover:border-primary-200 dark:hover:border-primary-500 group"
             >
               <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
                 {service.icon}

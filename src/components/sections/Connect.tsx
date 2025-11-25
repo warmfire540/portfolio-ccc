@@ -29,8 +29,8 @@ const Connect: React.FC = () => {
 
       <div className="space-y-6 mb-8">
         <div className="flex items-start">
-          <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full mr-4">
-            <MapPin className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+          <div className="flex-shrink-0 bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
+            <MapPin className="h-6 w-6 text-primary-600 dark:text-primary-400" />
           </div>
           <div>
             <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-1">
@@ -43,8 +43,8 @@ const Connect: React.FC = () => {
         </div>
 
         <div className="flex items-start">
-          <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full mr-4">
-            <Mail className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+          <div className="flex-shrink-0 bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
+            <Mail className="h-6 w-6 text-primary-600 dark:text-primary-400" />
           </div>
           <div>
             <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-1">
@@ -52,7 +52,7 @@ const Connect: React.FC = () => {
             </h4>
             <a
               href="mailto:info@curiouscat.consulting"
-              className="text-indigo-600 hover:underline dark:text-indigo-400"
+              className="text-primary-600 hover:underline dark:text-primary-400"
             >
               info@curiouscat.consulting
             </a>
@@ -70,7 +70,7 @@ const Connect: React.FC = () => {
             href="https://www.linkedin.com/company/106965272"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-indigo-800 dark:text-indigo-200 p-3 rounded-full transition-colors duration-300"
+            className="bg-primary-100 hover:bg-primary-200 dark:bg-primary-800 dark:hover:bg-primary-700 text-primary-800 dark:text-primary-200 p-3 rounded-full transition-colors duration-300"
           >
             <LinkedinIcon className="h-6 w-6" />
             <span className="sr-only">LinkedIn</span>
@@ -80,7 +80,7 @@ const Connect: React.FC = () => {
             href="https://github.com/homeassistant-extras"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-indigo-800 dark:text-indigo-200 p-3 rounded-full transition-colors duration-300"
+            className="bg-primary-100 hover:bg-primary-200 dark:bg-primary-800 dark:hover:bg-primary-700 text-primary-800 dark:text-primary-200 p-3 rounded-full transition-colors duration-300"
           >
             <GithubIcon className="h-6 w-6" />
             <span className="sr-only">GitHub (Home Assistant)</span>
@@ -90,7 +90,7 @@ const Connect: React.FC = () => {
             href="https://github.com/warmfire540"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-indigo-800 dark:text-indigo-200 p-3 rounded-full transition-colors duration-300"
+            className="bg-primary-100 hover:bg-primary-200 dark:bg-primary-800 dark:hover:bg-primary-700 text-primary-800 dark:text-primary-200 p-3 rounded-full transition-colors duration-300"
           >
             <GithubIcon className="h-6 w-6" />
             <span className="sr-only">GitHub (Personal)</span>

@@ -37,8 +37,8 @@ const Values: React.FC = () => {
 
   const getGradientColors = (index: number) => {
     const gradients = [
-      'from-blue-500 to-indigo-600',
-      'from-purple-500 to-pink-600',
+      'from-blue-500 to-primary-600',
+      'from-teal-500 to-cyan-600',
       'from-green-500 to-teal-600',
       'from-orange-500 to-red-600',
     ];
@@ -51,7 +51,7 @@ const Values: React.FC = () => {
         <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
           Our Values
         </h3>
-        <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full mb-6"></div>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-teal-600 mx-auto rounded-full mb-6"></div>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           These core principles guide every project we undertake and every
           relationship we build.

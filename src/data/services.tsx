@@ -29,7 +29,7 @@ export const getServices = (size: number): Service[] => [
     description:
       'Design scalable, maintainable systems that align with your business goals and technical requirements.',
     icon: (
-      <Layers size={size} className="text-indigo-600 dark:text-indigo-400" />
+      <Layers size={size} className="text-primary-600 dark:text-primary-400" />
     ),
     benefits: [
       'Scalable systems that grow with your business',
@@ -50,7 +50,9 @@ export const getServices = (size: number): Service[] => [
     title: 'Full-Stack Development',
     description:
       'Build complete web and mobile applications with modern front-end interfaces and robust back-end services.',
-    icon: <Code size={size} className="text-indigo-600 dark:text-indigo-400" />,
+    icon: (
+      <Code size={size} className="text-primary-600 dark:text-primary-400" />
+    ),
     benefits: [
       'Cohesive application development from end to end',
       'Consistent practices across the technology stack',
@@ -71,7 +73,7 @@ export const getServices = (size: number): Service[] => [
     description:
       'Leverage the power of cloud platforms to reduce costs, increase scalability, and improve reliability.',
     icon: (
-      <Cloud size={size} className="text-indigo-600 dark:text-indigo-400" />
+      <Cloud size={size} className="text-primary-600 dark:text-primary-400" />
     ),
     benefits: [
       'Reduced infrastructure costs and management overhead',
@@ -93,7 +95,10 @@ export const getServices = (size: number): Service[] => [
     description:
       'Streamline your development lifecycle with continuous integration, delivery, and infrastructure as code.',
     icon: (
-      <RefreshCw size={size} className="text-indigo-600 dark:text-indigo-400" />
+      <RefreshCw
+        size={size}
+        className="text-primary-600 dark:text-primary-400"
+      />
     ),
     benefits: [
       'Faster, more reliable software releases',
@@ -115,7 +120,10 @@ export const getServices = (size: number): Service[] => [
     description:
       'Connect disparate systems and data sources to provide a unified view of your business information.',
     icon: (
-      <Database size={size} className="text-indigo-600 dark:text-indigo-400" />
+      <Database
+        size={size}
+        className="text-primary-600 dark:text-primary-400"
+      />
     ),
     benefits: [
       'Unified view of business data across systems',
@@ -137,7 +145,10 @@ export const getServices = (size: number): Service[] => [
     description:
       'Get expert advice on technology selection, system design, and technical strategy to guide your decisions.',
     icon: (
-      <Terminal size={size} className="text-indigo-600 dark:text-indigo-400" />
+      <Terminal
+        size={size}
+        className="text-primary-600 dark:text-primary-400"
+      />
     ),
     benefits: [
       'Informed decisions based on technical expertise',
@@ -158,14 +169,16 @@ export const getServices = (size: number): Service[] => [
 export const specializedServices = [
   {
     title: 'Legacy System Modernization',
-    icon: <Server size={24} className="text-indigo-600 dark:text-indigo-400" />,
+    icon: (
+      <Server size={24} className="text-primary-600 dark:text-primary-400" />
+    ),
     description:
       'Transform outdated systems into modern, maintainable applications without losing critical functionality.',
   },
   {
     title: 'API Design & Development',
     icon: (
-      <FileCode size={24} className="text-indigo-600 dark:text-indigo-400" />
+      <FileCode size={24} className="text-primary-600 dark:text-primary-400" />
     ),
     description:
       'Create well-designed, developer-friendly APIs that enable seamless integration and extensibility.',
@@ -173,7 +186,7 @@ export const specializedServices = [
   {
     title: 'Workflow Automation',
     icon: (
-      <Workflow size={24} className="text-indigo-600 dark:text-indigo-400" />
+      <Workflow size={24} className="text-primary-600 dark:text-primary-400" />
     ),
     description:
       'Automate repetitive business processes to improve efficiency, reduce errors, and free up valuable resources.',
@@ -181,7 +194,7 @@ export const specializedServices = [
   {
     title: 'Version Control & Branching Strategy',
     icon: (
-      <GitBranch size={24} className="text-indigo-600 dark:text-indigo-400" />
+      <GitBranch size={24} className="text-primary-600 dark:text-primary-400" />
     ),
     description:
       'Establish effective source code management practices to support your development team and release processes.',
@@ -189,14 +202,16 @@ export const specializedServices = [
   {
     title: 'Data Visualization',
     icon: (
-      <BarChart size={24} className="text-indigo-600 dark:text-indigo-400" />
+      <BarChart size={24} className="text-primary-600 dark:text-primary-400" />
     ),
     description:
       'Transform raw data into insightful visualizations that help drive better business decisions.',
   },
   {
     title: 'Team Augmentation',
-    icon: <Users size={24} className="text-indigo-600 dark:text-indigo-400" />,
+    icon: (
+      <Users size={24} className="text-primary-600 dark:text-primary-400" />
+    ),
     description:
       'Supplement your existing technical team with my expertise to tackle challenging projects or meet deadlines.',
   },

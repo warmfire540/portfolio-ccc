@@ -29,17 +29,17 @@ const Hero: React.FC = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Modern gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-800"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-teal-900 to-primary-800 dark:from-gray-900 dark:via-primary-900 dark:to-gray-800"></div>
 
       {/* Animated gradient orbs */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400 to-teal-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
         <div
-          className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400 to-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"
+          className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-r from-teal-400 to-cyan-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"
           style={{ animationDelay: '2s' }}
         ></div>
         <div
-          className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-indigo-400 to-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"
+          className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-primary-400 to-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"
           style={{ animationDelay: '4s' }}
         ></div>
       </div>
@@ -78,11 +78,11 @@ const Hero: React.FC = () => {
 
             {/* Main heading with gradient text */}
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-blue-100 to-teal-200 bg-clip-text text-transparent">
                 Building the
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-300 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
                 Future of Software
               </span>
             </h1>
@@ -98,7 +98,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <a
                 href="#services"
-                className="group relative px-8 py-4 bg-white text-indigo-900 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-white/25 flex items-center"
+                className="group relative px-8 py-4 bg-white text-primary-900 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-white/25 flex items-center"
               >
                 Explore Our Services
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
               {
                 number: '20+',
                 label: 'Projects Delivered',
-                icon: <TrendingUp className="w-8 h-8 text-purple-300" />,
+                icon: <TrendingUp className="w-8 h-8 text-teal-300" />,
               },
               {
                 number: '100%',

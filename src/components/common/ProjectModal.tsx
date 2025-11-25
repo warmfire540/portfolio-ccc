@@ -83,7 +83,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
           <div className="absolute bottom-6 left-6 right-6">
             <div className="flex items-center justify-between flex-wrap gap-2">
-              <span className="inline-block px-4 py-2 text-sm font-semibold rounded-full bg-indigo-600 text-white">
+              <span className="inline-block px-4 py-2 text-sm font-semibold rounded-full bg-primary-600 text-white">
                 {project.category}
               </span>
               <div className="flex items-center text-white text-sm">
@@ -128,7 +128,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-2 text-sm rounded-lg bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-medium"
+                  className="px-3 py-2 text-sm rounded-lg bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800 font-medium"
                 >
                   {tech}
                 </span>
@@ -143,7 +143,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-indigo-600/25"
+                className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-primary-600/25"
               >
                 {project.linkType === 'technology'
                   ? 'View Technology'

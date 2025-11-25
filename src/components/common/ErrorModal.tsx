@@ -75,7 +75,7 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
               </h4>
               <button
                 onClick={copyToClipboard}
-                className="flex items-center gap-1 text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
+                className="flex items-center gap-1 text-xs text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300 transition-colors"
               >
                 <Copy className="w-3 h-3" />
                 {copied ? 'Copied!' : 'Copy'}
@@ -119,7 +119,7 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
           <div className="flex gap-3">
             <button
               onClick={onClose}
-              className="flex-1 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md transition-colors"
+              className="flex-1 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-md transition-colors"
             >
               Try Again
             </button>

@@ -11,7 +11,7 @@ import AnimatedSection from 'components/common/AnimatedSection';
  */
 const Cta: React.FC = () => {
   return (
-    <section className="py-16 bg-indigo-800 dark:bg-indigo-900 text-white">
+    <section className="py-16 bg-primary-800 dark:bg-primary-900 text-white">
       <div className="container mx-auto px-4 text-center">
         <AnimatedSection animation="fade-in">
           <h2 className="text-3xl font-bold mb-6">
@@ -23,7 +23,7 @@ const Cta: React.FC = () => {
           </p>
           <a
             href="#contact"
-            className="inline-block px-6 py-3 bg-white dark:bg-indigo-200 text-indigo-800 font-semibold rounded-md hover:bg-gray-100 dark:hover:bg-indigo-300 transition-colors text-lg"
+            className="inline-block px-6 py-3 bg-white dark:bg-primary-200 text-primary-800 font-semibold rounded-md hover:bg-gray-100 dark:hover:bg-primary-300 transition-colors text-lg"
           >
             Get In Touch
           </a>

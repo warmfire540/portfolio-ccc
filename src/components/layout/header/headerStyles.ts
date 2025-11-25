@@ -19,52 +19,52 @@ export const useHeaderStyles = (isScrolled: boolean): HeaderThemeClasses => {
 
   return {
     logo: getClasses(
-      'text-indigo-400', // scrolled dark
-      'text-indigo-900', // scrolled light
-      'text-indigo-300', // not scrolled dark
-      'text-indigo-900', // not scrolled light
+      'text-primary-400', // scrolled dark
+      'text-primary-900', // scrolled light
+      'text-primary-300', // not scrolled dark
+      'text-primary-900', // not scrolled light
     ),
 
     title: getClasses(
       'text-white', // scrolled dark
-      'text-indigo-900', // scrolled light
+      'text-primary-900', // scrolled light
       'text-white', // not scrolled dark
-      'text-indigo-900', // not scrolled light
+      'text-primary-900', // not scrolled light
     ),
 
     subtitle: getClasses(
-      'text-indigo-300', // scrolled dark
+      'text-primary-300', // scrolled dark
       'text-gray-600', // scrolled light
-      'text-indigo-200', // not scrolled dark
-      'text-indigo-700', // not scrolled light
+      'text-primary-200', // not scrolled dark
+      'text-primary-700', // not scrolled light
     ),
 
     navLink: getClasses(
-      'text-gray-300 hover:text-indigo-400', // scrolled dark
-      'text-gray-800 hover:text-indigo-600', // scrolled light
-      'text-gray-200 hover:text-indigo-300', // not scrolled dark
-      'text-indigo-800 hover:text-indigo-600', // not scrolled light
+      'text-gray-300 hover:text-primary-400', // scrolled dark
+      'text-gray-800 hover:text-primary-600', // scrolled light
+      'text-gray-200 hover:text-primary-300', // not scrolled dark
+      'text-primary-800 hover:text-primary-600', // not scrolled light
     ),
 
     activeNavLink: getClasses(
-      'text-indigo-400 border-b-2 border-indigo-400', // scrolled dark
-      'text-indigo-600 border-b-2 border-indigo-600', // scrolled light
-      'text-indigo-300 border-b-2 border-indigo-300', // not scrolled dark
-      'text-indigo-800 border-b-2 border-indigo-800', // not scrolled light
+      'text-primary-400 border-b-2 border-primary-400', // scrolled dark
+      'text-primary-600 border-b-2 border-primary-600', // scrolled light
+      'text-primary-300 border-b-2 border-primary-300', // not scrolled dark
+      'text-primary-800 border-b-2 border-primary-800', // not scrolled light
     ),
 
     themeButton: getClasses(
       'bg-gray-800 text-yellow-400 hover:bg-gray-700', // scrolled dark
-      'bg-gray-100 text-indigo-900 hover:bg-gray-200', // scrolled light
+      'bg-gray-100 text-primary-900 hover:bg-gray-200', // scrolled light
       'bg-gray-800 text-yellow-400 hover:bg-gray-700', // not scrolled dark
-      'bg-indigo-100 text-indigo-900 hover:bg-indigo-200', // not scrolled light
+      'bg-primary-100 text-primary-900 hover:bg-primary-200', // not scrolled light
     ),
 
     mobileIcon: getClasses(
       'text-white', // scrolled dark
-      'text-indigo-900', // scrolled light
+      'text-primary-900', // scrolled light
       'text-white', // not scrolled dark
-      'text-indigo-900', // not scrolled light
+      'text-primary-900', // not scrolled light
     ),
 
     mobileMenu:

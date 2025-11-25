@@ -120,7 +120,7 @@ const ContactForm: React.FC = () => {
             label="Company"
             value={formData.company}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-indigo-500 focus:border-indigo-500"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-primary-500 focus:border-primary-500"
             error=""
             showError={false}
             validationErrors={state.errors}
@@ -134,7 +134,7 @@ const ContactForm: React.FC = () => {
             type="select"
             value={formData.projectType}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-indigo-500 focus:border-indigo-500"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-primary-500 focus:border-primary-500"
             error=""
             showError={false}
             validationErrors={state.errors}
@@ -168,7 +168,7 @@ const ContactForm: React.FC = () => {
             <button
               type="submit"
               disabled={state.submitting}
-              className={`w-full flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-600 text-white font-medium rounded-md transition-colors duration-200 ${
+              className={`w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-700 dark:hover:bg-primary-600 text-white font-medium rounded-md transition-colors duration-200 ${
                 state.submitting ? 'opacity-70 cursor-not-allowed' : ''
               }`}
             >

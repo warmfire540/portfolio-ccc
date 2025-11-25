@@ -19,7 +19,7 @@ const Story: React.FC = () => {
         <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
           Our Story
         </h3>
-        <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full"></div>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-teal-600 mx-auto rounded-full"></div>
       </AnimatedSection>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -32,10 +32,10 @@ const Story: React.FC = () => {
           >
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 h-full transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <div className="flex flex-col items-center text-center space-y-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
                   <milestone.icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
                   {milestone.year}
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800 dark:text-white">

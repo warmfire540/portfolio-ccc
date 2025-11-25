@@ -50,7 +50,7 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-full text-indigo-600 dark:text-indigo-400 mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/50 rounded-full text-primary-600 dark:text-primary-400 mb-6">
             <span className="text-sm font-semibold">Featured Work</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
@@ -73,7 +73,7 @@ const Projects: React.FC = () => {
               }}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
                 activeFilter === category
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/25'
+                  ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/25'
                   : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600'
               }`}
             >
@@ -131,7 +131,7 @@ const Projects: React.FC = () => {
               <div className="p-6">
                 {/* Category Badge */}
                 <div className="flex items-center justify-between mb-3">
-                  <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400">
                     {project.category}
                   </span>
                   <div className="flex items-center text-gray-500 dark:text-gray-400 text-xs">
@@ -141,7 +141,7 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {project.title}
                 </h3>
 
@@ -183,7 +183,7 @@ const Projects: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-medium text-sm hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+                    className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium text-sm hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
                   >
                     {project.linkType === 'technology'
                       ? 'View Technology'
@@ -203,7 +203,7 @@ const Projects: React.FC = () => {
           <div className="text-center">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="group inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 border-2 border-indigo-600 dark:border-indigo-500 text-indigo-600 dark:text-indigo-400 font-semibold rounded-full hover:bg-indigo-600 dark:hover:bg-indigo-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-600/25"
+              className="group inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 border-2 border-primary-600 dark:border-primary-500 text-primary-600 dark:text-primary-400 font-semibold rounded-full hover:bg-primary-600 dark:hover:bg-primary-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary-600/25"
             >
               {showAll ? (
                 <>

@@ -13,9 +13,9 @@ export const getLogoIconStyles = (
   isDark: boolean,
 ): string => {
   if (isScrolled) {
-    return isDark ? 'text-indigo-400' : 'text-indigo-900';
+    return isDark ? 'text-primary-400' : 'text-primary-900';
   }
-  return isDark ? 'text-indigo-300' : 'text-indigo-900';
+  return isDark ? 'text-primary-300' : 'text-primary-900';
 };
 
 export const getTitleStyles = (
@@ -23,7 +23,7 @@ export const getTitleStyles = (
   isDark: boolean,
 ): string => {
   if (isScrolled) {
-    return isDark ? 'text-white' : 'text-indigo-900';
+    return isDark ? 'text-white' : 'text-primary-900';
   }
   // Always white when not scrolled (transparent header over dark background)
   return 'text-white';
@@ -34,10 +34,10 @@ export const getSubtitleStyles = (
   isDark: boolean,
 ): string => {
   if (isScrolled) {
-    return isDark ? 'text-indigo-300' : 'text-gray-600';
+    return isDark ? 'text-primary-300' : 'text-gray-600';
   }
   // Always light when not scrolled (transparent header over dark background)
-  return 'text-indigo-200';
+  return 'text-primary-200';
 };
 
 export const getNavItemStyles = (
@@ -51,24 +51,24 @@ export const getNavItemStyles = (
   if (isActive) {
     if (isScrolled) {
       const activeStyles = isDark
-        ? 'text-indigo-400 border-b-2 border-indigo-400'
-        : 'text-indigo-600 border-b-2 border-indigo-600';
+        ? 'text-primary-400 border-b-2 border-primary-400'
+        : 'text-primary-600 border-b-2 border-primary-600';
       return `${baseStyles} ${activeStyles}`;
     }
     // Always light when not scrolled (transparent header over dark background)
-    const activeStyles = 'text-indigo-300 border-b-2 border-indigo-300';
+    const activeStyles = 'text-primary-300 border-b-2 border-primary-300';
     return `${baseStyles} ${activeStyles}`;
   }
 
   if (isScrolled) {
     const inactiveStyles = isDark
-      ? 'text-gray-300 hover:text-indigo-400'
-      : 'text-gray-800 hover:text-indigo-600';
+      ? 'text-gray-300 hover:text-primary-400'
+      : 'text-gray-800 hover:text-primary-600';
     return `${baseStyles} ${inactiveStyles}`;
   }
 
   // Always light when not scrolled (transparent header over dark background)
-  const inactiveStyles = 'text-gray-200 hover:text-indigo-300';
+  const inactiveStyles = 'text-gray-200 hover:text-primary-300';
   return `${baseStyles} ${inactiveStyles}`;
 };
 
@@ -81,7 +81,7 @@ export const getThemeToggleStyles = (
   if (isScrolled) {
     const scrolledStyles = isDark
       ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700'
-      : 'bg-gray-100 text-indigo-900 hover:bg-gray-200';
+      : 'bg-gray-100 text-primary-900 hover:bg-gray-200';
     return `${baseStyles} ${scrolledStyles}`;
   }
 
@@ -99,7 +99,7 @@ export const getMobileThemeToggleStyles = (
   if (isScrolled) {
     const scrolledStyles = isDark
       ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700'
-      : 'bg-gray-100 text-indigo-900 hover:bg-gray-200';
+      : 'bg-gray-100 text-primary-900 hover:bg-gray-200';
     return `${baseStyles} ${scrolledStyles}`;
   }
 
@@ -115,7 +115,7 @@ export const getHamburgerStyles = (
   const baseStyles = 'w-6 h-6 flex items-center justify-center relative';
 
   if (isScrolled) {
-    const scrolledStyles = isDark ? 'text-white' : 'text-indigo-900';
+    const scrolledStyles = isDark ? 'text-white' : 'text-primary-900';
     return `${baseStyles} ${scrolledStyles}`;
   }
 
@@ -150,13 +150,13 @@ export const getMobileNavItemStyles = (
 
   if (isActive) {
     const activeStyles = isDark
-      ? 'text-indigo-400 font-medium'
-      : 'text-indigo-600 font-medium';
+      ? 'text-primary-400 font-medium'
+      : 'text-primary-600 font-medium';
     return `${baseStyles} ${activeStyles}`;
   }
 
   const inactiveStyles = isDark
-    ? 'text-gray-300 hover:text-indigo-400'
-    : 'text-gray-800 hover:text-indigo-600';
+    ? 'text-gray-300 hover:text-primary-400'
+    : 'text-gray-800 hover:text-primary-600';
   return `${baseStyles} ${inactiveStyles}`;
 };

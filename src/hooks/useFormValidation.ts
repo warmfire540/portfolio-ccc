@@ -103,7 +103,7 @@ export const useFormValidation = () => {
       return `${baseClasses} border-red-500 dark:border-red-400 focus:ring-red-500 focus:border-red-500`;
     }
 
-    return `${baseClasses} border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500`;
+    return `${baseClasses} border-gray-300 dark:border-gray-600 focus:ring-primary-500 focus:border-primary-500`;
   };
 
   return {
