@@ -9,6 +9,7 @@ export interface Project {
   year: string;
   link?: string;
   linkType?: 'project' | 'technology' | 'client';
+  detailPageUrl?: string;
 }
 
 /**
@@ -51,6 +52,34 @@ export const categories = [
  * @type {Project[]}
  */
 export const projects: Project[] = [
+  {
+    id: 'web-canvas',
+    title: 'Web Canvas: Spatial Web Browsing',
+    category: 'Full-Stack',
+    description:
+      'Developed a revolutionary iOS/iPadOS/macOS app that transforms web browsing into a spatial experience. Web Canvas provides an infinite canvas where users can arrange browser windows, images, and ideas visually instead of juggling traditional tabs. Features include smooth pan/zoom gestures, visual connections between related content, search history management, and full WebView browsing capabilities. Built with React Native, Expo, and Shopify React Native Skia for 60fps animations.',
+    clientType: 'Personal / Business',
+    technologies: [
+      'React Native',
+      'Expo',
+      'TypeScript',
+      'React Native Reanimated',
+      'React Native Skia',
+      'NativeWind',
+      'Expo Router',
+      'Zustand',
+      'PostHog',
+      'Crisp Chat',
+      'iOS',
+      'iPadOS',
+      'macOS',
+    ],
+    imageUrl: '/assets/projects/apps/webcanvas/iOS iPad  13-01.png',
+    year: '2025',
+    link: 'projects/web-canvas',
+    linkType: 'project',
+    detailPageUrl: '/projects/web-canvas',
+  },
   {
     id: 'linkedin-content-automation',
     title: 'AI-Powered LinkedIn Content Automation System',

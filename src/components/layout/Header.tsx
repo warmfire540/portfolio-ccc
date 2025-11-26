@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import { useTheme } from 'utils/ThemeContext';
 
 import { DesktopNavigation } from './header/DesktopNavigation';
@@ -12,6 +14,8 @@ import { useHeaderState } from './header/userHeaderState';
 
 const CCCHeader: React.FC = () => {
   const { theme } = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems: NavItem[] = [
     { href: '#home', label: 'Home', id: 'home' },
@@ -27,8 +31,17 @@ const CCCHeader: React.FC = () => {
   const styles = useHeaderStyles(isScrolled);
 
   const scrollToSection = (href: string) => {
-    const navbarHeight = 110;
     const targetId = href.replace('#', '');
+
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: targetId } });
+      setIsMenuOpen(false);
+      return;
+    }
+
+    // If we're already on the home page, scroll to the section
+    const navbarHeight = 110;
     const element = document.getElementById(targetId);
 
     if (element) {

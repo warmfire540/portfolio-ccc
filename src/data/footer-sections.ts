@@ -45,6 +45,16 @@ export const footerSections = [
     ],
   },
   {
+    title: 'Apps',
+    links: [
+      {
+        label: 'Web Canvas',
+        href: '/projects/web-canvas',
+        router: true,
+      },
+    ],
+  },
+  {
     title: 'Legal',
     links: [
       {

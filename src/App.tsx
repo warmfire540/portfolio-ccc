@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Analytics } from '@vercel/analytics/react';
 import {
@@ -12,6 +12,7 @@ import About from 'components/spa/About';
 import Contact from 'components/spa/Contact';
 import Cta from 'components/spa/Cta';
 import Hero from 'components/spa/Hero';
+import ProjectDetail from 'components/spa/ProjectDetail';
 import Projects from 'components/spa/Projects';
 import Services from 'components/spa/Services';
 
@@ -31,6 +32,30 @@ const AppContent: React.FC = () => {
     location.pathname === '/terms-of-service' ||
     location.pathname === '/privacy-policy';
 
+  // Handle scrolling to sections when navigating from other routes or with hash
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const targetId =
+        location.state?.scrollTo || location.hash.replace('#', '');
+
+      if (targetId) {
+        // Small delay to ensure the page has rendered
+        setTimeout(() => {
+          const navbarHeight = 110;
+          const element = document.getElementById(targetId);
+          if (element) {
+            const elementPosition =
+              element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: elementPosition - navbarHeight,
+              behavior: 'smooth',
+            });
+          }
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
       {!isLegalPage && <Header />}
@@ -49,6 +74,7 @@ const AppContent: React.FC = () => {
               </div>
             }
           />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>

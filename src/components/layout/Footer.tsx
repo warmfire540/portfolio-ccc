@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { scrollToSection } from 'utils/ScrollToSection';
 
 import { footerSections } from 'data/footer-sections';
@@ -31,12 +33,12 @@ const CCCFooter: React.FC = () => {
 
     if (link.router) {
       return (
-        <a
-          href={link.href}
+        <Link
+          to={link.href}
           className="text-gray-400 hover:text-white transition-colors duration-200"
         >
           {link.label}
-        </a>
+        </Link>
       );
     }
 
