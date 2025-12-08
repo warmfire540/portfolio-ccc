@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
-import { X, Calendar, ExternalLink } from 'lucide-react';
+import { Calendar, ExternalLink, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import { Project } from '../../data/projects';
 
@@ -139,19 +140,28 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           {/* Link */}
           {project.link && (
             <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-primary-600/25"
-              >
-                {project.linkType === 'technology'
-                  ? 'View Technology'
-                  : project.linkType === 'client'
-                  ? 'View Client'
-                  : 'View Project'}
-                <ExternalLink className="ml-2 w-5 h-5" />
-              </a>
+              {project.detailPageUrl && project.linkType === 'project' ? (
+                <Link
+                  to={project.detailPageUrl}
+                  className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-primary-600/25"
+                >
+                  View Project
+                </Link>
+              ) : (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-primary-600/25"
+                >
+                  {project.linkType === 'technology'
+                    ? 'View Technology'
+                    : project.linkType === 'client'
+                    ? 'View Client'
+                    : 'View Project'}
+                  <ExternalLink className="ml-2 w-5 h-5" />
+                </a>
+              )}
             </div>
           )}
         </div>

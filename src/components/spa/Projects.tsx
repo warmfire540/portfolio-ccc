@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Calendar, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import { categories, projects, Project } from 'data/projects';
 
@@ -178,20 +179,32 @@ const Projects: React.FC = () => {
 
                 {/* Link */}
                 {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium text-sm hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                  >
-                    {project.linkType === 'technology'
-                      ? 'View Technology'
-                      : project.linkType === 'client'
-                      ? 'View Client'
-                      : 'View Project'}
-                    <ExternalLink className="ml-1 w-4 h-4" />
-                  </a>
+                  <>
+                    {project.detailPageUrl && project.linkType === 'project' ? (
+                      <Link
+                        to={project.detailPageUrl}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium text-sm hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                      >
+                        View Project
+                      </Link>
+                    ) : (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium text-sm hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                      >
+                        {project.linkType === 'technology'
+                          ? 'View Technology'
+                          : project.linkType === 'client'
+                          ? 'View Client'
+                          : 'View Project'}
+                        <ExternalLink className="ml-1 w-4 h-4" />
+                      </a>
+                    )}
+                  </>
                 )}
               </div>
             </div>

@@ -53,25 +53,98 @@ const ProjectDetail: React.FC = () => {
     );
   }
 
-  const isApp =
-    project.category === 'Full-Stack' && project.id === 'web-canvas';
-  const appStoreUrl = 'https://apps.apple.com/us/app/web-canvas/id6755220973';
+  // App configuration
+  const isApp = project.category === 'Full-Stack' && project.detailPageUrl;
 
-  // Screenshots for Web Canvas app
-  const screenshots = isApp
-    ? [
-        '/assets/projects/apps/webcanvas/iOS iPad  13-01.png',
-        '/assets/projects/apps/webcanvas/iOS iPad  13-02.png',
-        '/assets/projects/apps/webcanvas/iOS iPad  13-03.png',
-        '/assets/projects/apps/webcanvas/iOS iPad  13-04.png',
-        '/assets/projects/apps/webcanvas/iOS iPad  13-05.png',
-      ]
-    : [];
+  // App-specific configurations
+  const appConfig: Record<
+    string,
+    {
+      appStoreUrl: string;
+      screenshots: string[];
+      features: Array<{ title: string; description: string }>;
+    }
+  > = {
+    'web-canvas': {
+      appStoreUrl: 'https://apps.apple.com/us/app/web-canvas/id6755220973',
+      screenshots: [
+        '/assets/projects/apps/webcanvas/01.png',
+        '/assets/projects/apps/webcanvas/02.png',
+        '/assets/projects/apps/webcanvas/03.png',
+        '/assets/projects/apps/webcanvas/04.png',
+        '/assets/projects/apps/webcanvas/05.png',
+      ],
+      features: [
+        {
+          title: 'Infinite Canvas',
+          description:
+            'Pan and zoom freely across your workspace. See all your research and browsing at a glance.',
+        },
+        {
+          title: 'Visual Browsing',
+          description:
+            'Add multiple browser windows to your canvas. Images show in your workspace. See visual connections between related content.',
+        },
+        {
+          title: 'Natural Gestures',
+          description:
+            'Drag windows anywhere on the canvas. Pinch to zoom in and out. Pan with two fingers to navigate.',
+        },
+        {
+          title: 'Full Web Browsing',
+          description:
+            'Full web browsing with standard WebView. Search history that remembers your journey. Dark mode support.',
+        },
+      ],
+    },
+    pawsport: {
+      appStoreUrl: 'https://apps.apple.com/us/app/travel-pawsport/id6754227856',
+      screenshots: [
+        '/assets/projects/apps/pawsport/01.png',
+        '/assets/projects/apps/pawsport/02.png',
+        '/assets/projects/apps/pawsport/03.png',
+        '/assets/projects/apps/pawsport/04.png',
+        '/assets/projects/apps/pawsport/05.png',
+      ],
+      features: [
+        {
+          title: 'Cat Photo Capture',
+          description:
+            'Capture geotagged photos of cats you encounter while traveling. Automatic location tagging and manual override options.',
+        },
+        {
+          title: 'Interactive Map',
+          description:
+            'View your cat stamps on an interactive Mapbox map with heat visualization. Track your geographic coverage across countries, states, and regions.',
+        },
+        {
+          title: 'Achievement System',
+          description:
+            'Unlock achievements and badges for milestones like first cat, completing regions, international travel, and maintaining streaks.',
+        },
+        {
+          title: 'Collection & Stats',
+          description:
+            'Build your personal cat passport collection. Track statistics, view regional progress, and see your travel coverage visualized.',
+        },
+        {
+          title: 'Premium Features',
+          description:
+            'Purrfect Pro subscription unlocks full achievement tracking, advanced stats, and exclusive features. Monthly and yearly options available.',
+        },
+      ],
+    },
+  };
+
+  const currentAppConfig = appConfig[project.id] || null;
+  const appStoreUrl = currentAppConfig?.appStoreUrl || project.link || '';
+  const screenshots = currentAppConfig?.screenshots || [];
+  const appFeatures = currentAppConfig?.features || [];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Back Button */}
-      <div className="container mx-auto px-4 pt-8">
+      <div className="container mx-auto px-4 pt-24">
         <Link
           to="/#projects"
           className="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors mb-8"
@@ -142,49 +215,25 @@ const ProjectDetail: React.FC = () => {
             </div>
 
             {/* Features Section (for apps) */}
-            {isApp && (
+            {isApp && appFeatures.length > 0 && (
               <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
                   Key Features
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
-                      Infinite Canvas
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Pan and zoom freely across your workspace. See all your
-                      research and browsing at a glance.
-                    </p>
-                  </div>
-                  <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
-                      Visual Browsing
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Add multiple browser windows to your canvas. Images show
-                      in your workspace. See visual connections between related
-                      content.
-                    </p>
-                  </div>
-                  <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
-                      Natural Gestures
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Drag windows anywhere on the canvas. Pinch to zoom in and
-                      out. Pan with two fingers to navigate.
-                    </p>
-                  </div>
-                  <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
-                      Full Web Browsing
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Full web browsing with standard WebView. Search history
-                      that remembers your journey. Dark mode support.
-                    </p>
-                  </div>
+                  {appFeatures.map((feature, index) => (
+                    <div
+                      key={index}
+                      className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg"
+                    >
+                      <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        {feature.description}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -266,63 +315,108 @@ const ProjectDetail: React.FC = () => {
                   Available on:
                 </p>
                 <div className="space-y-3">
-                  <a
-                    href={appStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
-                  >
-                    <div className="flex items-center">
-                      <Smartphone className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
-                      <div>
-                        <div className="font-semibold text-gray-800 dark:text-white">
-                          iPhone
+                  {project.id === 'web-canvas' ? (
+                    <>
+                      <a
+                        href={appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
+                      >
+                        <div className="flex items-center">
+                          <Smartphone className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
+                          <div>
+                            <div className="font-semibold text-gray-800 dark:text-white">
+                              iPhone
+                            </div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">
+                              iOS 15.1+
+                            </div>
+                          </div>
                         </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          iOS 15.1+
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
+                      </a>
+                      <a
+                        href={appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
+                      >
+                        <div className="flex items-center">
+                          <Tablet className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
+                          <div>
+                            <div className="font-semibold text-gray-800 dark:text-white">
+                              iPad
+                            </div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">
+                              iPadOS 15.1+
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
-                  </a>
-                  <a
-                    href={appStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
-                  >
-                    <div className="flex items-center">
-                      <Tablet className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
-                      <div>
-                        <div className="font-semibold text-gray-800 dark:text-white">
-                          iPad
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
+                      </a>
+                      <a
+                        href={appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
+                      >
+                        <div className="flex items-center">
+                          <Monitor className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
+                          <div>
+                            <div className="font-semibold text-gray-800 dark:text-white">
+                              Mac
+                            </div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">
+                              macOS 12.0+ (M1+)
+                            </div>
+                          </div>
                         </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          iPadOS 15.1+
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <a
+                        href={appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
+                      >
+                        <div className="flex items-center">
+                          <Smartphone className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
+                          <div>
+                            <div className="font-semibold text-gray-800 dark:text-white">
+                              iPhone
+                            </div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">
+                              iOS 15.1+
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
-                  </a>
-                  <a
-                    href={appStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
-                  >
-                    <div className="flex items-center">
-                      <Monitor className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
-                      <div>
-                        <div className="font-semibold text-gray-800 dark:text-white">
-                          Mac
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
+                      </a>
+                      <a
+                        href={appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
+                      >
+                        <div className="flex items-center">
+                          <Tablet className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
+                          <div>
+                            <div className="font-semibold text-gray-800 dark:text-white">
+                              iPad
+                            </div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">
+                              iPadOS 15.1+
+                            </div>
+                          </div>
                         </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          macOS 12.0+ (M1+)
-                        </div>
-                      </div>
-                    </div>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
-                  </a>
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
             )}

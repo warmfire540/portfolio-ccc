@@ -52,7 +52,13 @@ const AppContent: React.FC = () => {
             });
           }
         }, 100);
+      } else {
+        // Scroll to top when on home page without a target
+        window.scrollTo(0, 0);
       }
+    } else {
+      // Scroll to top when navigating to any other page
+      window.scrollTo(0, 0);
     }
   }, [location]);
 

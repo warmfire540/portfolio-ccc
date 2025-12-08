@@ -48,6 +48,11 @@ export const footerSections = [
     title: 'Apps',
     links: [
       {
+        label: 'Pawsport',
+        href: '/projects/pawsport',
+        router: true,
+      },
+      {
         label: 'Web Canvas',
         href: '/projects/web-canvas',
         router: true,

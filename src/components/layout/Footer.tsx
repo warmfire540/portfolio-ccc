@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-import { scrollToSection } from 'utils/ScrollToSection';
+import { scrollToSection as scrollToSectionUtil } from 'utils/ScrollToSection';
 
 import { footerSections } from 'data/footer-sections';
 
@@ -10,6 +10,21 @@ import { ReactComponent as Logo } from '../../assets/cat.svg';
 
 const CCCFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = ({ href }: { href: string }) => {
+    const targetId = href.replace('#', '');
+
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: targetId } });
+      return;
+    }
+
+    // If we're already on the home page, scroll to the section
+    scrollToSectionUtil({ href });
+  };
 
   // Render external or internal link based on the link properties
   const renderLink = (link: {
