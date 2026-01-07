@@ -1,13 +1,6 @@
 import React from 'react';
 
-import {
-  ArrowLeft,
-  Calendar,
-  ExternalLink,
-  Smartphone,
-  Tablet,
-  Monitor,
-} from 'lucide-react';
+import { ArrowLeft, Calendar, ExternalLink } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 
 import { projects } from '../../data/projects';
@@ -61,12 +54,15 @@ const ProjectDetail: React.FC = () => {
     string,
     {
       appStoreUrl: string;
+      playStoreUrl?: string;
       screenshots: string[];
       features: Array<{ title: string; description: string }>;
     }
   > = {
     'web-canvas': {
       appStoreUrl: 'https://apps.apple.com/us/app/web-canvas/id6755220973',
+      playStoreUrl:
+        'https://play.google.com/store/apps/details?id=com.curiouscat.webcanvas',
       screenshots: [
         '/assets/projects/apps/webcanvas/01.png',
         '/assets/projects/apps/webcanvas/02.png',
@@ -138,6 +134,7 @@ const ProjectDetail: React.FC = () => {
 
   const currentAppConfig = appConfig[project.id] || null;
   const appStoreUrl = currentAppConfig?.appStoreUrl || project.link || '';
+  const playStoreUrl = currentAppConfig?.playStoreUrl || '';
   const screenshots = currentAppConfig?.screenshots || [];
   const appFeatures = currentAppConfig?.features || [];
 
@@ -311,111 +308,34 @@ const ProjectDetail: React.FC = () => {
                 <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
                   Download
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                  Available on:
-                </p>
-                <div className="space-y-3">
-                  {project.id === 'web-canvas' ? (
-                    <>
-                      <a
-                        href={appStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
-                      >
-                        <div className="flex items-center">
-                          <Smartphone className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
-                          <div>
-                            <div className="font-semibold text-gray-800 dark:text-white">
-                              iPhone
-                            </div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                              iOS 15.1+
-                            </div>
-                          </div>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
-                      </a>
-                      <a
-                        href={appStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
-                      >
-                        <div className="flex items-center">
-                          <Tablet className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
-                          <div>
-                            <div className="font-semibold text-gray-800 dark:text-white">
-                              iPad
-                            </div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                              iPadOS 15.1+
-                            </div>
-                          </div>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
-                      </a>
-                      <a
-                        href={appStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
-                      >
-                        <div className="flex items-center">
-                          <Monitor className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
-                          <div>
-                            <div className="font-semibold text-gray-800 dark:text-white">
-                              Mac
-                            </div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                              macOS 12.0+ (M1+)
-                            </div>
-                          </div>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
-                      </a>
-                    </>
-                  ) : (
-                    <>
-                      <a
-                        href={appStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
-                      >
-                        <div className="flex items-center">
-                          <Smartphone className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
-                          <div>
-                            <div className="font-semibold text-gray-800 dark:text-white">
-                              iPhone
-                            </div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                              iOS 15.1+
-                            </div>
-                          </div>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
-                      </a>
-                      <a
-                        href={appStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors group"
-                      >
-                        <div className="flex items-center">
-                          <Tablet className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-3" />
-                          <div>
-                            <div className="font-semibold text-gray-800 dark:text-white">
-                              iPad
-                            </div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                              iPadOS 15.1+
-                            </div>
-                          </div>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
-                      </a>
-                    </>
+                <div className="space-y-4">
+                  {appStoreUrl && (
+                    <a
+                      href={appStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block transition-opacity hover:opacity-80"
+                    >
+                      <img
+                        src="/assets/appstore.svg"
+                        alt="Download on the App Store"
+                        className="w-full h-auto"
+                      />
+                    </a>
+                  )}
+                  {playStoreUrl && (
+                    <a
+                      href={playStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block transition-opacity hover:opacity-80"
+                    >
+                      <img
+                        src="/assets/playstore.svg"
+                        alt="Get it on Google Play"
+                        className="w-full h-auto"
+                      />
+                    </a>
                   )}
                 </div>
               </div>

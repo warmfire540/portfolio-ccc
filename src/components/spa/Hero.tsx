@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
         })}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 pb-16 md:pb-24 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             {/* Badge */}
@@ -150,8 +150,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* Scroll indicator - hidden on mobile/tablet where stats cards overlap */}
+      <div className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
