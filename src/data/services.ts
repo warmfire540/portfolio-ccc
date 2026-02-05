@@ -1,36 +1,27 @@
-import {
-  BarChart,
-  Cloud,
-  Code,
-  Database,
-  FileCode,
-  GitBranch,
-  Layers,
-  RefreshCw,
-  Server,
-  Terminal,
-  Users,
-  Workflow,
-} from 'lucide-react';
+import type { IconName } from 'lucide-react/dynamic';
 
-interface Service {
+export interface Service {
   id: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
+  iconName: IconName;
   benefits: string[];
   offerings: string[];
 }
 
-export const getServices = (size: number): Service[] => [
+export interface SpecializedService {
+  title: string;
+  iconName: IconName;
+  description: string;
+}
+
+export const services: Service[] = [
   {
     id: 'architecture',
     title: 'Software Architecture',
     description:
       'Design scalable, maintainable systems that align with your business goals and technical requirements.',
-    icon: (
-      <Layers size={size} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'layers',
     benefits: [
       'Scalable systems that grow with your business',
       'Reduced technical debt and maintenance costs',
@@ -50,9 +41,7 @@ export const getServices = (size: number): Service[] => [
     title: 'Full-Stack Development',
     description:
       'Build complete web and mobile applications with modern front-end interfaces and robust back-end services.',
-    icon: (
-      <Code size={size} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'code',
     benefits: [
       'Cohesive application development from end to end',
       'Consistent practices across the technology stack',
@@ -72,9 +61,7 @@ export const getServices = (size: number): Service[] => [
     title: 'Cloud Solutions',
     description:
       'Leverage the power of cloud platforms to reduce costs, increase scalability, and improve reliability.',
-    icon: (
-      <Cloud size={size} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'cloud',
     benefits: [
       'Reduced infrastructure costs and management overhead',
       'Improved scalability and flexibility',
@@ -94,12 +81,7 @@ export const getServices = (size: number): Service[] => [
     title: 'DevOps & Automation',
     description:
       'Streamline your development lifecycle with continuous integration, delivery, and infrastructure as code.',
-    icon: (
-      <RefreshCw
-        size={size}
-        className="text-primary-600 dark:text-primary-400"
-      />
-    ),
+    iconName: 'refresh-cw',
     benefits: [
       'Faster, more reliable software releases',
       'Reduced deployment risks and downtime',
@@ -119,12 +101,7 @@ export const getServices = (size: number): Service[] => [
     title: 'Data Integration',
     description:
       'Connect disparate systems and data sources to provide a unified view of your business information.',
-    icon: (
-      <Database
-        size={size}
-        className="text-primary-600 dark:text-primary-400"
-      />
-    ),
+    iconName: 'database',
     benefits: [
       'Unified view of business data across systems',
       'Improved data quality and consistency',
@@ -144,12 +121,7 @@ export const getServices = (size: number): Service[] => [
     title: 'Technical Consultation',
     description:
       'Get expert advice on technology selection, system design, and technical strategy to guide your decisions.',
-    icon: (
-      <Terminal
-        size={size}
-        className="text-primary-600 dark:text-primary-400"
-      />
-    ),
+    iconName: 'terminal',
     benefits: [
       'Informed decisions based on technical expertise',
       'Reduced risk in technology selection',
@@ -166,52 +138,40 @@ export const getServices = (size: number): Service[] => [
   },
 ];
 
-export const specializedServices = [
+export const specializedServicesData: SpecializedService[] = [
   {
     title: 'Legacy System Modernization',
-    icon: (
-      <Server size={24} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'server',
     description:
       'Transform outdated systems into modern, maintainable applications without losing critical functionality.',
   },
   {
     title: 'API Design & Development',
-    icon: (
-      <FileCode size={24} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'file-code',
     description:
       'Create well-designed, developer-friendly APIs that enable seamless integration and extensibility.',
   },
   {
     title: 'Workflow Automation',
-    icon: (
-      <Workflow size={24} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'workflow',
     description:
       'Automate repetitive business processes to improve efficiency, reduce errors, and free up valuable resources.',
   },
   {
     title: 'Version Control & Branching Strategy',
-    icon: (
-      <GitBranch size={24} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'git-branch',
     description:
       'Establish effective source code management practices to support your development team and release processes.',
   },
   {
     title: 'Data Visualization',
-    icon: (
-      <BarChart size={24} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'bar-chart',
     description:
       'Transform raw data into insightful visualizations that help drive better business decisions.',
   },
   {
     title: 'Team Augmentation',
-    icon: (
-      <Users size={24} className="text-primary-600 dark:text-primary-400" />
-    ),
+    iconName: 'users',
     description:
       'Supplement your existing technical team with my expertise to tackle challenging projects or meet deadlines.',
   },

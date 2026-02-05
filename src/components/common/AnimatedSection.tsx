@@ -63,6 +63,9 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
               default:
                 entry.target.classList.add('opacity-100');
             }
+            // Remove transitionDelay after animation completes so hover effects aren't delayed
+            const element = entry.target as HTMLElement;
+            element.style.transitionDelay = '';
           }, delay);
 
           observer.unobserve(entry.target);
