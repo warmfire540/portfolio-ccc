@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useTheme } from 'utils/ThemeContext';
 
-import { HeaderThemeClasses, NavItem } from './types';
+import type { HeaderThemeClasses, NavItem } from './types';
 
 interface MobileMenuProps {
   isOpen: boolean;

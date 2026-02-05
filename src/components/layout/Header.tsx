@@ -9,7 +9,7 @@ import { useHeaderStyles } from './header/headerStyles';
 import { Logo } from './header/Logo';
 import { MobileControls } from './header/MobileControls';
 import { MobileMenu } from './header/MobileMenu';
-import { NavItem } from './header/types';
+import type { NavItem } from './header/types';
 import { useHeaderState } from './header/userHeaderState';
 
 const CCCHeader: React.FC = () => {

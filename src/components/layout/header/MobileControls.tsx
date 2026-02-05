@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MobileMenuButton } from './MobileMenuButton';
 import { ThemeToggle } from './ThemeToggle';
-import { HeaderThemeClasses } from './types';
+import type { HeaderThemeClasses } from './types';
 
 interface MobileControlsProps {
   isMenuOpen: boolean;

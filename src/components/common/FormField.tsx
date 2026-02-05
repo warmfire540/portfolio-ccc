@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FieldValues, SubmissionError } from '@formspree/core';
+import type { FieldValues, SubmissionError } from '@formspree/core';
 import { ValidationError } from '@formspree/react';
 
 interface FormFieldProps {

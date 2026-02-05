@@ -1,4 +1,4 @@
-import { HeaderThemeClasses } from './types';
+import type { HeaderThemeClasses } from './types';
 import { useTheme } from '../../../utils/ThemeContext';
 
 export const useHeaderStyles = (isScrolled: boolean): HeaderThemeClasses => {

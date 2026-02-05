@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Calendar, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import { categories, projects, Project } from 'data/projects';
+import { categories, projects, type Project } from 'data/projects';
 
 import { ProjectModal } from '../common/ProjectModal';
 

@@ -1,13 +1,44 @@
 import React from 'react';
 
-import { DynamicIcon, IconName } from 'lucide-react/dynamic';
+import {
+  Layers,
+  Code,
+  Cloud,
+  RefreshCw,
+  Database,
+  Terminal,
+  Server,
+  FileCode,
+  Workflow,
+  GitBranch,
+  BarChart,
+  Users,
+  type LucideIcon,
+} from 'lucide-react';
 
 import AnimatedSection from 'components/common/AnimatedSection';
+
+// Note: Using a simple map instead of DynamicIcon to avoid 4k chunk files
+// DynamicIcon causes all lucide-react icons to be bundled, significantly increasing bundle size
+const iconMap: Record<string, LucideIcon> = {
+  layers: Layers,
+  code: Code,
+  cloud: Cloud,
+  'refresh-cw': RefreshCw,
+  database: Database,
+  terminal: Terminal,
+  server: Server,
+  'file-code': FileCode,
+  workflow: Workflow,
+  'git-branch': GitBranch,
+  'bar-chart': BarChart,
+  users: Users,
+};
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  iconName: IconName;
+  iconName: string;
   index: number;
   variant?: 'vertical' | 'horizontal';
   iconSize?: number;
@@ -21,7 +52,7 @@ interface ServiceCardProps {
  * @param {ServiceCardProps} props - The properties for the ServiceCard component.
  * @param {string} props.title - The service title.
  * @param {string} props.description - The service description.
- * @param {IconName} props.iconName - The name of the icon to display.
+ * @param {string} props.iconName - The name of the icon to display.
  * @param {number} props.index - The index for animation delay.
  * @param {'vertical' | 'horizontal'} [props.variant='vertical'] - Layout variant.
  * @param {number} [props.iconSize=48] - Size of the icon.
@@ -50,6 +81,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       ? 'text-xl font-bold text-gray-800 dark:text-white mb-2'
       : 'text-lg font-bold text-gray-800 dark:text-white ml-3';
 
+  const IconComponent = iconMap[iconName] || Code;
+
   return (
     <AnimatedSection
       animation="zoom-in"
@@ -59,8 +92,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       {variant === 'vertical' ? (
         <>
           <div className={`mb-4 ${iconWrapperClasses}`}>
-            <DynamicIcon
-              name={iconName}
+            <IconComponent
               size={iconSize}
               className="text-primary-600 dark:text-primary-400"
             />
@@ -72,8 +104,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <>
           <div className="flex items-center mb-4">
             <div className={iconWrapperClasses}>
-              <DynamicIcon
-                name={iconName}
+              <IconComponent
                 size={iconSize}
                 className="text-primary-600 dark:text-primary-400"
               />

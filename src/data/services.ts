@@ -1,17 +1,15 @@
-import type { IconName } from 'lucide-react/dynamic';
-
 export interface Service {
   id: string;
   title: string;
   description: string;
-  iconName: IconName;
+  iconName: string;
   benefits: string[];
   offerings: string[];
 }
 
 export interface SpecializedService {
   title: string;
-  iconName: IconName;
+  iconName: string;
   description: string;
 }
 

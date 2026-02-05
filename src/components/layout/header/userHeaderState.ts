@@ -1,7 +1,7 @@
 // src/components/layout/header/useHeaderState.ts
 import { useEffect, useState } from 'react';
 
-import { NavItem } from './types';
+import type { NavItem } from './types';
 
 export const useHeaderState = (navItems: NavItem[]) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

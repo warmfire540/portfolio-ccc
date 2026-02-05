@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeaderThemeClasses } from './types';
+import type { HeaderThemeClasses } from './types';
 import { ReactComponent as LogoSvg } from '../../../assets/cat.svg';
 
 interface LogoProps {

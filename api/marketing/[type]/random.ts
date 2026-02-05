@@ -1,13 +1,13 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-// @ts-expect-error - allowImportingTsExtensions not enabled, need .ts extension
+// @ts-expect-error - need extension for vercel, period
 import { projects, type Project } from '../../../src/data/projects.ts';
 import {
   services,
   specializedServicesData,
   type Service,
   type SpecializedService,
-  // @ts-expect-error - allowImportingTsExtensions not enabled, need .ts extension
+  // @ts-expect-error - need extension for vercel, period
 } from '../../../src/data/services.ts';
 
 // Marketing item types

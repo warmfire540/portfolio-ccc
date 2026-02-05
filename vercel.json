@@ -25,5 +25,10 @@
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/marketing/[type]/random.ts": {
+      "includeFiles": "src/data/{projects,services}.ts"
+    }
+  }
 }

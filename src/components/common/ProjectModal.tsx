@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Calendar, ExternalLink, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import { Project } from '../../data/projects';
+import { type Project } from '../../data/projects';
 
 interface ProjectModalProps {
   isOpen: boolean;

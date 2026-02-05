@@ -4,7 +4,7 @@ import { useForm } from '@formspree/react';
 import { Send } from 'lucide-react';
 
 import AnimatedSection from './AnimatedSection';
-import { ErrorModal, FormspreeError } from './ErrorModal';
+import { ErrorModal, type FormspreeError } from './ErrorModal';
 import { FormField } from './FormField';
 import { SuccessMessage } from './SuccessMessage';
 import { projectTypes } from '../../data/project-types';

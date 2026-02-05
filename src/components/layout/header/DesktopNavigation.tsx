@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ThemeToggle } from './ThemeToggle';
-import { HeaderThemeClasses, NavItem } from './types';
+import type { HeaderThemeClasses, NavItem } from './types';
 
 interface DesktopNavigationProps {
   navItems: NavItem[];
