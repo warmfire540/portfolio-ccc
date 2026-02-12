@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 
 import About from 'components/spa/About';
+import BrandKit from 'components/spa/BrandKit';
 import Contact from 'components/spa/Contact';
 import Cta from 'components/spa/Cta';
 import Hero from 'components/spa/Hero';
@@ -81,6 +82,7 @@ const AppContent: React.FC = () => {
             }
           />
           <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="/brand" element={<BrandKit />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>

@@ -72,6 +72,11 @@ export const footerSections = [
         href: '/privacy-policy',
         external: true,
       },
+      {
+        label: 'Brand Kit',
+        href: '/brand',
+        router: true,
+      },
     ],
   },
 ];
