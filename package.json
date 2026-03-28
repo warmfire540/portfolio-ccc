@@ -1,7 +1,9 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "portfolio-ccc",
+  "version": "0.0.1",
   "private": true,
+  "description": "Professional portfolio website for Curious Cat Consulting, LLC.",
+  "author": "Patrick Masters",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,6 +13,11 @@
     "update": "npx ncu -u && yarn install"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.0",
+    "@xyflow/react": "^12.10.2",
     "next": "16.2.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"
