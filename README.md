@@ -1,164 +1,36 @@
-# Curious Cat Consulting - Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A modern, responsive website for Curious Cat Consulting LLC, showcasing services, projects, and expertise as a software engineering and architecture consulting firm.
+## Getting Started
 
-## Overview
+First, run the development server:
 
-This website serves as the digital presence for Curious Cat Consulting, featuring:
-
-- Company information and service offerings
-- Project portfolio with filterable categories
-- Team member profiles and company values
-- Contact form for client inquiries
-- Dark/light mode theme toggle for improved user experience
-
-The site is built with React, TypeScript, and Tailwind CSS, providing a clean, professional aesthetic with responsive design across all devices.
-
-## Project Structure
-
-```
-curious-cat-consulting/
-├── public/                # Static files
-├── src/                   # Source code
-│   ├── components/        # Reusable UI components
-│   │   ├── common/        # Shared components (buttons, forms, etc.)
-│   │   └── layout/        # Layout components (header, footer)
-│   ├── pages/             # Page components
-│   ├── data/              # Data files (projects, services, team)
-│   ├── utils/             # Utility functions and context providers
-│   ├── styles/            # Global styles with Tailwind
-│   ├── assets/            # SVG and image assets
-│   ├── App.tsx            # Main application component
-│   └── index.tsx          # Application entry point
-└── configuration files    # Config files (tailwind, eslint, etc.)
-```
-
-## Technologies
-
-- **React 18**: Frontend library for building the user interface
-- **TypeScript**: For type-safe code and improved developer experience
-- **Tailwind CSS**: Utility-first CSS framework for styling
-- **React Router**: For handling navigation and routing
-- **Lucide React**: For modern, customizable icons
-- **Formspree**: For handling contact form submissions
-- **Vercel Analytics**: For tracking site performance and usage metrics
-- **Google Analytics**: For detailed visitor analytics
-
-## Setup & Installation
-
-### Prerequisites
-
-- Node.js (v16.0.0 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/curiouscatconsulting/website.git
-   cd website
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-## Building for Production
-
-Create a production build:
 ```bash
-npm run build
+npm run dev
 # or
-yarn build
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-The built files will be in the `build/` directory.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-The website is currently deployed on Vercel with automatic deployments from the `release` branch.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-**Deployment URL**: [https://vercel.com/warmfire540s-projects/portfolio-ccc-ys7u](https://vercel.com/warmfire540s-projects/portfolio-ccc-ys7u)
+## Learn More
 
-The deployment process is automated:
-- Push changes to the `release` branch
-- Vercel automatically builds and deploys the updated site
-- No additional CI/CD configuration is currently required
+To learn more about Next.js, take a look at the following resources:
 
-## Integration Services
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### Contact Form
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-The contact form uses Formspree for handling submissions:
-- Form endpoint: [https://formspree.io/forms/xanovqwr](https://formspree.io/forms/xanovqwr/integration)
-- Submissions are sent directly to the configured email address
-- Form validation is handled by the Formspree React library
+## Deploy on Vercel
 
-### Analytics
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-The site uses dual analytics tracking:
-- **Vercel Analytics**: Built-in performance and usage metrics
-- **Google Analytics**: More detailed visitor tracking and analysis
-  - GA Property: [https://analytics.google.com/analytics/web/#/p489524012/reports/intelligenthome](https://analytics.google.com/analytics/web/#/p489524012/reports/intelligenthome)
-
-## Customization
-
-### Updating Projects
-
-Projects are now defined in `src/data/projects.tsx`:
-
-```tsx
-export const projects: Project[] = [
-  {
-    id: 'new-project',
-    title: 'New Project Name',
-    category: 'Architecture',
-    description: 'Project description here...',
-    // Add other required fields
-  },
-  // Other projects...
-];
-```
-
-### Updating Services
-
-Services are defined in `src/data/services.tsx`. Use the `getServices` function to retrieve them with the appropriate icon size.
-
-## TODO List
-
-- **Testing**:
-  - Implement unit tests for components
-  - Add integration tests for key user flows
-  - Set up accessibility testing
-
-- **CI/CD**:
-  - Configure GitHub Actions for automated testing
-  - Set up staging environment for QA
-  - Implement automated visual regression testing
-
-- **Potential Future Enhancements**:
-  - Blog/Articles section
-  - Case study deep dives
-  - Testimonials carousel
-  - Performance optimizations
-  - Enhanced animations
-
-## License
-
-MIT
-
----
-
-© 2025 Curious Cat Consulting LLC. All rights reserved.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

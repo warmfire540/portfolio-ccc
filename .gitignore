@@ -1,38 +1,41 @@
-# Example .gitignore file for custom card.
-# An * ensures that everything will be ignored.
-*
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Don't ignore directories (so we can look inside them, for other files)
-!*/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# You can whitelist files/folders with !, these will not be ignored.
-!*.json
-!*.js
-!*.cjs
-!*.ts
-!*.tsx
-!*.svg
-!*.css
-!.prettierrc
-!.nycrc
-!assets/**
-!dist/**
-!.github/**
-!.gitignore
-!*.md
-!LICENSE
-!sonar-project.properties
-!public/**
-!yarn.lock
+# testing
+/coverage
 
-# Ignore folders.
-node_modules
-dist
-coverage
-.vscode
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
-.nyc_output
+*.pem
 
-#build
-build/
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
 .vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
