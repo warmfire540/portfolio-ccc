@@ -155,7 +155,13 @@ const scenarios: FlowScenario[] = [
           x: 0,
           y: 100,
         },
-        { id: 'invoice', label: 'Auto-Invoice', icon: faReceipt, x: 180, y: 30 },
+        {
+          id: 'invoice',
+          label: 'Auto-Invoice',
+          icon: faReceipt,
+          x: 180,
+          y: 30,
+        },
         {
           id: 'payment',
           label: 'Payment',
@@ -220,7 +226,13 @@ const scenarios: FlowScenario[] = [
     bgColor: '#fecaca',
     nodes: makeNodes(
       [
-        { id: 'social', label: 'Social Media', icon: faShareNodes, x: 0, y: 100 },
+        {
+          id: 'social',
+          label: 'Social Media',
+          icon: faShareNodes,
+          x: 0,
+          y: 100,
+        },
         {
           id: 'landing',
           label: 'Landing Page',
@@ -294,24 +306,23 @@ export default function HeroShowcase() {
       {/* Soft vignette — kept light so the grid stays readable */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(232,240,250,0.72)_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(12,25,41,0.82)_100%)]" />
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-6 py-10">
         {/* Stacked layout: copy on top, diagram below */}
         <div className="max-w-5xl mx-auto">
           {/* Copy — centered */}
-          <div className="text-center mb-12">
-            <p className="text-primary-600 dark:text-primary-400 text-sm font-medium mb-4 tracking-wide uppercase">
+          <div className="text-center mb-8">
+            <p className="text-primary-600 dark:text-primary-400 text-sm font-medium mb-3 tracking-wide uppercase">
               Curious Cat Consulting
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white leading-[1.1] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white leading-[1.1] mb-4">
               From napkin sketch to production,{' '}
               <span className="text-primary-600 dark:text-primary-400">
                 end to end.
               </span>
             </h1>
-            <p className="text-lg text-zinc-600 dark:text-zinc-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Every growing business runs on invisible
-              workflows; leads, orders, onboarding. We make them
-              automatic and impossible to drop.
+            <p className="text-lg text-zinc-600 dark:text-zinc-300 mb-6 max-w-2xl mx-auto leading-relaxed">
+              Every growing business runs on invisible workflows; leads, orders,
+              onboarding. We make them automatic and impossible to drop.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

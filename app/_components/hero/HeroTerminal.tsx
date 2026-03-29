@@ -7,12 +7,36 @@ import TerminalLine from './TerminalLine';
 
 const terminalLines = [
   { type: 'command' as const, text: '$ npx curious-cat init', delay: 0 },
-  { type: 'success' as const, text: '\u2713 Slow website? Fixed. Now loads in 0.4s', delay: 1200 },
-  { type: 'success' as const, text: '\u2713 Manual busywork automated away', delay: 2000 },
-  { type: 'success' as const, text: '\u2713 Customer portal up and running', delay: 2800 },
-  { type: 'success' as const, text: '\u2713 Old spreadsheet mess \u2192 real dashboard', delay: 3600 },
-  { type: 'success' as const, text: '\u2713 Built to grow with you, not against you', delay: 4400 },
-  { type: 'final' as const, text: 'Ready to launch. \ud83d\ude80', delay: 5400 },
+  {
+    type: 'success' as const,
+    text: '\u2713 Slow website? Fixed. Now loads in 0.4s',
+    delay: 1200,
+  },
+  {
+    type: 'success' as const,
+    text: '\u2713 Manual busywork automated away',
+    delay: 2000,
+  },
+  {
+    type: 'success' as const,
+    text: '\u2713 Customer portal up and running',
+    delay: 2800,
+  },
+  {
+    type: 'success' as const,
+    text: '\u2713 Old spreadsheet mess \u2192 real dashboard',
+    delay: 3600,
+  },
+  {
+    type: 'success' as const,
+    text: '\u2713 Built to grow with you, not against you',
+    delay: 4400,
+  },
+  {
+    type: 'final' as const,
+    text: 'Ready to launch. \ud83d\ude80',
+    delay: 5400,
+  },
 ];
 
 export default function HeroTerminal() {
@@ -44,23 +68,36 @@ export default function HeroTerminal() {
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[300px] bg-primary-500/[0.05] rounded-full blur-3xl hidden dark:block" />
 
       {/* Corner code decoration — light mode */}
-      <div className="absolute top-8 right-8 font-mono text-[10px] leading-relaxed text-zinc-300 dark:hidden select-none pointer-events-none" aria-hidden>
-        <div>{'{'} &quot;status&quot;: &quot;ready&quot; {'}'}</div>
+      <div
+        className="absolute top-8 right-8 font-mono text-[10px] leading-relaxed text-zinc-300 dark:hidden select-none pointer-events-none"
+        aria-hidden
+      >
+        <div>
+          {'{'} &quot;status&quot;: &quot;ready&quot; {'}'}
+        </div>
         <div>{'>'} npm run build</div>
         <div>{'>'} deploying...</div>
         <div className="text-emerald-300">{'>'} live ✓</div>
       </div>
 
       {/* Corner code decoration — dark mode */}
-      <div className="absolute top-8 right-8 font-mono text-[10px] leading-relaxed text-zinc-700 hidden dark:block select-none pointer-events-none" aria-hidden>
-        <div>{'{'} &quot;status&quot;: &quot;ready&quot; {'}'}</div>
+      <div
+        className="absolute top-8 right-8 font-mono text-[10px] leading-relaxed text-zinc-700 hidden dark:block select-none pointer-events-none"
+        aria-hidden
+      >
+        <div>
+          {'{'} &quot;status&quot;: &quot;ready&quot; {'}'}
+        </div>
         <div>{'>'} npm run build</div>
         <div>{'>'} deploying...</div>
         <div className="text-emerald-700">{'>'} live ✓</div>
       </div>
 
       {/* Floating prompt watermark — dark mode */}
-      <div className="absolute bottom-16 left-12 font-mono text-[120px] leading-none text-emerald-500/[0.03] hidden dark:block select-none pointer-events-none" aria-hidden>
+      <div
+        className="absolute bottom-16 left-12 font-mono text-[120px] leading-none text-emerald-500/[0.03] hidden dark:block select-none pointer-events-none"
+        aria-hidden
+      >
         &gt;_
       </div>
 
@@ -76,11 +113,13 @@ export default function HeroTerminal() {
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white leading-[1.1] mb-6">
               Your business deserves{' '}
-              <span className="text-primary-600 dark:text-primary-400">better tech.</span>
+              <span className="text-primary-600 dark:text-primary-400">
+                better tech.
+              </span>
             </h1>
             <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-10 max-w-md leading-relaxed">
-              Slow website? Clunky checkout? Spreadsheet spaghetti? We
-              diagnose, fix, and future-proof the tech behind your business.
+              Slow website? Clunky checkout? Spreadsheet spaghetti? We diagnose,
+              fix, and future-proof the tech behind your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -98,7 +137,11 @@ export default function HeroTerminal() {
                 href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-300 font-mono text-sm font-medium rounded-lg hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
               >
-                <FontAwesomeIcon icon={faPhone} className="w-4 h-4" aria-hidden />
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className="w-4 h-4"
+                  aria-hidden
+                />
                 Book a call
               </a>
             </div>

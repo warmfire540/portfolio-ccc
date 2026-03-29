@@ -143,10 +143,12 @@ function AutomationTyper() {
         let colorClass = 'text-zinc-500 dark:text-zinc-400';
         if (line.startsWith('//') && line.includes('Done'))
           colorClass = 'text-amber-600 dark:text-amber-400 font-semibold';
-        else if (line.startsWith('//')) colorClass = 'text-zinc-400 dark:text-zinc-500';
+        else if (line.startsWith('//'))
+          colorClass = 'text-zinc-400 dark:text-zinc-500';
         else if (line.startsWith('type ') || line.startsWith('async function'))
           colorClass = 'text-primary-600 dark:text-primary-400';
-        else if (line.includes('await ')) colorClass = 'text-emerald-600 dark:text-emerald-400';
+        else if (line.includes('await '))
+          colorClass = 'text-emerald-600 dark:text-emerald-400';
 
         return (
           <div key={lineNum} className={colorClass}>

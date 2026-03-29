@@ -7,7 +7,7 @@ import { SplitFlapCell, type SplitFlapSize } from './SplitFlapCell';
 const EYEBROW = 'Curious Cat Consulting';
 const HEADLINE = 'Your business deserves better tech.';
 const BODY =
-  'Your customers don\'t care about your tech stack. They care that everything just works.';
+  "Your customers don't care about your tech stack. They care that everything just works.";
 
 /** Stagger + deterministic jitter (avoids SSR/hydration random mismatch) */
 function startDelayMsFor(delayIndex: number) {
@@ -39,7 +39,8 @@ function FlapLine({ text, size, startIndex, brightFromWord }: FlapLineProps) {
           );
         }
         const thisWord = wordIndex++;
-        const bright = brightFromWord !== undefined && thisWord >= brightFromWord;
+        const bright =
+          brightFromWord !== undefined && thisWord >= brightFromWord;
         return (
           <span key={`word-${segment}-${thisWord}`} className="inline-flex">
             {segment.split('').map((char, i) => {
@@ -128,7 +129,11 @@ export default function HeroFlipboard() {
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-400 text-amber-900/90 dark:border-zinc-600 dark:text-amber-200/90 font-mono text-sm font-medium rounded-lg hover:border-amber-600/80 hover:text-amber-800 dark:hover:border-amber-700/80 dark:hover:text-amber-100 transition-colors"
               >
-                <FontAwesomeIcon icon={faPhone} className="w-4 h-4" aria-hidden />
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className="w-4 h-4"
+                  aria-hidden
+                />
                 Book a call
               </a>
             </div>

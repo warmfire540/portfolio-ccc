@@ -6,10 +6,10 @@ import {
   faArrowTrendUp,
   faBolt,
   faBullseye,
-  faCompass,
   faRocket,
   faWandMagicSparkles,
 } from '@fortawesome/free-solid-svg-icons';
+import { faCompass } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const STATS: {
@@ -113,9 +113,8 @@ export default function HeroVibes() {
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto font-light">
-              Your corner bakery, your law practice, your growing
-              startup; you shouldn&rsquo;t need a Fortune&nbsp;500 budget
-              to run like one.
+              Your corner bakery, your law practice, your growing startup; you
+              shouldn&rsquo;t need a Fortune&nbsp;500 budget to run like one.
             </p>
 
             {/* CTA Buttons */}

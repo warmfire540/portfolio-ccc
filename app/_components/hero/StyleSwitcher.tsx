@@ -33,7 +33,8 @@ export default function StyleSwitcher() {
     const stored = localStorage.getItem('ccc-color-scheme');
     const prefersDark =
       stored === 'dark' ||
-      (!stored && globalThis.matchMedia('(prefers-color-scheme: dark)').matches);
+      (!stored &&
+        globalThis.matchMedia('(prefers-color-scheme: dark)').matches);
     setDark(prefersDark);
     document.documentElement.classList.toggle('dark', prefersDark);
   }, []);
