@@ -10,6 +10,7 @@ import {
   faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AnimatedSection from '@/app/_components/ui/AnimatedSection';
 import { STATS, TEAM, MILESTONES, VALUES, RECOGNITIONS } from './data';
 
 /* ------------------------------------------------------------------ */
@@ -46,7 +47,7 @@ export default function AboutVibes() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="space-y-24">
           {/* ---- About Info ---- */}
-          <div className="max-w-5xl mx-auto text-center">
+          <AnimatedSection animation="fade-in" className="max-w-5xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 to-primary-600 dark:from-white dark:to-primary-400 bg-clip-text text-transparent mb-6">
               About Curious Cat Consulting
             </h2>
@@ -83,21 +84,23 @@ export default function AboutVibes() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* ---- Team ---- */}
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <AnimatedSection animation="fade-in" className="text-center mb-16">
               <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                 Meet Our Team
               </h3>
               <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-teal-600 mx-auto rounded-full" />
-            </div>
+            </AnimatedSection>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {TEAM.map((member) => (
-                <div
+              {TEAM.map((member, index) => (
+                <AnimatedSection
                   key={member.name}
+                  animation="zoom-in"
+                  delay={index * 200}
                   className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transform hover:scale-105 transition-all duration-500 hover:shadow-2xl"
                 >
                   <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
@@ -153,7 +156,7 @@ export default function AboutVibes() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </AnimatedSection>
               ))}
             </div>
           </div>
@@ -202,19 +205,20 @@ export default function AboutVibes() {
               <div className="space-y-24 pt-8">
                 {/* Story / Milestones */}
                 <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-16">
+                  <AnimatedSection animation="fade-in" className="text-center mb-16">
                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                       Our Story
                     </h3>
                     <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-teal-600 mx-auto rounded-full" />
-                  </div>
+                  </AnimatedSection>
 
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {MILESTONES.map((m, i) => (
-                      <div
+                      <AnimatedSection
                         key={m.title}
+                        animation="slide-up"
+                        delay={i * 150}
                         className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
-                        style={{ animationDelay: `${i * 150}ms` }}
                       >
                         <div className="flex flex-col items-center text-center space-y-4">
                           <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
@@ -234,14 +238,14 @@ export default function AboutVibes() {
                             {m.description}
                           </p>
                         </div>
-                      </div>
+                      </AnimatedSection>
                     ))}
                   </div>
                 </div>
 
                 {/* Values */}
                 <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-16">
+                  <AnimatedSection animation="fade-in" className="text-center mb-16">
                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                       Our Values
                     </h3>
@@ -250,14 +254,15 @@ export default function AboutVibes() {
                       These core principles guide every project we undertake and
                       every relationship we build.
                     </p>
-                  </div>
+                  </AnimatedSection>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {VALUES.map((v, i) => (
-                      <div
+                      <AnimatedSection
                         key={v.title}
+                        animation="slide-up"
+                        delay={i * 150}
                         className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 h-full transform hover:scale-105 transition-all duration-300 hover:shadow-xl relative overflow-hidden"
-                        style={{ animationDelay: `${i * 150}ms` }}
                       >
                         <div
                           className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${v.gradient} opacity-10 rounded-full transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500`}
@@ -280,14 +285,14 @@ export default function AboutVibes() {
                             className={`w-0 h-1 bg-gradient-to-r ${v.gradient} rounded-full mt-6 group-hover:w-full transition-all duration-500`}
                           />
                         </div>
-                      </div>
+                      </AnimatedSection>
                     ))}
                   </div>
                 </div>
 
                 {/* Reviews */}
                 <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-16">
+                  <AnimatedSection animation="fade-in" className="text-center mb-16">
                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                       What Our Clients Say
                     </h3>
@@ -297,23 +302,23 @@ export default function AboutVibes() {
                       clients have to say about working with Curious Cat
                       Consulting.
                     </p>
-                  </div>
+                  </AnimatedSection>
 
                   <div className="flex justify-center">
-                    <div className="max-w-5xl w-full bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                    <AnimatedSection animation="slide-up" delay={150} className="max-w-5xl w-full bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
                       <ReactGoogleReviews
                         layout="badge"
                         featurableId={
                           process.env.NEXT_PUBLIC_FEATURABLE_WIDGET_ID ?? ''
                         }
                       />
-                    </div>
+                    </AnimatedSection>
                   </div>
                 </div>
 
                 {/* Recognition */}
                 <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-16">
+                  <AnimatedSection animation="fade-in" className="text-center mb-16">
                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                       Recognition &amp; Awards
                     </h3>
@@ -322,12 +327,14 @@ export default function AboutVibes() {
                       Professional recognition and community acknowledgments
                       that reflect our commitment to excellence.
                     </p>
-                  </div>
+                  </AnimatedSection>
 
                   <div className="flex justify-center">
-                    {RECOGNITIONS.map((r) => (
-                      <div
+                    {RECOGNITIONS.map((r, index) => (
+                      <AnimatedSection
                         key={r.title}
+                        animation="slide-up"
+                        delay={index * 150}
                         className="group max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl text-center"
                       >
                         <div className="flex justify-center mb-4">
@@ -361,7 +368,7 @@ export default function AboutVibes() {
                             />
                           </a>
                         </div>
-                      </div>
+                      </AnimatedSection>
                     ))}
                   </div>
                 </div>

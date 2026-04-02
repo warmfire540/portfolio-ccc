@@ -62,7 +62,7 @@ export const MILESTONES = [
     year: 'Philosophy',
     title: 'Curiosity-Driven Approach',
     description:
-      'Great software begins with curiosity—asking the right questions to truly understand business challenges before diving into code.',
+      'Great software begins with curiosity, asking the right questions to truly understand business challenges before diving into code.',
   },
   {
     icon: faUsers,

@@ -71,7 +71,7 @@ const automationLines = [
   '  await notifyTeam("order-fulfillment", order.id);',
   '}',
   '',
-  '// Done — you didn\u2019t lift a finger.',
+  '// Done. You did not lift a finger.',
 ];
 
 function RotatingTestimonial() {
@@ -98,7 +98,7 @@ function RotatingTestimonial() {
         &ldquo;{t.quote}&rdquo;
       </p>
       <p className="text-sm text-zinc-500 dark:text-zinc-400">
-        &mdash; {t.author}
+        - {t.author}
       </p>
     </div>
   );

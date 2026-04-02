@@ -329,7 +329,7 @@ export default function AboutShowcase() {
           </div>
 
           {/* Flow diagram */}
-          <div className="h-[220px] w-full rounded-2xl overflow-hidden border border-primary-200/40 dark:border-primary-800/30 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md shadow-xl mb-8">
+          <div className="h-[220px] w-full rounded-md overflow-hidden border border-primary-200/40 dark:border-primary-800/30 bg-white/85 dark:bg-zinc-900/85 shadow-lg mb-8">
             <ReactFlow
               key={flowKey}
               nodes={nodes}
@@ -358,7 +358,7 @@ export default function AboutShowcase() {
           </div>
 
           {/* Detail panel */}
-          <div className="rounded-2xl border border-primary-200/40 dark:border-primary-800/30 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md shadow-xl overflow-hidden">
+          <div className="rounded-md border border-primary-200/40 dark:border-primary-800/30 bg-white/85 dark:bg-zinc-900/85 shadow-lg overflow-hidden">
             {/* Panel header */}
             <div
               className="flex items-center justify-between px-6 py-4 border-b transition-colors duration-300"

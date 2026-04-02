@@ -37,7 +37,7 @@ export default function AboutMinimal() {
         {/* ---- Intro ---- */}
         <p className="text-lg sm:text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed mb-6 max-w-2xl">
           Founded in 2025, Curious Cat Consulting exists to turn complex
-          business problems into software that simply works — no bloat, no
+          business problems into software that simply works, no bloat, no
           guesswork, no duct tape.
         </p>
         <p className="text-base text-zinc-400 dark:text-zinc-500 leading-relaxed max-w-2xl mb-16">

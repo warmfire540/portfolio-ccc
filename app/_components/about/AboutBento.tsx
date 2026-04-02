@@ -116,7 +116,7 @@ export default function AboutBento() {
                     <h4 className="text-lg font-bold text-zinc-800 dark:text-white">
                       {member.name}
                     </h4>
-                    <span className="inline-block px-2.5 py-0.5 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 rounded-full text-xs font-medium mb-2">
+                    <span className="inline-block px-2.5 py-0.5 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 rounded-md text-xs font-medium mb-2">
                       {member.role}
                     </span>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-3">
@@ -154,7 +154,7 @@ export default function AboutBento() {
                 scrollRestoreY.current = window.scrollY;
                 setShowMore((v) => !v);
               }}
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary-600 dark:border-primary-500 text-primary-600 dark:text-primary-400 font-semibold text-sm hover:bg-primary-600 dark:hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary-600/25 bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-md border-2 border-primary-600 dark:border-primary-500 text-primary-600 dark:text-primary-400 font-semibold text-sm hover:bg-primary-600 dark:hover:bg-primary-600 hover:text-white transition-colors duration-300 shadow-md hover:shadow-primary-600/20 bg-white/80 dark:bg-zinc-800/80"
             >
               {showMore ? (
                 <>
@@ -383,7 +383,7 @@ export default function AboutBento() {
                   </p>
                   {RECOGNITIONS.map((r) => (
                     <div key={r.title} className="flex flex-col items-center">
-                      <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-3">
+                      <div className="w-12 h-12 rounded-md bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-3">
                         <FontAwesomeIcon
                           icon={r.icon}
                           className="w-6 h-6 text-emerald-500"

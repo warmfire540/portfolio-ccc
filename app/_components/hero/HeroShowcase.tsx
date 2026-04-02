@@ -329,7 +329,7 @@ export default function HeroShowcase() {
                 href="#services"
                 className="group inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors shadow-md"
               >
-                Explore our services
+                Map your workflow
                 <FontAwesomeIcon
                   icon={faLayerGroup}
                   className="w-4 h-4 group-hover:translate-y-px transition-transform"
@@ -340,7 +340,7 @@ export default function HeroShowcase() {
                 href="#projects"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-primary-300/50 dark:border-primary-700/50 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-lg hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors backdrop-blur-sm"
               >
-                See case studies
+                Review live builds
               </a>
             </div>
           </div>
@@ -372,7 +372,7 @@ export default function HeroShowcase() {
             </div>
 
             {/* Flow container */}
-            <div className="h-[340px] sm:h-[380px] w-full rounded-2xl overflow-hidden border border-primary-200/40 dark:border-primary-800/30 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md shadow-xl">
+            <div className="h-[340px] sm:h-[380px] w-full rounded-md overflow-hidden border border-primary-200/40 dark:border-primary-800/30 bg-white/85 dark:bg-zinc-900/85 shadow-lg">
               <ReactFlow
                 key={flowKey}
                 nodes={scenario.nodes}
