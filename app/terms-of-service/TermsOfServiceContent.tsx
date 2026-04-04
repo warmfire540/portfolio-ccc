@@ -1,39 +1,10 @@
-/* eslint-disable prettier/prettier */
-import React from 'react';
+import LegalBackLink from '@/app/_components/legal/LegalBackLink';
 
-import { Link } from 'react-router-dom';
-
-/**
- * Terms of Service page component with generic terms suitable for mobile apps and web services.
- *
- * @component
- * @returns {JSX.Element} The Terms of Service page with comprehensive legal terms.
- */
-const TermsOfService: React.FC = () => {
+export default function TermsOfServiceContent() {
   return (
     <div className="min-h-screen bg-white py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <Link
-            to="/"
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200"
-          >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Back to Home
-          </Link>
-        </div>
+        <LegalBackLink />
 
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
           Terms of Service
@@ -41,7 +12,7 @@ const TermsOfService: React.FC = () => {
 
         <div className="text-gray-800 leading-relaxed">
           <p className="mb-6">
-            <strong>Last updated:</strong> {new Date().toLocaleDateString()}
+            <strong>Last updated:</strong> Oct 30, 2025
           </p>
 
           <section className="mb-8">
@@ -50,7 +21,7 @@ const TermsOfService: React.FC = () => {
             </h2>
             <p className="mb-4">
               By accessing and using our mobile applications and web services
-              (collectively, the "Service"), you accept and agree to be bound by
+              (collectively, the &quot;Service&quot;), you accept and agree to be bound by
               the terms and provision of this agreement. If you do not agree to
               abide by the above, please do not use this service.
             </p>
@@ -132,7 +103,7 @@ const TermsOfService: React.FC = () => {
             <p className="mb-4">
               Our Service allows you to post, link, store, share and otherwise
               make available certain information, text, graphics, videos, or
-              other material ("Content"). You are responsible for the Content
+              other material (&quot;Content&quot;). You are responsible for the Content
               that you post to the Service, including its legality, reliability,
               and appropriateness.
             </p>
@@ -166,7 +137,7 @@ const TermsOfService: React.FC = () => {
               8. Disclaimer
             </h2>
             <p className="mb-4">
-              The information on this Service is provided on an "as is" basis.
+              The information on this Service is provided on an &quot;as is&quot; basis.
               To the fullest extent permitted by law, this Company excludes all
               representations, warranties, conditions and terms relating to our
               Service and the use of this Service.
@@ -223,6 +194,4 @@ const TermsOfService: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default TermsOfService;
+}

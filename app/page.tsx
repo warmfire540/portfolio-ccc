@@ -4,6 +4,7 @@ import ServicesShell from './_components/services/ServicesShell';
 import CtaShell from './_components/cta/CtaShell';
 import ProjectsShell from './_components/projects/ProjectsShell';
 import ContactShell from './_components/contact/ContactShell';
+import FooterShell from './_components/footer/FooterShell';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <CtaShell />
       <ProjectsShell />
       <ContactShell />
+      <FooterShell />
     </main>
   );
 }

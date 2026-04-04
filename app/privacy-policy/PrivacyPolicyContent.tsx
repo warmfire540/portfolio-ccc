@@ -1,39 +1,10 @@
-/* eslint-disable prettier/prettier */
-import React from 'react';
+import LegalBackLink from '@/app/_components/legal/LegalBackLink';
 
-import { Link } from 'react-router-dom';
-
-/**
- * Privacy Policy page component with comprehensive privacy terms suitable for mobile apps and web services.
- *
- * @component
- * @returns {JSX.Element} The Privacy Policy page with detailed privacy information.
- */
-const PrivacyPolicy: React.FC = () => {
+export default function PrivacyPolicyContent() {
   return (
     <div className="min-h-screen bg-white py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <Link
-            to="/"
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200"
-          >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Back to Home
-          </Link>
-        </div>
+        <LegalBackLink />
 
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
           Privacy Policy
@@ -41,7 +12,7 @@ const PrivacyPolicy: React.FC = () => {
 
         <div className="text-gray-800 leading-relaxed">
           <p className="mb-6">
-            <strong>Last updated:</strong> {new Date().toLocaleDateString()}
+            <strong>Last updated:</strong> Oct 30, 2025
           </p>
 
           <section className="mb-8">
@@ -228,7 +199,7 @@ const PrivacyPolicy: React.FC = () => {
 
           <section className="mb-8">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
-              9. Children's Privacy
+              9. Children&apos;s Privacy
             </h2>
             <p className="mb-4">
               Our services are not intended for children under 13 years of age.
@@ -257,7 +228,7 @@ const PrivacyPolicy: React.FC = () => {
             <p className="mb-4">
               We may update this Privacy Policy from time to time. We will
               notify you of any changes by posting the new Privacy Policy on
-              this page and updating the "Last updated" date. We encourage you
+              this page and updating the &quot;Last updated&quot; date. We encourage you
               to review this Privacy Policy periodically for any changes.
             </p>
           </section>
@@ -296,6 +267,4 @@ const PrivacyPolicy: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default PrivacyPolicy;
+}
