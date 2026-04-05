@@ -140,3 +140,22 @@ body {
     transform: translateY(0) scale(1);
   }
 }
+
+/* Theme picker FAB — color + glow pulse only, no movement (idle only; see StyleSwitcher) */
+@keyframes theme-picker-glow {
+  0%,
+  100% {
+    background-color: var(--primary-600);
+    box-shadow:
+      0 10px 18px -4px rgb(0 0 0 / 0.2),
+      0 0 0 0 rgb(56 189 248 / 0.35),
+      0 0 20px 1px rgb(14 165 233 / 0.22);
+  }
+  50% {
+    background-color: var(--primary-500);
+    box-shadow:
+      0 12px 22px -5px rgb(0 0 0 / 0.22),
+      0 0 0 7px rgb(125 211 252 / 0.16),
+      0 0 28px 3px rgb(34 211 238 / 0.28);
+  }
+}

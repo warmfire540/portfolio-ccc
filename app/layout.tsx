@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Plus_Jakarta_Sans, Geist_Mono } from 'next/font/google';
 import '@/app/_lib/fontawesome-config';
 import './globals.css';
@@ -40,6 +41,11 @@ export default function RootLayout({
         >
           <ThemeVariantProvider>{children}</ThemeVariantProvider>
         </ThemeProvider>
+        <Script
+          id="hs-script-loader"
+          src="https://js-na2.hs-scripts.com/245596479.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

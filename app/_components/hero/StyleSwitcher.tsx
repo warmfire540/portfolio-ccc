@@ -81,7 +81,11 @@ export default function StyleSwitcher() {
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Close theme picker' : 'Open theme picker'}
         aria-expanded={open}
-        className="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+        className={`flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 hover:shadow-xl active:scale-95 transition-all duration-200 ${
+          open
+            ? 'hover:scale-105'
+            : 'animate-[theme-picker-glow_1.9s_ease-in-out_infinite] motion-reduce:animate-none hover:scale-105 hover:animate-none'
+        }`}
       >
         <FontAwesomeIcon
           icon={open ? faXmark : faPalette}

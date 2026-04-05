@@ -3,20 +3,16 @@
 import { useState, useCallback } from 'react';
 import {
   ThemeVariantContext,
-  VARIANTS,
+  DEFAULT_VARIANT,
   type ThemeVariant,
 } from '@/app/_lib/theme';
-
-function getRandomVariant(): ThemeVariant {
-  return VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
-}
 
 export default function ThemeVariantProvider({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [variant, setVariant] = useState<ThemeVariant>(getRandomVariant);
+  const [variant, setVariant] = useState<ThemeVariant>(DEFAULT_VARIANT);
 
   const setVariantCallback = useCallback((v: ThemeVariant) => {
     setVariant(v);
