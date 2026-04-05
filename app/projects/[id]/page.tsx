@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { projects } from '@/app/_components/projects/data';
+import { truncateMetaDescription } from '@/app/_lib/metadata';
 import ProjectDetailContent from './ProjectDetailContent';
 
 const appConfigs: Record<
@@ -87,7 +88,7 @@ const appConfigs: Record<
 };
 
 export async function generateStaticParams() {
-  return projects.filter((p) => p.detailPageUrl).map((p) => ({ id: p.id }));
+  return projects.map((p) => ({ id: p.id }));
 }
 
 export async function generateMetadata({
@@ -99,12 +100,36 @@ export async function generateMetadata({
   const project = projects.find((p) => p.id === id);
 
   if (!project) {
-    return { title: 'Project Not Found | Curious Cat Consulting' };
+    return { title: 'Project Not Found' };
   }
 
+  const description = truncateMetaDescription(project.description);
+  const pagePath = `/projects/${project.id}`;
+
   return {
-    title: `${project.title} | Curious Cat Consulting`,
-    description: project.description.slice(0, 160),
+    title: project.title,
+    description,
+    openGraph: {
+      title: project.title,
+      description,
+      type: 'article',
+      url: pagePath,
+      images: [
+        {
+          url: project.imageUrl,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description,
+      images: [project.imageUrl],
+    },
+    alternates: {
+      canonical: pagePath,
+    },
   };
 }
 
