@@ -1,6 +1,9 @@
 import type { HeaderThemeClasses } from './types';
 
-export function getHeaderStyles(isScrolled: boolean, dark: boolean): HeaderThemeClasses {
+export function getHeaderStyles(
+  isScrolled: boolean,
+  dark: boolean,
+): HeaderThemeClasses {
   function pick(
     scrolledDark: string,
     scrolledLight: string,
@@ -43,7 +46,12 @@ export function getHeaderStyles(isScrolled: boolean, dark: boolean): HeaderTheme
       'bg-gray-800 text-yellow-400 hover:bg-gray-700',
       'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30',
     ),
-    mobileIcon: pick('text-white', 'text-primary-900', 'text-white', 'text-white'),
+    mobileIcon: pick(
+      'text-white',
+      'text-primary-900',
+      'text-white',
+      'text-white',
+    ),
     mobileMenu: dark ? 'bg-gray-900 shadow-md' : 'bg-white shadow-md',
   };
 }

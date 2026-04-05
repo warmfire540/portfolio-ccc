@@ -9,7 +9,7 @@ import MobileControlsBento from './MobileControls/MobileControlsBento';
 import MobileMenuBento from './MobileMenu/MobileMenuBento';
 
 export default function HeaderBento() {
-  const { dark, toggle } = useDarkMode();
+  const { dark } = useDarkMode();
   const { isMenuOpen, setIsMenuOpen, isScrolled, activeSection, isVisible } =
     useHeaderState(navItems);
 
@@ -42,16 +42,12 @@ export default function HeaderBento() {
           <DesktopNavigationBento
             navItems={navItems}
             activeSection={activeSection}
-            dark={dark}
             onNavClick={handleNavClick}
-            onThemeToggle={toggle}
           />
 
           <MobileControlsBento
             isMenuOpen={isMenuOpen}
-            dark={dark}
             onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
-            onThemeToggle={toggle}
           />
         </div>
 

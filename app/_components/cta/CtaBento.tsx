@@ -28,8 +28,8 @@ export default function CtaBento() {
               Your project won&rsquo;t build itself.
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
-              Tell us what&rsquo;s slowing you down. We&rsquo;ll tell you how
-              to fix it — even if that means you don&rsquo;t need us.
+              Tell us what&rsquo;s slowing you down. We&rsquo;ll tell you how to
+              fix it — even if that means you don&rsquo;t need us.
             </p>
             <a
               href="#contact"

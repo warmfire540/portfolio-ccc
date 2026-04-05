@@ -282,7 +282,10 @@ export default function ContactTerminal() {
                   <span className="text-zinc-400">:</span>
                 </div>
                 {contactInfo.socials.map((social) => (
-                  <div key={social.href} className="pl-4 flex items-center gap-2">
+                  <div
+                    key={social.href}
+                    className="pl-4 flex items-center gap-2"
+                  >
                     <span className="text-zinc-400">- </span>
                     <FontAwesomeIcon
                       icon={socialIcons[social.icon]}
@@ -449,9 +452,7 @@ export default function ContactTerminal() {
                       : 'border-emerald-500 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20'
                   }`}
                 >
-                  {state.submitting
-                    ? '> sending...'
-                    : '> send --message'}
+                  {state.submitting ? '> sending...' : '> send --message'}
                 </button>
               </form>
 

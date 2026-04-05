@@ -33,13 +33,7 @@ export default function TerminalLine({
   }, [delay]);
 
   useEffect(() => {
-    if (!started) return;
-
-    if (type !== 'command') {
-      setDisplayed(text);
-      setDone(true);
-      return;
-    }
+    if (!started || type !== 'command') return;
 
     const interval = setInterval(() => {
       indexRef.current += 1;
@@ -57,10 +51,18 @@ export default function TerminalLine({
 
   if (!started) return null;
 
+  if (type !== 'command') {
+    return (
+      <div className={`${typeColors[type]} font-mono text-sm leading-relaxed`}>
+        {text}
+      </div>
+    );
+  }
+
   return (
     <div className={`${typeColors[type]} font-mono text-sm leading-relaxed`}>
       {displayed}
-      {type === 'command' && !done && (
+      {!done && (
         <span className="animate-[blink_1s_step-end_infinite] ml-0.5">▊</span>
       )}
     </div>

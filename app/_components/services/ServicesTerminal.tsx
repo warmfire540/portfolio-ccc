@@ -142,8 +142,8 @@ export default function ServicesTerminal() {
                       {isExpanded && (
                         <div className="ml-2 my-3 border-l-2 border-emerald-500/30 pl-4 space-y-3 animate-[fade-in-up_0.3s_ease-out]">
                           <div className="font-mono text-xs text-zinc-400 dark:text-zinc-500">
-                            <span className="text-emerald-500">$</span> man
-                            ccc-{service.id}
+                            <span className="text-emerald-500">$</span> man ccc-
+                            {service.id}
                           </div>
 
                           <div>

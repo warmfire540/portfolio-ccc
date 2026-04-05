@@ -15,7 +15,9 @@ export default function ScrollToTopFlipboard() {
           : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >
-      <span className="inline-block rotate-180 text-base leading-none">&darr;</span>
+      <span className="inline-block rotate-180 text-base leading-none">
+        &darr;
+      </span>
     </button>
   );
 }

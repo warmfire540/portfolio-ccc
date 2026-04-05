@@ -379,8 +379,7 @@ export default function ContactShowcase() {
                       htmlFor="message"
                       className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5"
                     >
-                      Project Details{' '}
-                      <span className="text-red-500">*</span>
+                      Project Details <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       id="message"

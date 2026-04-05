@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BentoCell from '../hero/BentoCell';
 import ProjectModal from './ProjectModal';
 import { categories, projects, type Project } from './data';
+import { getProjectCta } from './projectCta';
 
 /* ------------------------------------------------------------------ */
 /*  Featured (hero) card — first project gets the spotlight            */
@@ -116,7 +117,7 @@ function CompactCard({
             <span className="text-[10px] text-zinc-400 dark:text-zinc-600">
               {project.clientType}
             </span>
-            {project.link && (
+            {getProjectCta(project) && (
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
                 className="w-2.5 h-2.5 text-zinc-300 dark:text-zinc-700"
@@ -262,9 +263,7 @@ export default function ProjectsBento() {
                 Top Technologies
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {Array.from(
-                  new Set(projects.flatMap((p) => p.technologies)),
-                )
+                {Array.from(new Set(projects.flatMap((p) => p.technologies)))
                   .slice(0, 10)
                   .map((tech) => (
                     <span

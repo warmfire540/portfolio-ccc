@@ -9,7 +9,7 @@ import MobileControlsFlipboard from './MobileControls/MobileControlsFlipboard';
 import MobileMenuFlipboard from './MobileMenu/MobileMenuFlipboard';
 
 export default function HeaderFlipboard() {
-  const { dark, toggle } = useDarkMode();
+  const { dark } = useDarkMode();
   const { isMenuOpen, setIsMenuOpen, isScrolled, activeSection, isVisible } =
     useHeaderState(navItems);
 
@@ -40,16 +40,12 @@ export default function HeaderFlipboard() {
           <DesktopNavigationFlipboard
             navItems={navItems}
             activeSection={activeSection}
-            dark={dark}
             onNavClick={handleNavClick}
-            onThemeToggle={toggle}
           />
 
           <MobileControlsFlipboard
             isMenuOpen={isMenuOpen}
-            dark={dark}
             onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
-            onThemeToggle={toggle}
           />
         </div>
 

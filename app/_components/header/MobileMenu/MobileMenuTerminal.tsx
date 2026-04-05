@@ -15,7 +15,9 @@ export default function MobileMenuTerminal({
 }>) {
   let borderClass = '';
   if (isOpen) {
-    borderClass = dark ? 'border-t border-zinc-800' : 'border-t border-zinc-200';
+    borderClass = dark
+      ? 'border-t border-zinc-800'
+      : 'border-t border-zinc-200';
   }
 
   return (

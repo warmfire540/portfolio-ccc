@@ -4,15 +4,11 @@ import ThemeToggle from '../ThemeToggle';
 export default function DesktopNavigationMinimal({
   navItems,
   activeSection,
-  dark,
   onNavClick,
-  onThemeToggle,
 }: Readonly<{
   navItems: NavItem[];
   activeSection: string;
-  dark: boolean;
   onNavClick: (href: string) => void;
-  onThemeToggle: () => void;
 }>) {
   return (
     <nav className="hidden md:flex items-center gap-8">
@@ -32,11 +28,7 @@ export default function DesktopNavigationMinimal({
           </button>
         );
       })}
-      <ThemeToggle
-        dark={dark}
-        onToggle={onThemeToggle}
-        className="p-1 text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
-      />
+      <ThemeToggle className="p-1 text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-white" />
     </nav>
   );
 }

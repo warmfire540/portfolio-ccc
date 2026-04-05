@@ -54,7 +54,10 @@ export default function ServicesShowcase() {
           </div>
 
           {/* Card stack */}
-          <div className="relative mx-auto max-w-2xl mb-8" style={{ perspective: '1200px' }}>
+          <div
+            className="relative mx-auto max-w-2xl mb-8"
+            style={{ perspective: '1200px' }}
+          >
             {/* Navigation arrows */}
             <button
               type="button"
@@ -62,7 +65,11 @@ export default function ServicesShowcase() {
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 md:-translate-x-16 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-zinc-800/90 border border-zinc-200 dark:border-zinc-700 shadow-md flex items-center justify-center text-zinc-500 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-700 transition-all"
               aria-label="Previous service"
             >
-              <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" aria-hidden />
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                className="w-4 h-4"
+                aria-hidden
+              />
             </button>
             <button
               type="button"
@@ -70,13 +77,17 @@ export default function ServicesShowcase() {
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 md:translate-x-16 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-zinc-800/90 border border-zinc-200 dark:border-zinc-700 shadow-md flex items-center justify-center text-zinc-500 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-700 transition-all"
               aria-label="Next service"
             >
-              <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4" aria-hidden />
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                className="w-4 h-4"
+                aria-hidden
+              />
             </button>
 
             {/* Cards */}
             <div className="relative" style={{ transformStyle: 'preserve-3d' }}>
               {services.map((service, i) => {
-                const offset = ((i - activeIndex + total) % total);
+                const offset = (i - activeIndex + total) % total;
                 // Map offset to position: 0 = front, 1 = right, total-1 = left, rest = hidden
                 let transform = '';
                 let zIndex = 0;
@@ -91,24 +102,28 @@ export default function ServicesShowcase() {
                   pointerEvents = 'auto';
                 } else if (offset === 1) {
                   // Next card — peeking right
-                  transform = 'translateX(65%) translateZ(-120px) rotateY(-12deg)';
+                  transform =
+                    'translateX(65%) translateZ(-120px) rotateY(-12deg)';
                   zIndex = 20;
                   opacity = 0.6;
                   pointerEvents = 'auto';
                 } else if (offset === total - 1) {
                   // Previous card — peeking left
-                  transform = 'translateX(-65%) translateZ(-120px) rotateY(12deg)';
+                  transform =
+                    'translateX(-65%) translateZ(-120px) rotateY(12deg)';
                   zIndex = 20;
                   opacity = 0.6;
                   pointerEvents = 'auto';
                 } else if (offset === 2) {
                   // Two ahead — barely visible right
-                  transform = 'translateX(80%) translateZ(-220px) rotateY(-18deg)';
+                  transform =
+                    'translateX(80%) translateZ(-220px) rotateY(-18deg)';
                   zIndex = 10;
                   opacity = 0.25;
                 } else if (offset === total - 2) {
                   // Two behind — barely visible left
-                  transform = 'translateX(-80%) translateZ(-220px) rotateY(18deg)';
+                  transform =
+                    'translateX(-80%) translateZ(-220px) rotateY(18deg)';
                   zIndex = 10;
                   opacity = 0.25;
                 }

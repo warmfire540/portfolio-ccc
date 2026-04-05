@@ -9,7 +9,7 @@ import MobileControlsShowcase from './MobileControls/MobileControlsShowcase';
 import MobileMenuShowcase from './MobileMenu/MobileMenuShowcase';
 
 export default function HeaderShowcase() {
-  const { dark, toggle } = useDarkMode();
+  const { dark } = useDarkMode();
   const { isMenuOpen, setIsMenuOpen, isScrolled, activeSection, isVisible } =
     useHeaderState(navItems);
 
@@ -42,16 +42,12 @@ export default function HeaderShowcase() {
           <DesktopNavigationShowcase
             navItems={navItems}
             activeSection={activeSection}
-            dark={dark}
             onNavClick={handleNavClick}
-            onThemeToggle={toggle}
           />
 
           <MobileControlsShowcase
             isMenuOpen={isMenuOpen}
-            dark={dark}
             onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
-            onThemeToggle={toggle}
           />
         </div>
 

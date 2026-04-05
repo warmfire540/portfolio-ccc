@@ -70,7 +70,10 @@ export default function AboutMinimal() {
 
           <div className="space-y-16">
             {TEAM.map((member) => (
-              <div key={member.name} className="flex gap-6 sm:gap-8 items-start">
+              <div
+                key={member.name}
+                className="flex gap-6 sm:gap-8 items-start"
+              >
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shrink-0 bg-zinc-100 dark:bg-zinc-900">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img

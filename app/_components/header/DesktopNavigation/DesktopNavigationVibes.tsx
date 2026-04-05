@@ -6,16 +6,12 @@ export default function DesktopNavigationVibes({
   navItems,
   activeSection,
   styles,
-  dark,
   onNavClick,
-  onThemeToggle,
 }: Readonly<{
   navItems: NavItem[];
   activeSection: string;
   styles: HeaderThemeClasses;
-  dark: boolean;
   onNavClick: (href: string) => void;
-  onThemeToggle: () => void;
 }>) {
   return (
     <nav className="hidden md:flex items-center">
@@ -35,11 +31,7 @@ export default function DesktopNavigationVibes({
           </li>
         ))}
         <li>
-          <ThemeToggle
-            dark={dark}
-            onToggle={onThemeToggle}
-            className={`p-2 ${styles.themeButton}`}
-          />
+          <ThemeToggle className={`p-2 ${styles.themeButton}`} />
         </li>
       </ul>
     </nav>

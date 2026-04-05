@@ -60,7 +60,10 @@ export default function AboutBento() {
             </BentoCell>
 
             {/* Intro text */}
-            <BentoCell className="sm:col-span-2 flex flex-col justify-center" delay={100}>
+            <BentoCell
+              className="sm:col-span-2 flex flex-col justify-center"
+              delay={100}
+            >
               <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed mb-3">
                 I approach every project with fresh eyes and a questioning mind,
                 digging deeper to understand the real challenges behind your
@@ -73,7 +76,10 @@ export default function AboutBento() {
             </BentoCell>
 
             {/* Stats */}
-            <BentoCell className="sm:col-span-2 flex flex-col justify-center" delay={200}>
+            <BentoCell
+              className="sm:col-span-2 flex flex-col justify-center"
+              delay={200}
+            >
               <p className="text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider font-medium mb-4">
                 By the numbers
               </p>
@@ -189,7 +195,10 @@ export default function AboutBento() {
             {showMore && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 auto-rows-min mt-4">
                 {/* Row 1: milestone 0 (wide) + value 0 (tall, spans 2 rows) */}
-                <BentoCell className="sm:col-span-2 flex flex-col items-center text-center" delay={0}>
+                <BentoCell
+                  className="sm:col-span-2 flex flex-col items-center text-center"
+                  delay={0}
+                >
                   <div className="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center mb-3">
                     <FontAwesomeIcon
                       icon={MILESTONES[0].icon}
@@ -241,7 +250,10 @@ export default function AboutBento() {
                 </BentoCell>
 
                 {/* Row 2: milestone 1 + milestone 2 (left side, value 0 still spans right) */}
-                <BentoCell className="flex flex-col items-center text-center" delay={160}>
+                <BentoCell
+                  className="flex flex-col items-center text-center"
+                  delay={160}
+                >
                   <div className="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center mb-3">
                     <FontAwesomeIcon
                       icon={MILESTONES[1].icon}
@@ -260,7 +272,10 @@ export default function AboutBento() {
                   </p>
                 </BentoCell>
 
-                <BentoCell className="flex flex-col items-center text-center" delay={240}>
+                <BentoCell
+                  className="flex flex-col items-center text-center"
+                  delay={240}
+                >
                   <div className="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center mb-3">
                     <FontAwesomeIcon
                       icon={MILESTONES[2].icon}
@@ -309,7 +324,10 @@ export default function AboutBento() {
                   </div>
                 </BentoCell>
 
-                <BentoCell className="flex flex-col items-center text-center" delay={400}>
+                <BentoCell
+                  className="flex flex-col items-center text-center"
+                  delay={400}
+                >
                   <div className="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center mb-3">
                     <FontAwesomeIcon
                       icon={MILESTONES[3].icon}
@@ -358,7 +376,10 @@ export default function AboutBento() {
                   </div>
                 </BentoCell>
 
-                <BentoCell className="sm:col-span-2 lg:col-span-3 flex flex-col justify-center" delay={560}>
+                <BentoCell
+                  className="sm:col-span-2 lg:col-span-3 flex flex-col justify-center"
+                  delay={560}
+                >
                   <p className="text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider font-medium mb-3">
                     What our clients say
                   </p>
@@ -377,7 +398,10 @@ export default function AboutBento() {
                 </BentoCell>
 
                 {/* Row 5: recognition + value 3 (wide) */}
-                <BentoCell className="flex flex-col justify-center items-center text-center" delay={640}>
+                <BentoCell
+                  className="flex flex-col justify-center items-center text-center"
+                  delay={640}
+                >
                   <p className="text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider font-medium mb-3">
                     Recognition
                   </p>

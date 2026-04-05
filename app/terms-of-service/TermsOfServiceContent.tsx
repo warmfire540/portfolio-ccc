@@ -21,9 +21,9 @@ export default function TermsOfServiceContent() {
             </h2>
             <p className="mb-4">
               By accessing and using our mobile applications and web services
-              (collectively, the &quot;Service&quot;), you accept and agree to be bound by
-              the terms and provision of this agreement. If you do not agree to
-              abide by the above, please do not use this service.
+              (collectively, the &quot;Service&quot;), you accept and agree to
+              be bound by the terms and provision of this agreement. If you do
+              not agree to abide by the above, please do not use this service.
             </p>
           </section>
 
@@ -103,9 +103,9 @@ export default function TermsOfServiceContent() {
             <p className="mb-4">
               Our Service allows you to post, link, store, share and otherwise
               make available certain information, text, graphics, videos, or
-              other material (&quot;Content&quot;). You are responsible for the Content
-              that you post to the Service, including its legality, reliability,
-              and appropriateness.
+              other material (&quot;Content&quot;). You are responsible for the
+              Content that you post to the Service, including its legality,
+              reliability, and appropriateness.
             </p>
           </section>
 
@@ -137,10 +137,10 @@ export default function TermsOfServiceContent() {
               8. Disclaimer
             </h2>
             <p className="mb-4">
-              The information on this Service is provided on an &quot;as is&quot; basis.
-              To the fullest extent permitted by law, this Company excludes all
-              representations, warranties, conditions and terms relating to our
-              Service and the use of this Service.
+              The information on this Service is provided on an &quot;as
+              is&quot; basis. To the fullest extent permitted by law, this
+              Company excludes all representations, warranties, conditions and
+              terms relating to our Service and the use of this Service.
             </p>
           </section>
 

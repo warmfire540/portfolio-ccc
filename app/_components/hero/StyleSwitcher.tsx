@@ -1,16 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faDiagramProject,
   faMinus,
-  faMoon,
-  faSun,
+  faPalette,
   faTableCells,
   faTerminal,
   faTrainSubway,
   faWandMagicSparkles,
+  faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useThemeVariant, VARIANTS, VARIANT_LABELS } from '@/app/_lib/theme';
@@ -26,88 +26,69 @@ const VARIANT_ICONS: Record<(typeof VARIANTS)[number], IconDefinition> = {
 
 export default function StyleSwitcher() {
   const { variant, setVariant } = useThemeVariant();
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [dark, setDark] = useState(false);
+  const [open, setOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const stored = localStorage.getItem('ccc-color-scheme');
-    const prefersDark =
-      stored === 'dark' ||
-      (!stored &&
-        globalThis.matchMedia('(prefers-color-scheme: dark)').matches);
-    setDark(prefersDark);
-    document.documentElement.classList.toggle('dark', prefersDark);
-  }, []);
-
-  const toggleDark = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle('dark', next);
-    localStorage.setItem('ccc-color-scheme', next ? 'dark' : 'light');
-  };
-
-  useEffect(() => {
-    const hasInteracted = localStorage.getItem('ccc-switcher-seen');
-    if (!hasInteracted) {
-      setShowTooltip(true);
-      const timer = setTimeout(() => setShowTooltip(false), 4000);
-      return () => clearTimeout(timer);
+    if (!open) return;
+    function handleClickOutside(e: MouseEvent) {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
     }
-  }, []);
-
-  const handleSwitch = (v: (typeof VARIANTS)[number]) => {
-    setVariant(v);
-    if (showTooltip) {
-      setShowTooltip(false);
-      localStorage.setItem('ccc-switcher-seen', '1');
-    }
-  };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [open]);
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2">
-      {showTooltip && (
-        <span className="text-xs text-zinc-500 dark:text-zinc-400 bg-white/90 dark:bg-zinc-900/90 px-3 py-1 rounded-full shadow-sm backdrop-blur-sm animate-[fade-in-up_0.3s_ease-out]">
-          Design showcase: try different styles
-        </span>
+    <div
+      ref={panelRef}
+      className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
+    >
+      {open && (
+        <div className="flex flex-col gap-1.5 rounded-2xl bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-200 dark:border-zinc-700 shadow-xl p-2 animate-[fade-in-up_0.15s_ease-out]">
+          {VARIANTS.map((v) => {
+            const label = VARIANT_LABELS[v];
+            const isActive = variant === v;
+            return (
+              <button
+                key={v}
+                onClick={() => {
+                  setVariant(v);
+                  setOpen(false);
+                }}
+                aria-label={`Switch to ${label} style`}
+                aria-pressed={isActive}
+                className={`flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150 whitespace-nowrap ${
+                  isActive
+                    ? 'bg-primary-600 text-white shadow-sm'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                }`}
+              >
+                <FontAwesomeIcon
+                  icon={VARIANT_ICONS[v]}
+                  className="w-4 h-4"
+                  aria-hidden
+                />
+                {label}
+              </button>
+            );
+          })}
+        </div>
       )}
-      <div className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-zinc-200 dark:border-zinc-700 shadow-lg px-2 py-1.5">
-        {VARIANTS.map((v) => {
-          const label = VARIANT_LABELS[v];
-          const isActive = variant === v;
-          return (
-            <button
-              key={v}
-              onClick={() => handleSwitch(v)}
-              aria-label={`Switch to ${label} style`}
-              aria-pressed={isActive}
-              className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200 ${
-                isActive
-                  ? 'bg-primary-600 text-white shadow-sm'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
-              }`}
-            >
-              <FontAwesomeIcon
-                icon={VARIANT_ICONS[v]}
-                className="w-3.5 h-3.5"
-                aria-hidden
-              />
-              <span className="hidden sm:inline">{label}</span>
-            </button>
-          );
-        })}
-        <div className="w-px h-5 bg-zinc-200 dark:bg-zinc-700 mx-1" />
-        <button
-          onClick={toggleDark}
-          aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-          className="flex items-center justify-center rounded-full w-8 h-8 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200"
-        >
-          <FontAwesomeIcon
-            icon={dark ? faSun : faMoon}
-            className="w-3.5 h-3.5"
-            aria-hidden
-          />
-        </button>
-      </div>
+
+      <button
+        onClick={() => setOpen(!open)}
+        aria-label={open ? 'Close theme picker' : 'Open theme picker'}
+        aria-expanded={open}
+        className="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+      >
+        <FontAwesomeIcon
+          icon={open ? faXmark : faPalette}
+          className="w-5 h-5"
+          aria-hidden
+        />
+      </button>
     </div>
   );
 }

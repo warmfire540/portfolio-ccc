@@ -17,15 +17,11 @@ function Prompt() {
 export default function DesktopNavigationTerminal({
   navItems,
   activeSection,
-  dark,
   onNavClick,
-  onThemeToggle,
 }: Readonly<{
   navItems: NavItem[];
   activeSection: string;
-  dark: boolean;
   onNavClick: (href: string) => void;
-  onThemeToggle: () => void;
 }>) {
   return (
     <nav className="hidden md:flex items-center gap-1">
@@ -47,11 +43,7 @@ export default function DesktopNavigationTerminal({
         );
       })}
       <div className="w-px h-5 bg-zinc-200 dark:bg-zinc-700 mx-2" />
-      <ThemeToggle
-        dark={dark}
-        onToggle={onThemeToggle}
-        className="p-1.5 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-      />
+      <ThemeToggle className="p-1.5 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800" />
     </nav>
   );
 }

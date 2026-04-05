@@ -24,10 +24,7 @@ export default function HeroShell() {
 
   return (
     <>
-      <div
-        key={variant}
-        className="animate-[fade-in-up_0.5s_ease-out]"
-      >
+      <div key={variant} className="animate-[fade-in-up_0.5s_ease-out]">
         <HeroComponent />
       </div>
       <StyleSwitcher />

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import {
   faArrowUpRightFromSquare,
   faChevronDown,
@@ -8,12 +9,10 @@ import {
   faPlane,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  SplitFlapCell,
-  type SplitFlapSize,
-} from '../hero/SplitFlapCell';
+import { SplitFlapCell, type SplitFlapSize } from '../hero/SplitFlapCell';
 import ProjectModal from './ProjectModal';
 import { categories, projects, type Project } from './data';
+import { getProjectCta } from './projectCta';
 
 /* ------------------------------------------------------------------ */
 /*  Shared flipboard primitives                                        */
@@ -215,6 +214,7 @@ export default function ProjectsFlipboard() {
             <div className="space-y-0">
               {displayedProjects.map((project, i) => {
                 const isExpanded = expanded === project.id;
+                const cta = getProjectCta(project);
                 return (
                   <div key={project.id}>
                     {i > 0 && (
@@ -349,26 +349,35 @@ export default function ProjectsFlipboard() {
                               >
                                 View Details
                               </button>
-                              {project.link && (
-                                <a
-                                  href={project.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  onClick={(e) => e.stopPropagation()}
-                                  className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-amber-700/70 dark:text-amber-400/70 hover:text-amber-800 dark:hover:text-amber-300 transition-colors"
-                                >
-                                  {project.linkType === 'technology'
-                                    ? 'View Tech'
-                                    : project.linkType === 'client'
-                                      ? 'View Client'
-                                      : 'Visit'}
-                                  <FontAwesomeIcon
-                                    icon={faArrowUpRightFromSquare}
-                                    className="w-2.5 h-2.5"
-                                    aria-hidden
-                                  />
-                                </a>
-                              )}
+                              {cta &&
+                                (cta.mode === 'internal' ? (
+                                  <Link
+                                    href={cta.href}
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-amber-700/70 dark:text-amber-400/70 hover:text-amber-800 dark:hover:text-amber-300 transition-colors"
+                                  >
+                                    View Project
+                                  </Link>
+                                ) : (
+                                  <a
+                                    href={cta.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-amber-700/70 dark:text-amber-400/70 hover:text-amber-800 dark:hover:text-amber-300 transition-colors"
+                                  >
+                                    {project.linkType === 'technology'
+                                      ? 'View Tech'
+                                      : project.linkType === 'client'
+                                        ? 'View Client'
+                                        : 'Visit'}
+                                    <FontAwesomeIcon
+                                      icon={faArrowUpRightFromSquare}
+                                      className="w-2.5 h-2.5"
+                                      aria-hidden
+                                    />
+                                  </a>
+                                ))}
                             </div>
                           </div>
                         </div>

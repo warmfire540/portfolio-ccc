@@ -4,15 +4,11 @@ import ThemeToggle from '../ThemeToggle';
 export default function DesktopNavigationFlipboard({
   navItems,
   activeSection,
-  dark,
   onNavClick,
-  onThemeToggle,
 }: Readonly<{
   navItems: NavItem[];
   activeSection: string;
-  dark: boolean;
   onNavClick: (href: string) => void;
-  onThemeToggle: () => void;
 }>) {
   return (
     <nav className="hidden md:flex items-center gap-1">
@@ -33,11 +29,7 @@ export default function DesktopNavigationFlipboard({
         );
       })}
       <div className="w-px h-4 bg-stone-300 dark:bg-zinc-700 mx-2" />
-      <ThemeToggle
-        dark={dark}
-        onToggle={onThemeToggle}
-        className="p-1.5 rounded-md text-stone-400 dark:text-zinc-500 hover:text-amber-800 dark:hover:text-yellow-400 hover:bg-stone-200/60 dark:hover:bg-zinc-800/60"
-      />
+      <ThemeToggle className="p-1.5 rounded-md text-stone-400 dark:text-zinc-500 hover:text-amber-800 dark:hover:text-yellow-400 hover:bg-stone-200/60 dark:hover:bg-zinc-800/60" />
     </nav>
   );
 }

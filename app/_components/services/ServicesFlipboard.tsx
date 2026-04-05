@@ -3,10 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faPlane } from '@fortawesome/free-solid-svg-icons';
-import {
-  SplitFlapCell,
-  type SplitFlapSize,
-} from '../hero/SplitFlapCell';
+import { SplitFlapCell, type SplitFlapSize } from '../hero/SplitFlapCell';
 import { services, specializedServices } from './data';
 
 /* ------------------------------------------------------------------ */
@@ -314,12 +311,7 @@ export default function ServicesFlipboard() {
           <BoardPanel className="p-6 sm:p-8">
             <div className="border-b border-stone-300/90 dark:border-zinc-800/90 pb-4 mb-6">
               <SectionTag>Connecting Flights</SectionTag>
-              <FlapLabel
-                text="Specialized"
-                size="sm"
-                startIndex={40}
-                bright
-              />
+              <FlapLabel text="Specialized" size="sm" startIndex={40} bright />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-px bg-stone-300/60 dark:bg-zinc-800/60 rounded-lg overflow-hidden">

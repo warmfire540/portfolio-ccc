@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import {
   faArrowUpRightFromSquare,
   faCalendarDays,
@@ -11,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { categories, projects, type Project } from './data';
+import { getProjectCta, projectExternalLinkLabel } from './projectCta';
 
 /* ------------------------------------------------------------------ */
 /*  Sidebar project row                                                */
@@ -75,6 +77,7 @@ function ProjectRow({
 /* ------------------------------------------------------------------ */
 
 function DetailPanel({ project }: Readonly<{ project: Project }>) {
+  const cta = getProjectCta(project);
   return (
     <div
       key={project.id}
@@ -142,25 +145,30 @@ function DetailPanel({ project }: Readonly<{ project: Project }>) {
       </div>
 
       {/* Link */}
-      {project.link && (
+      {cta && (
         <div className="mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-800">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm"
-          >
-            {project.linkType === 'technology'
-              ? 'View Technology'
-              : project.linkType === 'client'
-                ? 'View Client'
-                : 'View Project'}
-            <FontAwesomeIcon
-              icon={faArrowUpRightFromSquare}
-              className="w-3.5 h-3.5"
-              aria-hidden
-            />
-          </a>
+          {cta.mode === 'internal' ? (
+            <Link
+              href={cta.href}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm"
+            >
+              View Project
+            </Link>
+          ) : (
+            <a
+              href={cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm"
+            >
+              {projectExternalLinkLabel(project.linkType)}
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                className="w-3.5 h-3.5"
+                aria-hidden
+              />
+            </a>
+          )}
         </div>
       )}
     </div>

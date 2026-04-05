@@ -1,13 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  faUpRightFromSquare,
-} from '@fortawesome/free-solid-svg-icons';
+import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TerminalChrome from '../hero/TerminalChrome';
 import ProjectModal from './ProjectModal';
 import { categories, projects, type Project } from './data';
+import { getProjectCta } from './projectCta';
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -61,7 +60,7 @@ function PackageRow({
           <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
             {project.category.toLowerCase()}
           </span>
-          {project.link && (
+          {getProjectCta(project) && (
             <FontAwesomeIcon
               icon={faUpRightFromSquare}
               className="w-3 h-3 text-zinc-400 group-hover:text-emerald-500 transition-colors"
@@ -129,7 +128,9 @@ export default function ProjectsTerminal() {
   const hasMoreProjects = filteredProjects.length > 3;
 
   const filterFlag =
-    activeFilter === 'All' ? '' : ` --category=${activeFilter.toLowerCase().replace(/ /g, '-')}`;
+    activeFilter === 'All'
+      ? ''
+      : ` --category=${activeFilter.toLowerCase().replace(/ /g, '-')}`;
 
   return (
     <section
@@ -275,7 +276,9 @@ export default function ProjectsTerminal() {
                   curious-cat
                 </span>
                 <span className="text-zinc-400">:</span>
-                <span className="text-primary-500 dark:text-primary-400">~</span>
+                <span className="text-primary-500 dark:text-primary-400">
+                  ~
+                </span>
                 <span className="text-zinc-400">$ </span>
                 <span className="animate-[blink_1s_step-end_infinite] text-zinc-500">
                   ▊

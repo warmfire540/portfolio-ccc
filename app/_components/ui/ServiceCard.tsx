@@ -49,11 +49,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       {variant === 'vertical' ? (
         <>
           <div className={`mb-4 ${iconWrapperClasses}`}>
-            <FontAwesomeIcon
-              icon={icon}
-              className={iconClasses}
-              aria-hidden
-            />
+            <FontAwesomeIcon icon={icon} className={iconClasses} aria-hidden />
           </div>
           <HeadingTag className={titleClasses}>{title}</HeadingTag>
           <p className="text-gray-600 dark:text-gray-300">{description}</p>

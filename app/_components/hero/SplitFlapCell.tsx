@@ -12,8 +12,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export const FLAP_ALPHABET =
-  " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,':()&!?+-";
+export const FLAP_ALPHABET = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,':()&!?+-";
 
 const FAST_SPEED_MS = 25;
 const FINAL_FLIP_MS = 360;
@@ -64,9 +63,16 @@ export function SplitFlapCell({
     let cancelled = false;
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-    const flipOnce = (from: string, to: string, isFinal: boolean): Promise<void> => {
+    const flipOnce = (
+      from: string,
+      to: string,
+      isFinal: boolean,
+    ): Promise<void> => {
       return new Promise((resolve) => {
-        if (cancelled) { resolve(); return; }
+        if (cancelled) {
+          resolve();
+          return;
+        }
 
         // Prepare the three layers
         setTopChar(to);
@@ -76,7 +82,10 @@ export function SplitFlapCell({
 
         // Wait a frame for React to render the flap, then animate
         requestAnimationFrame(() => {
-          if (cancelled) { resolve(); return; }
+          if (cancelled) {
+            resolve();
+            return;
+          }
 
           const el = fallingRef.current;
           if (!el) {

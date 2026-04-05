@@ -162,8 +162,8 @@ export default function ContactMinimal() {
         </h2>
 
         <p className="text-lg sm:text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-2xl mb-20">
-          Have a project in mind or just want to chat? I&apos;d love to hear from
-          you.
+          Have a project in mind or just want to chat? I&apos;d love to hear
+          from you.
         </p>
 
         {/* Two-column: form left, info right */}

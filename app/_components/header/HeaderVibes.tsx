@@ -10,7 +10,7 @@ import MobileControlsVibes from './MobileControls/MobileControlsVibes';
 import MobileMenuVibes from './MobileMenu/MobileMenuVibes';
 
 export default function HeaderVibes() {
-  const { dark, toggle } = useDarkMode();
+  const { dark } = useDarkMode();
   const { isMenuOpen, setIsMenuOpen, isScrolled, activeSection, isVisible } =
     useHeaderState(navItems);
   const styles = getHeaderStyles(isScrolled, dark);
@@ -42,17 +42,13 @@ export default function HeaderVibes() {
             navItems={navItems}
             activeSection={activeSection}
             styles={styles}
-            dark={dark}
             onNavClick={handleNavClick}
-            onThemeToggle={toggle}
           />
 
           <MobileControlsVibes
             isMenuOpen={isMenuOpen}
-            dark={dark}
             styles={styles}
             onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
-            onThemeToggle={toggle}
           />
         </div>
 

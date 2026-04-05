@@ -245,8 +245,8 @@ export default function BrandKitContent() {
             Logo
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Cat icon with company name and tagline. Use fill=&quot;currentColor&quot; for
-            flexible theming.
+            Cat icon with company name and tagline. Use
+            fill=&quot;currentColor&quot; for flexible theming.
           </p>
           <div className="flex flex-wrap gap-12 p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
             <div>

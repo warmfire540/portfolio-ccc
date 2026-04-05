@@ -1,28 +1,20 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useTheme } from 'next-themes';
+import { useCallback, useSyncExternalStore } from 'react';
+
+const subscribe = () => () => {};
+const mounted = () => true;
+const notMounted = () => false;
 
 export function useDarkMode() {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    setDark(document.documentElement.classList.contains('dark'));
-    const observer = new MutationObserver(() => {
-      setDark(document.documentElement.classList.contains('dark'));
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isMounted = useSyncExternalStore(subscribe, mounted, notMounted);
+  const { resolvedTheme, setTheme } = useTheme();
+  const dark = isMounted && resolvedTheme === 'dark';
 
   const toggle = useCallback(() => {
-    const next = !document.documentElement.classList.contains('dark');
-    document.documentElement.classList.toggle('dark', next);
-    localStorage.setItem('ccc-color-scheme', next ? 'dark' : 'light');
-    setDark(next);
-  }, []);
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+  }, [resolvedTheme, setTheme]);
 
-  return { dark, toggle };
+  return { dark, toggle, mounted: isMounted };
 }

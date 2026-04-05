@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faArrowTrendUp,
@@ -282,11 +282,6 @@ export default function HeroShowcase() {
 
   const handleDotClick = useCallback((i: number) => setActiveIndex(i), []);
 
-  const flowKey = useMemo(
-    () => `flow-${activeIndex}-${Date.now()}`,
-    [activeIndex],
-  );
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Blueprint background */}
@@ -374,7 +369,7 @@ export default function HeroShowcase() {
             {/* Flow container */}
             <div className="h-[340px] sm:h-[380px] w-full rounded-md overflow-hidden border border-primary-200/40 dark:border-primary-800/30 bg-white/85 dark:bg-zinc-900/85 shadow-lg">
               <ReactFlow
-                key={flowKey}
+                key={`flow-${activeIndex}`}
                 nodes={scenario.nodes}
                 edges={scenario.edges}
                 nodeTypes={nodeTypes}

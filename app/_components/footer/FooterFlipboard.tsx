@@ -28,7 +28,9 @@ function FooterLinkItem({ link }: Readonly<{ link: FooterLink }>) {
       <a
         href={link.href}
         target={link.href.startsWith('mailto:') ? '_self' : '_blank'}
-        rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+        rel={
+          link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'
+        }
         className={cls}
       >
         {link.label}
@@ -45,7 +47,10 @@ function FooterLinkItem({ link }: Readonly<{ link: FooterLink }>) {
   }
 
   return (
-    <button onClick={() => scrollToSection(link.href)} className={`${cls} text-left`}>
+    <button
+      onClick={() => scrollToSection(link.href)}
+      className={`${cls} text-left`}
+    >
       {link.label}
     </button>
   );

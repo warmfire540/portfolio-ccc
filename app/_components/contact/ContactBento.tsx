@@ -293,9 +293,7 @@ export default function ContactBento() {
                       className={inputClasses('name')}
                     />
                     {touched.name && errors.name && (
-                      <p className="text-xs text-red-500 mt-1">
-                        {errors.name}
-                      </p>
+                      <p className="text-xs text-red-500 mt-1">{errors.name}</p>
                     )}
                   </div>
                   <div>

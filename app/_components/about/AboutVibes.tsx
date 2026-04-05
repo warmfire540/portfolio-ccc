@@ -47,7 +47,10 @@ export default function AboutVibes() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="space-y-24">
           {/* ---- About Info ---- */}
-          <AnimatedSection animation="fade-in" className="max-w-5xl mx-auto text-center">
+          <AnimatedSection
+            animation="fade-in"
+            className="max-w-5xl mx-auto text-center"
+          >
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 to-primary-600 dark:from-white dark:to-primary-400 bg-clip-text text-transparent mb-6">
               About Curious Cat Consulting
             </h2>
@@ -205,7 +208,10 @@ export default function AboutVibes() {
               <div className="space-y-24 pt-8">
                 {/* Story / Milestones */}
                 <div className="max-w-6xl mx-auto">
-                  <AnimatedSection animation="fade-in" className="text-center mb-16">
+                  <AnimatedSection
+                    animation="fade-in"
+                    className="text-center mb-16"
+                  >
                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                       Our Story
                     </h3>
@@ -245,7 +251,10 @@ export default function AboutVibes() {
 
                 {/* Values */}
                 <div className="max-w-6xl mx-auto">
-                  <AnimatedSection animation="fade-in" className="text-center mb-16">
+                  <AnimatedSection
+                    animation="fade-in"
+                    className="text-center mb-16"
+                  >
                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                       Our Values
                     </h3>
@@ -292,7 +301,10 @@ export default function AboutVibes() {
 
                 {/* Reviews */}
                 <div className="max-w-6xl mx-auto">
-                  <AnimatedSection animation="fade-in" className="text-center mb-16">
+                  <AnimatedSection
+                    animation="fade-in"
+                    className="text-center mb-16"
+                  >
                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                       What Our Clients Say
                     </h3>
@@ -305,7 +317,11 @@ export default function AboutVibes() {
                   </AnimatedSection>
 
                   <div className="flex justify-center">
-                    <AnimatedSection animation="slide-up" delay={150} className="max-w-5xl w-full bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                    <AnimatedSection
+                      animation="slide-up"
+                      delay={150}
+                      className="max-w-5xl w-full bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
+                    >
                       <ReactGoogleReviews
                         layout="badge"
                         featurableId={
@@ -318,7 +334,10 @@ export default function AboutVibes() {
 
                 {/* Recognition */}
                 <div className="max-w-6xl mx-auto">
-                  <AnimatedSection animation="fade-in" className="text-center mb-16">
+                  <AnimatedSection
+                    animation="fade-in"
+                    className="text-center mb-16"
+                  >
                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
                       Recognition &amp; Awards
                     </h3>

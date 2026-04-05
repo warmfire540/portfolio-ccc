@@ -1,7 +1,7 @@
 'use client';
 
 import { navItems, scrollToSection } from './data';
-import { useDarkMode } from './useDarkMode';
+
 import { useHeaderState } from './useHeaderState';
 import LogoMinimal from './Logo/LogoMinimal';
 import DesktopNavigationMinimal from './DesktopNavigation/DesktopNavigationMinimal';
@@ -9,7 +9,6 @@ import MobileControlsMinimal from './MobileControls/MobileControlsMinimal';
 import MobileMenuMinimal from './MobileMenu/MobileMenuMinimal';
 
 export default function HeaderMinimal() {
-  const { dark, toggle } = useDarkMode();
   const { isMenuOpen, setIsMenuOpen, isScrolled, activeSection, isVisible } =
     useHeaderState(navItems);
 
@@ -35,16 +34,12 @@ export default function HeaderMinimal() {
           <DesktopNavigationMinimal
             navItems={navItems}
             activeSection={activeSection}
-            dark={dark}
             onNavClick={handleNavClick}
-            onThemeToggle={toggle}
           />
 
           <MobileControlsMinimal
             isMenuOpen={isMenuOpen}
-            dark={dark}
             onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
-            onThemeToggle={toggle}
           />
         </div>
 

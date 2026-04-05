@@ -97,9 +97,7 @@ function RotatingTestimonial() {
       <p className="text-base sm:text-lg font-medium text-zinc-800 dark:text-zinc-100 mb-3 leading-relaxed">
         &ldquo;{t.quote}&rdquo;
       </p>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-        - {t.author}
-      </p>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">- {t.author}</p>
     </div>
   );
 }

@@ -5,10 +5,7 @@ import { ReactGoogleReviews } from 'react-google-reviews';
 import 'react-google-reviews/dist/index.css';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  SplitFlapCell,
-  type SplitFlapSize,
-} from '../hero/SplitFlapCell';
+import { SplitFlapCell, type SplitFlapSize } from '../hero/SplitFlapCell';
 import { STATS, TEAM, MILESTONES, VALUES, RECOGNITIONS } from './data';
 
 /* ------------------------------------------------------------------ */
@@ -203,7 +200,9 @@ export default function AboutFlipboard() {
               {TEAM.map((member, i) => (
                 <div key={member.name}>
                   {i > 0 && <Divider />}
-                  <div className={`flex gap-5 items-start ${i > 0 ? 'pt-6' : ''}`}>
+                  <div
+                    className={`flex gap-5 items-start ${i > 0 ? 'pt-6' : ''}`}
+                  >
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border border-stone-300 dark:border-zinc-700 shrink-0">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
@@ -275,7 +274,12 @@ export default function AboutFlipboard() {
                 <BoardPanel className="p-6 sm:p-8">
                   <div className="border-b border-stone-300/90 dark:border-zinc-800/90 pb-4 mb-6">
                     <SectionTag>Timeline</SectionTag>
-                    <FlapLabel text="Our Story" size="sm" startIndex={30} bright />
+                    <FlapLabel
+                      text="Our Story"
+                      size="sm"
+                      startIndex={30}
+                      bright
+                    />
                   </div>
 
                   <div className="space-y-0">
@@ -360,7 +364,12 @@ export default function AboutFlipboard() {
                 <BoardPanel className="p-6 sm:p-8">
                   <div className="border-b border-stone-300/90 dark:border-zinc-800/90 pb-4 mb-6">
                     <SectionTag>Passenger Feedback</SectionTag>
-                    <FlapLabel text="Reviews" size="sm" startIndex={55} bright />
+                    <FlapLabel
+                      text="Reviews"
+                      size="sm"
+                      startIndex={55}
+                      bright
+                    />
                   </div>
 
                   <p className="text-xs sm:text-sm text-amber-900/60 dark:text-amber-300/60 font-mono leading-relaxed mb-5">
@@ -383,14 +392,16 @@ export default function AboutFlipboard() {
                 <BoardPanel className="p-6 sm:p-8">
                   <div className="border-b border-stone-300/90 dark:border-zinc-800/90 pb-4 mb-6">
                     <SectionTag>Certifications</SectionTag>
-                    <FlapLabel text="Recognition" size="sm" startIndex={65} bright />
+                    <FlapLabel
+                      text="Recognition"
+                      size="sm"
+                      startIndex={65}
+                      bright
+                    />
                   </div>
 
                   {RECOGNITIONS.map((r) => (
-                    <div
-                      key={r.title}
-                      className="flex items-center gap-5"
-                    >
+                    <div key={r.title} className="flex items-center gap-5">
                       <a
                         href={r.badgeLink}
                         title="Find me on Biz Growth Collective"

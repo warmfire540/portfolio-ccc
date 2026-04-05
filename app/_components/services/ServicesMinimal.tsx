@@ -52,10 +52,7 @@ export default function ServicesMinimal() {
 
         <div className="grid sm:grid-cols-2 gap-px bg-zinc-200/60 dark:bg-zinc-800/60 rounded-2xl overflow-hidden">
           {specializedServices.map((service) => (
-            <div
-              key={service.title}
-              className="bg-white dark:bg-zinc-950 p-8"
-            >
+            <div key={service.title} className="bg-white dark:bg-zinc-950 p-8">
               <FontAwesomeIcon
                 icon={service.icon}
                 className="w-5 h-5 text-zinc-300 dark:text-zinc-700 mb-4"

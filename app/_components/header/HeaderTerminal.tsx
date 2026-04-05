@@ -9,7 +9,7 @@ import MobileControlsTerminal from './MobileControls/MobileControlsTerminal';
 import MobileMenuTerminal from './MobileMenu/MobileMenuTerminal';
 
 export default function HeaderTerminal() {
-  const { dark, toggle } = useDarkMode();
+  const { dark } = useDarkMode();
   const { isMenuOpen, setIsMenuOpen, isScrolled, activeSection, isVisible } =
     useHeaderState(navItems);
 
@@ -40,16 +40,12 @@ export default function HeaderTerminal() {
           <DesktopNavigationTerminal
             navItems={navItems}
             activeSection={activeSection}
-            dark={dark}
             onNavClick={handleNavClick}
-            onThemeToggle={toggle}
           />
 
           <MobileControlsTerminal
             isMenuOpen={isMenuOpen}
-            dark={dark}
             onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
-            onThemeToggle={toggle}
           />
         </div>
 

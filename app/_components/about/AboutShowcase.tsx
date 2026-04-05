@@ -4,10 +4,7 @@ import { useState, useMemo, useCallback } from 'react';
 import { ReactGoogleReviews } from 'react-google-reviews';
 import 'react-google-reviews/dist/index.css';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import {
-  faArrowRight,
-  faArrowLeft,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   ReactFlow,
@@ -147,9 +144,7 @@ const STEPS: Step[] = [
         <div className="bg-white dark:bg-zinc-900 rounded-lg p-3 border border-zinc-200/60 dark:border-zinc-700">
           <ReactGoogleReviews
             layout="badge"
-            featurableId={
-              process.env.NEXT_PUBLIC_FEATURABLE_WIDGET_ID ?? ''
-            }
+            featurableId={process.env.NEXT_PUBLIC_FEATURABLE_WIDGET_ID ?? ''}
           />
         </div>
 
@@ -197,9 +192,7 @@ function StepNode({ data }: NodeProps) {
         className="flex flex-col items-center justify-center gap-2 w-[155px] h-[140px] rounded-xl border-2 transition-all duration-300 cursor-pointer"
         style={{
           borderColor: active ? accent : visited ? `${accent}66` : '#d4d4d8',
-          background: active
-            ? `${accent}12`
-            : 'rgba(255,255,255,0.85)',
+          background: active ? `${accent}12` : 'rgba(255,255,255,0.85)',
           boxShadow: active ? `0 0 20px ${accent}25` : 'none',
         }}
       >
@@ -284,21 +277,15 @@ export default function AboutShowcase() {
     [activeStep],
   );
 
-  const handleNodeClick = useCallback(
-    (_: React.MouseEvent, node: Node) => {
-      const idx = STEPS.findIndex((s) => s.id === node.id);
-      if (idx !== -1) setActiveStep(idx);
-    },
-    [],
-  );
+  const handleNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
+    const idx = STEPS.findIndex((s) => s.id === node.id);
+    if (idx !== -1) setActiveStep(idx);
+  }, []);
 
   const flowKey = `about-flow-${activeStep}`;
 
   return (
-    <section
-      id="about"
-      className="relative py-24 overflow-hidden"
-    >
+    <section id="about" className="relative py-24 overflow-hidden">
       {/* Blueprint background (matches hero) */}
       <div className="absolute inset-0 bg-[#e8f0fa] dark:bg-[#0c1929]" />
       <div
@@ -391,9 +378,7 @@ export default function AboutShowcase() {
 
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() =>
-                    setActiveStep((i) => Math.max(0, i - 1))
-                  }
+                  onClick={() => setActiveStep((i) => Math.max(0, i - 1))}
                   disabled={activeStep === 0}
                   className="w-8 h-8 rounded-lg border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-zinc-500 hover:text-zinc-800 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-500 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   aria-label="Previous step"
@@ -409,9 +394,7 @@ export default function AboutShowcase() {
                 </span>
                 <button
                   onClick={() =>
-                    setActiveStep((i) =>
-                      Math.min(STEPS.length - 1, i + 1),
-                    )
+                    setActiveStep((i) => Math.min(STEPS.length - 1, i + 1))
                   }
                   disabled={activeStep === STEPS.length - 1}
                   className="w-8 h-8 rounded-lg border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-zinc-500 hover:text-zinc-800 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-500 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
@@ -444,10 +427,8 @@ export default function AboutShowcase() {
                 aria-label={`Go to ${s.milestone.title}`}
                 className="w-2 h-2 rounded-full transition-all duration-300"
                 style={{
-                  background:
-                    i === activeStep ? s.accent : '#94a3b8',
-                  transform:
-                    i === activeStep ? 'scale(1.4)' : 'scale(1)',
+                  background: i === activeStep ? s.accent : '#94a3b8',
+                  transform: i === activeStep ? 'scale(1.4)' : 'scale(1)',
                 }}
               />
             ))}

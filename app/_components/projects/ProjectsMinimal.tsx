@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProjectModal from './ProjectModal';
 import { categories, projects, type Project } from './data';
+import { getProjectCta } from './projectCta';
 
 export default function ProjectsMinimal() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -74,67 +76,80 @@ export default function ProjectsMinimal() {
 
         {/* Project list */}
         <div className="space-y-0 divide-y divide-zinc-200/60 dark:divide-zinc-800/60">
-          {displayedProjects.map((project) => (
-            <button
-              key={project.id}
-              type="button"
-              onClick={() => {
-                setSelectedProject(project);
-                setIsModalOpen(true);
-              }}
-              className="group w-full text-left py-8 first:pt-0 last:pb-0 transition-colors duration-200"
-            >
-              {/* Top row: title + year */}
-              <div className="flex items-baseline justify-between gap-4 mb-2">
-                <h4 className="text-base font-semibold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  {project.title}
-                </h4>
-                <span className="text-xs text-zinc-400 dark:text-zinc-600 shrink-0 tabular-nums">
-                  {project.year}
-                </span>
-              </div>
+          {displayedProjects.map((project) => {
+            const cta = getProjectCta(project);
+            return (
+              <button
+                key={project.id}
+                type="button"
+                onClick={() => {
+                  setSelectedProject(project);
+                  setIsModalOpen(true);
+                }}
+                className="group w-full text-left py-8 first:pt-0 last:pb-0 transition-colors duration-200"
+              >
+                {/* Top row: title + year */}
+                <div className="flex items-baseline justify-between gap-4 mb-2">
+                  <h4 className="text-base font-semibold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    {project.title}
+                  </h4>
+                  <span className="text-xs text-zinc-400 dark:text-zinc-600 shrink-0 tabular-nums">
+                    {project.year}
+                  </span>
+                </div>
 
-              {/* Description — two lines max */}
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-2 mb-3">
-                {project.description}
-              </p>
+                {/* Description — two lines max */}
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-2 mb-3">
+                  {project.description}
+                </p>
 
-              {/* Bottom row: category + tech + link */}
-              <div className="flex items-center gap-3 flex-wrap">
-                <span className="text-[11px] text-zinc-400 dark:text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded">
-                  {project.category}
-                </span>
-                <span className="text-zinc-200 dark:text-zinc-800 text-[10px]">
-                  /
-                </span>
-                <span className="text-[11px] text-zinc-400 dark:text-zinc-600">
-                  {project.clientType}
-                </span>
+                {/* Bottom row: category + tech + link */}
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="text-[11px] text-zinc-400 dark:text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded">
+                    {project.category}
+                  </span>
+                  <span className="text-zinc-200 dark:text-zinc-800 text-[10px]">
+                    /
+                  </span>
+                  <span className="text-[11px] text-zinc-400 dark:text-zinc-600">
+                    {project.clientType}
+                  </span>
 
-                {project.link && (
-                  <>
-                    <span className="text-zinc-200 dark:text-zinc-800 text-[10px]">
-                      /
-                    </span>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1 text-[11px] text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                    >
-                      Visit
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        className="w-2.5 h-2.5"
-                        aria-hidden
-                      />
-                    </a>
-                  </>
-                )}
-              </div>
-            </button>
-          ))}
+                  {cta && (
+                    <>
+                      <span className="text-zinc-200 dark:text-zinc-800 text-[10px]">
+                        /
+                      </span>
+                      {cta.mode === 'internal' ? (
+                        <Link
+                          href={cta.href}
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-[11px] text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                        >
+                          View Project
+                        </Link>
+                      ) : (
+                        <a
+                          href={cta.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-[11px] text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                        >
+                          Visit
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            className="w-2.5 h-2.5"
+                            aria-hidden
+                          />
+                        </a>
+                      )}
+                    </>
+                  )}
+                </div>
+              </button>
+            );
+          })}
         </div>
 
         {/* Show more */}

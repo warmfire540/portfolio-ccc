@@ -50,8 +50,12 @@ type ReplSection = 'team' | 'story' | 'values' | 'reviews' | 'recognition';
 const replCommands: { id: ReplSection; label: string; command: string }[] = [
   { id: 'team', label: 'team', command: 'ls -la ./team/' },
   { id: 'story', label: 'story', command: 'git log --oneline --graph' },
-  { id: 'values', label: 'values', command: 'cat .values | jq \'.core[]\'' },
-  { id: 'reviews', label: 'reviews', command: 'curl -s api.google.com/reviews | jq' },
+  { id: 'values', label: 'values', command: "cat .values | jq '.core[]'" },
+  {
+    id: 'reviews',
+    label: 'reviews',
+    command: 'curl -s api.google.com/reviews | jq',
+  },
   { id: 'recognition', label: 'awards', command: 'ls ./awards/' },
 ];
 
@@ -89,9 +93,7 @@ function ReplContent({ section }: Readonly<{ section: ReplSection }>) {
                 </Output>
               ))}
               <div className="font-mono text-xs text-zinc-400 pl-4">
-                <span className="text-zinc-300 dark:text-zinc-600">
-                  {'>'}{' '}
-                </span>
+                <span className="text-zinc-300 dark:text-zinc-600">{'>'} </span>
                 location: Tampa, FL | status: available
               </div>
             </div>
@@ -308,10 +310,10 @@ export default function AboutTerminal() {
                 <Output>
                   <p className="leading-relaxed">
                     I approach every project with fresh eyes and a questioning
-                    mind, digging deeper to understand the real challenges behind
-                    your requirements. This curiosity-driven approach leads to
-                    solutions that not only meet your immediate needs but
-                    anticipate future ones as well.
+                    mind, digging deeper to understand the real challenges
+                    behind your requirements. This curiosity-driven approach
+                    leads to solutions that not only meet your immediate needs
+                    but anticipate future ones as well.
                   </p>
                 </Output>
               </div>
@@ -377,8 +379,10 @@ export default function AboutTerminal() {
                         </span>
                         <span className="text-zinc-400">{' > '}</span>
                         <span className="text-zinc-700 dark:text-zinc-300">
-                          {replCommands.find((c) => c.id === activeSection)
-                            ?.command}
+                          {
+                            replCommands.find((c) => c.id === activeSection)
+                              ?.command
+                          }
                         </span>
                       </div>
                       <SectionDivider />
