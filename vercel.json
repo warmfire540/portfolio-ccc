@@ -29,7 +29,7 @@
   ],
   "functions": {
     "api/marketing/[type]/random.ts": {
-      "includeFiles": "src/data/{projects,services}.ts"
+      "includeFiles": "app/_components/{projects,services}/data.ts"
     }
   }
 }

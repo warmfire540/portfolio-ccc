@@ -1,14 +1,16 @@
 import type { IncomingHttpHeaders } from 'node:http';
-
-// @ts-expect-error - need extension for vercel, period
-import { projects, type Project } from '../../../src/data/projects.ts';
+import {
+  projects,
+  type Project,
+  // @ts-expect-error - need extension for vercel, period
+} from '../../../app/_components/projects/data.ts';
 import {
   services,
-  specializedServicesData,
+  specializedServices,
   type Service,
   type SpecializedService,
   // @ts-expect-error - need extension for vercel, period
-} from '../../../src/data/services.ts';
+} from '../../../app/_components/services/data.ts';
 
 // Marketing item types
 interface MarketingItem {
@@ -107,7 +109,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         break;
       }
       case 'specialized': {
-        items = specializedServicesData.map(transformSpecializedService);
+        items = specializedServices.map(transformSpecializedService);
         break;
       }
       case 'project': {

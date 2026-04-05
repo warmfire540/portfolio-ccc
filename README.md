@@ -59,13 +59,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Command       | Description                    |
-| ------------- | ------------------------------ |
-| `yarn dev`    | Development server             |
+| Command       | Description                      |
+| ------------- | -------------------------------- |
+| `yarn dev`    | Development server               |
 | `yarn build`  | Production build (static `out/`) |
-| `yarn start`  | Serve production build locally |
-| `yarn lint`   | ESLint                         |
-| `yarn format` | Prettier                       |
+| `yarn start`  | Serve production build locally   |
+| `yarn lint`   | ESLint                           |
+| `yarn format` | Prettier                         |
 
 ## Production build
 
