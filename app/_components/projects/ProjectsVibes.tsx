@@ -1,0 +1,250 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  faCalendarDays,
+  faChevronDown,
+  faChevronUp,
+  faUpRightFromSquare,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AnimatedSection from '@/app/_components/ui/AnimatedSection';
+import ProjectModal from './ProjectModal';
+import { categories, projects, type Project } from './data';
+import { getProjectCta, projectExternalLinkLabel } from './projectCta';
+
+export default function ProjectsVibes() {
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const filteredProjects =
+    activeFilter === 'All'
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
+
+  const displayedProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, 3);
+  const hasMoreProjects = filteredProjects.length > 3;
+
+  return (
+    <section
+      id="projects"
+      className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+    >
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <AnimatedSection animation="fade-in">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/50 rounded-full text-primary-600 dark:text-primary-400 mb-6">
+              <span className="text-sm font-semibold">Featured Work</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+              Projects That Make a Difference
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              A curated selection of impactful projects that showcase our
+              expertise across various technical disciplines and business
+              domains.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        {/* Category Filters */}
+        <AnimatedSection animation="slide-up" delay={200}>
+          <div className="flex flex-wrap justify-center mb-12 gap-3">
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => {
+                  setActiveFilter(category);
+                  setShowAll(false);
+                }}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
+                  activeFilter === category
+                    ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/25'
+                    : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {displayedProjects.map((project, index) => {
+            const cta = getProjectCta(project);
+            return (
+              <AnimatedSection
+                key={project.id}
+                animation="zoom-in"
+                delay={index * 100}
+              >
+                <div className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+                  <button
+                    type="button"
+                    className="absolute inset-0 z-[1] rounded-2xl border-0 bg-transparent p-0 cursor-pointer"
+                    aria-label={`View details for ${project.title}`}
+                    onClick={() => {
+                      setSelectedProject(project);
+                      setIsModalOpen(true);
+                    }}
+                  />
+                  <div className="relative z-[2] pointer-events-none">
+                    {/* Project Image */}
+                    <div className="relative overflow-hidden h-48">
+                      <Image
+                        src={project.imageUrl}
+                        alt={`${project.title} project preview`}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {cta && (
+                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="bg-white/90 backdrop-blur-sm rounded-full p-2">
+                            <FontAwesomeIcon
+                              icon={faUpRightFromSquare}
+                              className="w-4 h-4 text-gray-700"
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-6">
+                      {/* Category Badge */}
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400">
+                          {project.category}
+                        </span>
+                        <div className="flex items-center text-gray-500 dark:text-gray-400 text-xs">
+                          <FontAwesomeIcon
+                            icon={faCalendarDays}
+                            className="w-3 h-3 mr-1"
+                          />
+                          {project.year}
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                        {project.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      {/* Client Type */}
+                      <div className="mb-4">
+                        <span className="inline-block px-3 py-1 text-xs font-medium rounded-md bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                          {project.clientType}
+                        </span>
+                      </div>
+
+                      {/* Technologies */}
+                      <div className="mb-4">
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.slice(0, 3).map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-2 py-1 text-xs rounded-md bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                          {project.technologies.length > 3 && (
+                            <span className="px-2 py-1 text-xs rounded-md bg-gray-50 dark:bg-gray-700 text-gray-500 dark:text-gray-400">
+                              +{project.technologies.length - 3} more
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Link */}
+                      {cta && (
+                        <div className="pointer-events-auto">
+                          {cta.mode === 'internal' ? (
+                            <Link
+                              href={cta.href}
+                              className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium text-sm hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                            >
+                              View Project
+                            </Link>
+                          ) : (
+                            <a
+                              href={cta.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium text-sm hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                            >
+                              {projectExternalLinkLabel(project.linkType)}
+                              <FontAwesomeIcon
+                                icon={faUpRightFromSquare}
+                                className="ml-1 w-4 h-4"
+                              />
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            );
+          })}
+        </div>
+
+        {/* Show More/Less Button */}
+        {hasMoreProjects && (
+          <AnimatedSection animation="fade-in" delay={400}>
+            <div className="text-center">
+              <button
+                type="button"
+                onClick={() => setShowAll(!showAll)}
+                className="group inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 border-2 border-primary-600 dark:border-primary-500 text-primary-600 dark:text-primary-400 font-semibold rounded-full hover:bg-primary-600 dark:hover:bg-primary-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary-600/25"
+              >
+                {showAll ? (
+                  <>
+                    Show Less
+                    <FontAwesomeIcon
+                      icon={faChevronUp}
+                      className="ml-2 w-5 h-5 group-hover:-translate-y-1 transition-transform"
+                    />
+                  </>
+                ) : (
+                  <>
+                    Show More Projects
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform"
+                    />
+                  </>
+                )}
+              </button>
+            </div>
+          </AnimatedSection>
+        )}
+      </div>
+
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedProject(null);
+        }}
+        project={selectedProject}
+      />
+    </section>
+  );
+}

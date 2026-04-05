@@ -1,4 +1,4 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { IncomingHttpHeaders } from 'node:http';
 
 // @ts-expect-error - need extension for vercel, period
 import { projects, type Project } from '../../../src/data/projects.ts';
@@ -66,10 +66,18 @@ function getRandomItem<T>(items: T[]): T {
   return items[randomIndex];
 }
 
-export default function handler(
-  req: VercelRequest,
-  res: VercelResponse,
-): VercelResponse | void {
+/** Shapes used by this handler only; matches Vercel’s Node request/response. */
+type VercelRequest = {
+  method?: string;
+  headers?: IncomingHttpHeaders;
+  query: { type?: string | string[] };
+};
+
+type VercelResponse = {
+  status: (code: number) => { json: (body: unknown) => void };
+};
+
+export default function handler(req: VercelRequest, res: VercelResponse) {
   // Only allow GET requests
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
