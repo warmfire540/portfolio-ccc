@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+export default {
   // Static export: next-sitemap reads `out/` and writes sitemap + robots there (see getStaticExportConfigPreset).
   output: 'export',
   siteUrl: process.env.SITE_URL || 'https://curiouscat.consulting',
