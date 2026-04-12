@@ -16,6 +16,7 @@ export const categories = [
   'All',
   'Architecture',
   'Full-Stack',
+  'Open Source',
   'Cloud',
   'DevOps',
   'Data Integration',
@@ -23,6 +24,27 @@ export const categories = [
 ];
 
 export const projects: Project[] = [
+  {
+    id: 'ha-whisker',
+    title: 'Whisker (Litter-Robot cards)',
+    category: 'Open Source',
+    description:
+      'Open-source Lovelace dashboard cards for the Whisker and Litter-Robot integration in Home Assistant, giving pet owners clear visibility into litter status, cycles, and device health without leaving their smart-home UI. Built with TypeScript for the frontend stack, distributed via HACS, and maintained under the homeassistant-extras GitHub organization for easy install and updates.',
+    clientType: 'Open Source / Community',
+    technologies: [
+      'TypeScript',
+      'Home Assistant',
+      'HACS',
+      'Lovelace',
+      'GitHub Actions',
+    ],
+    imageUrl:
+      'https://github.com/homeassistant-extras/whisker/raw/main/assets/robots.png',
+    year: '2026',
+    link: 'https://github.com/homeassistant-extras/whisker',
+    linkType: 'project',
+    detailPageUrl: '/projects/ha-whisker',
+  },
   {
     id: 'pawsport',
     title: 'Pawsport: Cat Travel Passport',
@@ -79,6 +101,27 @@ export const projects: Project[] = [
     link: 'https://apps.apple.com/us/app/web-canvas/id6755220973',
     linkType: 'project',
     detailPageUrl: '/projects/web-canvas',
+  },
+  {
+    id: 'ha-room-summary-card',
+    title: 'Room summary card',
+    category: 'Open Source',
+    description:
+      'Lightweight room-level summary card that binds a handful of entities—climate, lights, occupancy, or custom sensors—into one glanceable tile per space. Fits “area overview” dashboards and reduces scrolling through long entity lists. Open-source TypeScript card for Home Assistant, shipped via HACS with sensible defaults and flexible configuration.',
+    clientType: 'Open Source / Community',
+    technologies: [
+      'TypeScript',
+      'Home Assistant',
+      'HACS',
+      'Lovelace',
+      'GitHub Actions',
+    ],
+    imageUrl:
+      'https://github.com/homeassistant-extras/room-summary-card/raw/main/docs/assets/room-cards.png',
+    year: '2025',
+    link: 'https://github.com/homeassistant-extras/room-summary-card',
+    linkType: 'project',
+    detailPageUrl: '/projects/ha-room-summary-card',
   },
   {
     id: 'linkedin-content-automation',
@@ -197,25 +240,112 @@ export const projects: Project[] = [
     year: '2025',
   },
   {
-    id: 'home-assistant-extensions',
-    title: 'Home Assistant Open Source Contributions',
-    category: 'Full-Stack',
+    id: 'ha-pi-hole-card',
+    title: 'Pi-hole card',
+    category: 'Open Source',
     description:
-      'Maintained and developed 6+ open source integrations and extensions for Home Assistant, the popular home automation platform. Projects include custom components, integrations with various APIs and services, and utilities that enhance the Home Assistant ecosystem. These projects have collectively received hundreds of stars on GitHub and are actively used by the community.',
+      'Dashboard card for Pi-hole v5 and v6 that surfaces query volume, blocked domains, and core controls alongside the rest of your Home Assistant setup. Pairs with the official Pi-hole integration so network-wide DNS filtering is visible where operators already monitor the home stack. Written in TypeScript, published for HACS, with automation-friendly entity usage.',
     clientType: 'Open Source / Community',
     technologies: [
-      'Python',
+      'TypeScript',
       'Home Assistant',
-      'REST APIs',
-      'MQTT',
+      'HACS',
+      'Pi-hole',
+      'Lovelace',
       'GitHub Actions',
-      'IoT Protocols',
-      'Automation',
     ],
-    imageUrl: '/assets/projects/ha.png',
+    imageUrl:
+      'https://github.com/homeassistant-extras/pi-hole-card/raw/main/assets/pihole-card.png',
     year: '2025',
-    link: 'https://github.com/orgs/homeassistant-extras/repositories',
+    link: 'https://github.com/homeassistant-extras/pi-hole-card',
     linkType: 'project',
+    detailPageUrl: '/projects/ha-pi-hole-card',
+  },
+  {
+    id: 'ha-ohm-assistant',
+    title: 'Ohm Assistant',
+    category: 'Open Source',
+    description:
+      'Modern energy and power-consumption views for Home Assistant, turning meter and circuit entities into readable charts and summaries for everyday use. Aims to make usage patterns and peaks obvious without exporting data to a separate tool. TypeScript Lovelace front end, HACS distribution, and design tuned for clarity on both phone and desktop dashboards.',
+    clientType: 'Open Source / Community',
+    technologies: [
+      'TypeScript',
+      'Home Assistant',
+      'HACS',
+      'Energy',
+      'Lovelace',
+      'GitHub Actions',
+    ],
+    imageUrl:
+      'https://github.com/homeassistant-extras/ohm-assistant/raw/main/assets/stacked-line.png',
+    year: '2025',
+    link: 'https://github.com/homeassistant-extras/ohm-assistant',
+    linkType: 'project',
+    detailPageUrl: '/projects/ha-ohm-assistant',
+  },
+  {
+    id: 'ha-petkit-device-cards',
+    title: 'PetKit device cards',
+    category: 'Open Source',
+    description:
+      'Specialized Lovelace cards for PetKit feeders, fountains, and related hardware when using the PetKit Home Assistant integration, exposing food levels, schedules, and device health in layouts tuned for pet-care automations. Bridges the gap between vendor apps and a unified smart-home UI. Maintained as TypeScript front-end modules with HACS-based installation for the homeassistant-extras community.',
+    clientType: 'Open Source / Community',
+    technologies: [
+      'TypeScript',
+      'Home Assistant',
+      'HACS',
+      'Lovelace',
+      'GitHub Actions',
+    ],
+    imageUrl:
+      'https://github.com/homeassistant-extras/petkit-device-cards/raw/main/assets/cards.png',
+    year: '2025',
+    link: 'https://github.com/homeassistant-extras/petkit-device-cards',
+    linkType: 'project',
+    detailPageUrl: '/projects/ha-petkit-device-cards',
+  },
+  {
+    id: 'ha-adguard-card',
+    title: 'AdGuard Home card',
+    category: 'Open Source',
+    description:
+      'Control and monitor AdGuard Home from Home Assistant through a dedicated Lovelace card: filtering statistics, client activity, and common toggles in one place next to the rest of your network stack. Designed to complement the AdGuard integration entities with a focused operator view. TypeScript implementation, HACS-ready, suitable for homelab and privacy-conscious households.',
+    clientType: 'Open Source / Community',
+    technologies: [
+      'TypeScript',
+      'Home Assistant',
+      'HACS',
+      'AdGuard',
+      'Lovelace',
+      'GitHub Actions',
+    ],
+    imageUrl:
+      'https://github.com/homeassistant-extras/adguard-card/raw/main/assets/pihole-card.png',
+    year: '2025',
+    link: 'https://github.com/homeassistant-extras/adguard-card',
+    linkType: 'project',
+    detailPageUrl: '/projects/ha-adguard-card',
+  },
+  {
+    id: 'ha-device-card',
+    title: 'Device card',
+    category: 'Open Source',
+    description:
+      'Generic device summary card that rolls manufacturer, connectivity, battery, firmware, and key related entities into a single Lovelace card template. Cuts down repetitive per-device YAML and keeps device drill-downs consistent across integrations. Built with TypeScript for Home Assistant’s Lovelace stack, distributed through HACS, and actively used across the homeassistant-extras ecosystem.',
+    clientType: 'Open Source / Community',
+    technologies: [
+      'TypeScript',
+      'Home Assistant',
+      'HACS',
+      'Lovelace',
+      'GitHub Actions',
+    ],
+    imageUrl:
+      'https://github.com/homeassistant-extras/device-card/raw/main/docs/assets/cards.png',
+    year: '2025',
+    link: 'https://github.com/homeassistant-extras/device-card',
+    linkType: 'project',
+    detailPageUrl: '/projects/ha-device-card',
   },
   {
     id: 'curious-cat-portfolio',
@@ -239,6 +369,49 @@ export const projects: Project[] = [
     year: '2025',
     link: 'https://curiouscat.consulting',
     linkType: 'project',
+  },
+  {
+    id: 'ha-zwave-card-set',
+    title: 'Z-Wave card set (Zooz)',
+    category: 'Open Source',
+    description:
+      'A coordinated set of custom Lovelace cards for Zooz and compatible Z-Wave devices so switches, sensors, and energy reporting look and behave consistently across the dashboard. Reduces one-off YAML and copy-paste card configs by packaging opinionated layouts for Z-Wave JS users. TypeScript implementation with HACS delivery and CI for reliable releases.',
+    clientType: 'Open Source / Community',
+    technologies: [
+      'TypeScript',
+      'Home Assistant',
+      'HACS',
+      'Z-Wave JS',
+      'Lovelace',
+      'GitHub Actions',
+    ],
+    imageUrl:
+      'https://github.com/homeassistant-extras/zwave-card-set/raw/main/assets/cards/node-info/card.png',
+    year: '2025',
+    link: 'https://github.com/homeassistant-extras/zwave-card-set',
+    linkType: 'project',
+    detailPageUrl: '/projects/ha-zwave-card-set',
+  },
+  {
+    id: 'ha-toolbar-status-chips',
+    title: 'Toolbar status chips',
+    category: 'Open Source',
+    description:
+      'Extends the Home Assistant UI with compact toolbar “chips” that reflect live entity state, driven by labels and the current URL path so the right context follows you between views. Helps power users keep alarms, modes, or critical sensors in sight without cluttering every dashboard. Implemented as a TypeScript Lovelace resource installable through HACS.',
+    clientType: 'Open Source / Community',
+    technologies: [
+      'TypeScript',
+      'Home Assistant',
+      'HACS',
+      'Lovelace',
+      'GitHub Actions',
+    ],
+    imageUrl:
+      'https://github.com/homeassistant-extras/toolbar-status-chips/raw/main/assets/status-patch-chips.png',
+    year: '2025',
+    link: 'https://github.com/homeassistant-extras/toolbar-status-chips',
+    linkType: 'project',
+    detailPageUrl: '/projects/ha-toolbar-status-chips',
   },
   {
     id: 'ci-cd-transformation',

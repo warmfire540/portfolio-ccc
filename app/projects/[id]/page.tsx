@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { projects } from '@/app/_components/projects/data';
+import { fetchRepoReadmeMarkdown } from '@/app/_lib/githubReadme';
 import { truncateMetaDescription } from '@/app/_lib/metadata';
 import ProjectDetailContent from './ProjectDetailContent';
 
@@ -145,8 +146,12 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
-  const isApp = project.category === 'Full-Stack' && !!project.detailPageUrl;
   const config = appConfigs[project.id] ?? null;
+  const isApp = config !== null;
+
+  const readmeMarkdown = isApp
+    ? null
+    : await fetchRepoReadmeMarkdown(project.link);
 
   return (
     <ProjectDetailContent
@@ -156,6 +161,7 @@ export default async function ProjectDetailPage({
       playStoreUrl={config?.playStoreUrl ?? ''}
       screenshots={config?.screenshots ?? []}
       features={config?.features ?? []}
+      readmeMarkdown={readmeMarkdown}
     />
   );
 }
